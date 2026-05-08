@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+data/*.db
+data/uda_faiss/
+.venv/
+.DS_Store
