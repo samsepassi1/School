@@ -1,0 +1,6 @@
+.env
+beavers.db
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
