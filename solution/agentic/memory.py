@@ -172,7 +172,14 @@ def remember_preference(user_id: str, name: str, value: Any) -> None:
 
 
 def recall_preferences(user_id: str) -> dict[str, Any]:
-    items = get_long_term_store().search(("customer", user_id), query="\"pref:")
+    """Return the customer's stored preferences as a flat ``{name: value}`` dict.
+
+    Preferences are stored under keys prefixed with ``pref:``. We retrieve every
+    item in the customer's namespace and filter by key prefix — searching by
+    value substring would never match because ``pref:`` only ever appears in
+    the key, not in the JSON-encoded value.
+    """
+    items = get_long_term_store().search(("customer", user_id), limit=200)
     out: dict[str, Any] = {}
     for it in items:
         if it.key.startswith("pref:"):
