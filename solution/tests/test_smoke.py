@@ -162,6 +162,46 @@ def test_long_term_store_roundtrip(tmp_env):
     assert {it.key for it in items} == {"ticket:abc", "pref:locale"}
 
 
+def test_remember_and_recall_preferences(tmp_env):
+    """Reviewer regression: recall_preferences() must return what was stored."""
+    from agentic.memory import recall_preferences, remember_preference
+
+    remember_preference("usr_002", "language", "Spanish")
+    remember_preference("usr_002", "channel", "email")
+    # An unrelated long-term item must NOT leak into preferences.
+    from agentic.memory import remember_resolution
+    remember_resolution("usr_002", "tkt_xyz", {"subject": "x", "outcome": "resolved"})
+
+    prefs = recall_preferences("usr_002")
+    assert prefs == {"language": "Spanish", "channel": "email"}
+    # Different customer must not see the prefs.
+    assert recall_preferences("usr_001") == {}
+
+
+def test_hydrate_node_includes_customer_preferences(tmp_env):
+    """End-to-end: hydrate_node must surface stored preferences into AgentState."""
+    _seed_all(tmp_env)
+    from agentic.agents.supervisor import hydrate_node
+    from agentic.memory import remember_preference, remember_resolution
+
+    remember_preference("usr_002", "language", "Spanish")
+    remember_resolution("usr_002", "tkt_old", {"subject": "old", "outcome": "resolved"})
+
+    state = {
+        "ticket_id": "tkt_hydrate_test",
+        "user_id":   "usr_002",
+        "subject":   "hello",
+        "body":      "hola",
+        "channel":   "web",
+        "urgency_in": "normal",
+        "log":       [],
+    }
+    update = hydrate_node(state)
+    assert update["customer_preferences"] == {"language": "Spanish"}
+    assert any(h.get("subject") == "old" for h in update["customer_history"])
+    assert update["customer_profile"]["user_id"] == "usr_002"
+
+
 # --------------------------------------------------------------------------- #
 # Routing logic
 # --------------------------------------------------------------------------- #
