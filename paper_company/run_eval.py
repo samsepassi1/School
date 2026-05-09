@@ -48,8 +48,19 @@ OUTPUT_COLUMNS = [
 
 #: Substrings that should never appear in a customer-facing reply. The eval
 #: flags any row whose customer_reply contains one of these, as a regression
-#: check on the "no internal info leak" rubric criterion.
-SENSITIVE_TERMS = ("supplier", "margin", "supplier_price", "internal cost")
+#: check on the "no internal info leak" rubric criterion. Covers both
+#: cost/margin leaks and machine-generated logic phrases.
+SENSITIVE_TERMS = (
+    r"\bsupplier\b",
+    r"\bmargin\b",
+    r"\bsupplier_price\b",
+    r"\binternal cost\b",
+    r"\binternal\b",
+    r"customer prefers immediate fulfillment",
+    r"— declining",
+    r"\bviable_restock\b",
+    r"\bnot_viable\b",
+)
 SENSITIVE_RE = re.compile("|".join(SENSITIVE_TERMS), re.I)
 
 

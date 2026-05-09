@@ -220,6 +220,26 @@ def build_quote(
     )
 
 
+#: Customer-facing display names for SKUs. Internal SKU codes still appear in
+#: ``SalesOutcome.reasoning`` for ops/audit purposes, but never in customer text.
+_DISPLAY_NAMES: dict[str, str] = {
+    "A4_paper_500":          "A4 paper (500-sheet ream)",
+    "letter_paper_500":      "letter paper (500-sheet ream)",
+    "cardstock_white_250":   "white cardstock (250-sheet pack)",
+    "cardstock_colored_250": "colored cardstock (250-sheet pack)",
+    "glossy_photo_50":       "glossy photo paper (50-sheet pack)",
+    "poster_24x36":          "24x36 poster",
+    "envelope_10_box":       "#10 envelope (box)",
+    "envelope_invitation":   "invitation envelope (box)",
+    "notebook_college":      "college-ruled notebook",
+    "sticky_notes_pack":     "sticky notes pack",
+}
+
+
+def _display(sku: str) -> str:
+    return _DISPLAY_NAMES.get(sku, sku.replace("_", " "))
+
+
 # ---------------------------------------------------------------------------
 # Sales
 # ---------------------------------------------------------------------------
@@ -229,8 +249,22 @@ def finalize_sale(
     quote: Quote,
     inventory: InventoryReport,
     request_date: str,
-    decline_reason: str = "",
+    deadline: str = "",
+    decline_kind: str = "",
+    internal_reason: str = "",
 ) -> SalesOutcome:
+    """Record transactions on fulfilled orders and assemble the response.
+
+    ``decline_kind`` selects the customer-facing language for declines:
+
+    * ``"viable_restock"`` — stock would arrive in time but is not on hand;
+      we offer to re-quote at the supplier ETA.
+    * ``"not_viable"``     — restock ETA falls after the customer's deadline.
+    * ``""`` (default)     — generic apology.
+
+    ``internal_reason`` is preserved in ``SalesOutcome.reasoning`` for
+    ops/audit purposes but never echoed into the customer reply.
+    """
     cash_before = ps.get_cash_balance(request_date)
     tx_ids: list[int] = []
 
@@ -249,8 +283,8 @@ def finalize_sale(
         customer_reply = _build_fulfilled_reply(quote)
     else:
         cash_after = cash_before
-        reasoning = decline_reason or "Order could not be fulfilled."
-        customer_reply = _build_declined_reply(quote, inventory, decline_reason)
+        reasoning = internal_reason or "Order could not be fulfilled."
+        customer_reply = _build_declined_reply(inventory, deadline, decline_kind)
 
     return SalesOutcome(
         decision=decision,  # type: ignore[arg-type]
@@ -267,7 +301,7 @@ def _build_fulfilled_reply(quote: Quote) -> str:
     for line in quote.lines:
         discount_note = f" ({line.discount_pct:.0f}% bulk discount)" if line.discount_pct > 0 else ""
         parts.append(
-            f"  - {line.quantity} x {line.sku}: ${line.line_total:,.2f}{discount_note}"
+            f"  - {line.quantity} x {_display(line.sku)}: ${line.line_total:,.2f}{discount_note}"
         )
     if quote.urgency_premium_pct > 0:
         parts.append(
@@ -278,17 +312,54 @@ def _build_fulfilled_reply(quote: Quote) -> str:
     return "\n".join(parts)
 
 
-def _build_declined_reply(quote: Quote, inventory: InventoryReport, reason: str) -> str:
-    parts = ["Thank you for your interest in Beaver's Choice."]
-    if reason:
-        parts.append(f"Unfortunately, we are unable to fulfill this order: {reason}")
+def _build_declined_reply(inventory: InventoryReport, deadline: str, decline_kind: str) -> str:
+    """Customer-facing decline message in plain language.
+
+    Uses friendly product names, surfaces ETAs factually, and never echoes
+    internal logic strings like "the customer prefers immediate fulfillment".
+    """
     short_lines = [l for l in inventory.lines if l.shortfall > 0]
+    latest_eta = max(
+        (l.eta_if_reordered for l in short_lines if l.eta_if_reordered),
+        default=None,
+    )
+
+    parts = ["Thank you for your interest in Beaver's Choice."]
+
+    if decline_kind == "not_viable":
+        deadline_phrase = f"by {deadline}" if deadline else "by your requested deadline"
+        parts.append(
+            f"We are unable to fulfill this order {deadline_phrase}: we do not have "
+            "sufficient stock on hand and a restock would not arrive in time."
+        )
+    elif decline_kind == "viable_restock":
+        deadline_phrase = f"by {deadline}" if deadline else "by your requested deadline"
+        eta_phrase = f"by {latest_eta}" if latest_eta else "shortly after that date"
+        parts.append(
+            f"We do not currently have enough stock on hand to fulfill your order "
+            f"{deadline_phrase}. The next available stock is expected {eta_phrase}."
+        )
+    else:
+        parts.append("Unfortunately, we are unable to fulfill this order at this time.")
+
     if short_lines:
-        parts.append("The following items would not arrive before your deadline:")
+        parts.append("Items affected:")
         for l in short_lines:
-            eta_note = f" (next available {l.eta_if_reordered})" if l.eta_if_reordered else ""
-            parts.append(f"  - {l.sku}: short by {l.shortfall} units{eta_note}")
-    parts.append("Please feel free to adjust quantities or extend the deadline and we will gladly re-quote.")
+            parts.append(
+                f"  - {_display(l.sku)}: {l.shortfall} more unit(s) needed"
+            )
+
+    if decline_kind == "viable_restock":
+        parts.append(
+            "If you would like a quote for delivery once the restock arrives, please "
+            "let us know and we will gladly re-quote."
+        )
+    else:
+        parts.append(
+            "Please feel free to adjust quantities or extend the deadline and we will "
+            "gladly re-quote."
+        )
+
     return "\n".join(parts)
 
 
@@ -348,18 +419,40 @@ def run_request(request: QuoteRequest, catalog_prices: dict[str, float]) -> Quot
     if short_lines:
         viable = all(l.viable_by_deadline for l in short_lines)
         if viable:
-            reason = (
-                "current stock is short; restock would arrive in time "
-                "but the customer prefers immediate fulfillment — declining"
+            decline_kind = "viable_restock"
+            internal_reason = (
+                "viable_restock: shortfalls within supplier ETA — "
+                + ", ".join(
+                    f"{l.sku} short by {l.shortfall} (ETA {l.eta_if_reordered})"
+                    for l in short_lines
+                )
             )
         else:
-            reason = (
-                "stock would not arrive before the deadline for: "
-                + ", ".join(f"{l.sku} (short by {l.shortfall})" for l in short_lines)
+            decline_kind = "not_viable"
+            internal_reason = (
+                "not_viable: shortfalls past deadline — "
+                + ", ".join(
+                    f"{l.sku} short by {l.shortfall} (ETA {l.eta_if_reordered})"
+                    for l in short_lines
+                )
             )
-        outcome = finalize_sale("declined", quote, inventory, request.request_date, reason)
+        outcome = finalize_sale(
+            "declined",
+            quote,
+            inventory,
+            request.request_date,
+            deadline=request.deadline,
+            decline_kind=decline_kind,
+            internal_reason=internal_reason,
+        )
     else:
-        outcome = finalize_sale("fulfilled", quote, inventory, request.request_date)
+        outcome = finalize_sale(
+            "fulfilled",
+            quote,
+            inventory,
+            request.request_date,
+            deadline=request.deadline,
+        )
 
     return QuoteResponse(
         request_id=request.request_id,
