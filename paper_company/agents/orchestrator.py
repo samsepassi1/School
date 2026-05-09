@@ -92,20 +92,29 @@ async def run_request_with_llm(request: QuoteRequest) -> QuoteResponse:
     }
     quote: Quote = (await quoting_agent.run(json.dumps(quoting_input))).data
 
-    blocking = [l for l in inventory.lines if l.shortfall > 0 and not l.viable_by_deadline]
-    if blocking:
+    short_lines = [l for l in inventory.lines if l.shortfall > 0]
+    if short_lines:
         decision = "declined"
-        decline_reason = (
-            "stock would not arrive before the deadline for: "
-            + ", ".join(f"{l.sku} (need {l.shortfall} more)" for l in blocking)
+        viable = all(l.viable_by_deadline for l in short_lines)
+        decline_kind = "viable_restock" if viable else "not_viable"
+        internal_reason = (
+            f"{decline_kind}: shortfalls "
+            + ("within" if viable else "past")
+            + " supplier ETA — "
+            + ", ".join(
+                f"{l.sku} short by {l.shortfall} (ETA {l.eta_if_reordered})"
+                for l in short_lines
+            )
         )
     else:
         decision = "fulfilled"
-        decline_reason = ""
+        decline_kind = ""
+        internal_reason = ""
 
     sales_input = {
         "decision": decision,
-        "decline_reason": decline_reason,
+        "decline_kind": decline_kind,
+        "internal_reason": internal_reason,
         "quote": quote.model_dump(),
         "inventory_report": inventory.model_dump(),
         "request_date": request.request_date,
