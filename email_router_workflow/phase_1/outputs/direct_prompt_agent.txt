@@ -1,0 +1,10 @@
+$ python direct_prompt_agent.py
+# cwd: /app/School/email_router_workflow/phase_1
+# returncode: 0
+# --- stdout ---
+Prompt: What is the Capital of France?
+Response: The capital of France is Paris.
+
+Knowledge source: this answer comes from the pre-training data of the gpt-3.5-turbo model. No persona, system prompt, or retrieved knowledge is supplied by the agent.
+
+# --- stderr ---
