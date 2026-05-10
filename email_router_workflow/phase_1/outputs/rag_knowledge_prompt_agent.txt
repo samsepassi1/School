@@ -1,0 +1,9 @@
+$ python rag_knowledge_prompt_agent.py
+# cwd: /app/School/email_router_workflow/phase_1
+# returncode: 0
+# --- stdout ---
+Persona: a customer support specialist for InnovateNext Solutions
+Prompt: How much does the Email Router Enterprise tier cost and what does it include?
+Response: The Email Router Enterprise tier costs $79 per seat per month and includes Single Sign-On (SSO), audit logs, and a 99.95% uptime Service Level Agreement (SLA).
+
+# --- stderr ---

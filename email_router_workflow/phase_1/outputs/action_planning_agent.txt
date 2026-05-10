@@ -1,0 +1,15 @@
+$ python action_planning_agent.py
+# cwd: /app/School/email_router_workflow/phase_1
+# returncode: 0
+# --- stdout ---
+Prompt: One morning I wanted to have scrambled eggs
+Extracted steps:
+  1. Crack the eggs into a bowl.
+  2. Whisk the eggs with a pinch of salt and a splash of milk.
+  3. Heat butter in a non-stick pan over medium-low heat.
+  4. Pour the eggs into the pan.
+  5. Stir gently and continuously with a spatula until the eggs are softly set.
+  6. Remove from heat just before they look fully done.
+  7. Serve immediately.
+
+# --- stderr ---
