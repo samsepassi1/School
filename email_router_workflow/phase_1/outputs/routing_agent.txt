@@ -1,0 +1,18 @@
+$ python routing_agent.py
+# cwd: /app/School/email_router_workflow/phase_1
+# returncode: 0
+# --- stdout ---
+
+=== Prompt: Tell me about the history of Rome, Texas ===
+[RoutingAgent] selected 'European history agent' (similarity=0.523)
+Response: Rome, Texas is a small unincorporated community located in Fannin County, Texas, United States. It was established in the mid-19th century and named after the city of Rome in Italy. However, Rome, Texas does not have the same historical significance or ancient roots as its namesake in Italy. The community of Rome, Texas has a much more recent history compared to the ancient city of Rome.
+
+=== Prompt: Tell me about the history of Rome, Italy ===
+[RoutingAgent] selected 'European history agent' (similarity=0.666)
+Response: Rome, Italy is one of the oldest continuously inhabited cities in Europe. It was traditionally founded in 753 BC and became the heart of the Roman Republic and later the Roman Empire. Rome played a crucial role in shaping Western civilization through its advancements in architecture, engineering, law, and governance. The city was the center of one of the most powerful empires in history, with its influence spreading across Europe, North Africa, and the Middle East. Rome's rich history includes periods of expansion, conquest, cultural flourishing, and eventual decline. Today, Rome is a vibrant modern city that still bears the marks of its ancient past, with iconic landmarks such as the Colosseum, the Roman Forum, and the Pantheon attracting millions of visitors each year.
+
+=== Prompt: One story takes 2 days, and there are 20 stories ===
+[RoutingAgent] selected 'Math agent' (similarity=0.354)
+Response: The total effort in days would be 40 days (20 stories * 2 days per story).
+
+# --- stderr ---
