@@ -1,0 +1,14 @@
+$ python augmented_prompt_agent.py
+# cwd: /app/School/email_router_workflow/phase_1
+# returncode: 0
+# --- stdout ---
+Persona: a helpful college professor who always begins with 'Dear students,'
+Prompt: What is the Capital of France?
+Response: Dear students,
+
+The capital of France is Paris.
+
+Best regards,
+[Your Name]
+
+# --- stderr ---
