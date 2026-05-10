@@ -38,9 +38,27 @@ The `.env` file must contain:
 OPENAI_API_KEY=sk-...
 ```
 
-## Phase 1 – run the agent tests
+## Capture all execution evidence in one command
 
-Each test script can be run from inside `phase_1/`:
+Rubric items 5 and 12 require captured outputs from every Phase 1 test and the
+Phase 2 workflow run. The bundled runner does this in one shot:
+
+```bash
+python capture_outputs.py
+```
+
+It runs each Phase 1 test script and `phase_2/agentic_workflow.py` and writes
+combined stdout+stderr to:
+
+- `phase_1/outputs/<agent_script>.txt` (one per agent)
+- `phase_2/outputs/agentic_workflow.txt`
+
+Commit those files alongside the code so the reviewer has the evidence inline.
+
+## Phase 1 – run the agent tests manually (optional)
+
+If you'd rather run tests one at a time, each test script can be run from
+inside `phase_1/`:
 
 ```bash
 cd phase_1
@@ -91,11 +109,13 @@ The script:
 
 ## Submission checklist
 
-- [ ] `phase_1/workflow_agents/base_agents.py`
-- [ ] Seven Phase 1 test scripts under `phase_1/`
+- [x] `phase_1/workflow_agents/base_agents.py`
+- [x] Seven Phase 1 test scripts under `phase_1/`
 - [ ] Captured outputs (screenshots or text) for each Phase 1 test
-- [ ] `phase_2/agentic_workflow.py`
+      → `python capture_outputs.py` writes them to `phase_1/outputs/`
+- [x] `phase_2/agentic_workflow.py`
 - [ ] Captured output of the Phase 2 workflow run
+      → `python capture_outputs.py` writes it to `phase_2/outputs/`
 
 ## Notes
 
