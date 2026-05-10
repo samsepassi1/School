@@ -1,0 +1,97 @@
+Product Specification: Email Router
+
+Project: Email Router (Pilot)
+Owner: InnovateNext Solutions
+Audience: Technical Project Managers, Engineering Leadership, Customer Success
+
+1. Overview
+The Email Router is a SaaS service that ingests inbound email for a customer
+domain and routes each message to the correct internal team mailbox (for
+example: support, sales, billing, engineering, abuse). Routing decisions are
+produced by a hybrid pipeline that combines deterministic rules (regex,
+sender domain, headers) with an LLM-based classifier that interprets message
+intent. Customers manage rules, mailboxes, and review escalations from a
+web-based admin dashboard.
+
+2. Goals
+- Reduce time-to-first-response on inbound email by routing within seconds.
+- Eliminate manual triage for 80%+ of inbound messages on the Standard tier.
+- Provide auditability so every routing decision can be explained and
+  overridden.
+- Be safe to deploy: no message is ever lost, and misrouted messages can be
+  re-routed in one click.
+
+3. Personas
+- Admin: configures the organisation, connects mailboxes, manages billing,
+  and invites teammates.
+- Team Lead: owns one or more team mailboxes (e.g. Support Lead, Sales Lead);
+  defines routing rules for their team and reviews escalations.
+- Agent: a frontline teammate who reads and replies to messages routed to
+  their mailbox.
+- Auditor: a compliance role that needs read-only access to routing logs,
+  decisions, and overrides.
+- End User: the external person who sent the email; they never log in but
+  must always receive a timely, on-topic response.
+
+4. Functional Requirements
+4.1 Email Ingestion
+- Connect to customer mail providers via OAuth: Google Workspace and
+  Microsoft 365 at minimum.
+- Support a generic IMAP fallback for self-hosted mail.
+- Ingest new messages within 30 seconds of arrival.
+- Preserve original message headers and attachments.
+
+4.2 Routing Engine
+- Evaluate deterministic rules first (priority-ordered list).
+- If no rule matches with high confidence, invoke the LLM-based classifier
+  with the message subject, sender, and a redacted body.
+- Output a routing decision: target mailbox, confidence score, and a short
+  rationale.
+- Confidence threshold for auto-route is configurable per organisation.
+- Below threshold, the message is sent to a human review queue.
+
+4.3 Admin Dashboard
+- Sign-in with email + password and SSO (Google, Microsoft, SAML on
+  Enterprise).
+- Mailbox connections page (add, test, remove).
+- Rules editor: create, reorder, enable/disable rules; rules support sender,
+  subject regex, body keywords, and header conditions.
+- Review queue: shows messages below the confidence threshold; team leads
+  can approve, reroute, or send to another mailbox.
+- Audit log: every routing decision and override is recorded with actor,
+  timestamp, original mailbox, target mailbox, and rationale.
+
+4.4 Notifications
+- Real-time notifications to a target mailbox when a message is routed there.
+- Daily digest summarising volume, confidence distribution, and overrides.
+- Slack and Microsoft Teams integrations for the digest.
+
+4.5 Reporting
+- Volume by team, by day, by source domain.
+- Override rate (a leading indicator of model quality).
+- Average time from ingestion to delivery.
+- Export to CSV.
+
+5. Non-Functional Requirements
+- Availability: 99.9% on Standard, 99.95% on Enterprise.
+- Latency: p95 routing decision under 5 seconds end-to-end.
+- Security: data encrypted in transit and at rest; PII redaction before any
+  prompt is sent to the LLM provider.
+- Compliance: SOC 2 Type II within 12 months of launch.
+- Data residency: US and EU regions at launch.
+
+6. Out of Scope (for the pilot)
+- Outbound email sending or auto-reply drafting.
+- Voice or chat channels.
+- On-premises deployment.
+
+7. Pricing Tiers
+- Standard: $29 / seat / month. Up to 3 connected mailboxes per seat.
+- Enterprise: $79 / seat / month. SSO, audit log retention 2 years, 99.95%
+  SLA, priority support.
+
+8. Success Metrics
+- Time-to-first-response reduced by 40% within 60 days of go-live.
+- Auto-route share above 80% on the Standard tier.
+- Override rate below 5%.
+- Customer NPS above 40 at the end of the pilot.
