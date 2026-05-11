@@ -1,38 +1,22 @@
-=== Reflection Questions — nd089 Amazon Reviews Project ===
+Name: Sam Sepassi
 
-Q1: What dataset did you use and why?
-A: I used the Amazon Reviews 2023 dataset (Electronics subset) from Hugging Face
-   (McAuley-Lab/Amazon-Reviews-2023). I chose this dataset because it contains
-   real-world product ratings, reviews, and metadata that closely mirrors the kind
-   of data used in production recommendation and trust-and-safety systems. The
-   Electronics category is large, diverse in price range, and has sufficient
-   rating variance to make filtering meaningful.
+Question 1: Describe the data that you see. What are the columns, what data types do you see, and how are the reviews structured?
+Answer: The reviews dataset contains 10 columns: rating, title, text, images, asin, parent_asin, user_id, timestamp, helpful_vote, and verified_purchase. The data types include floats for rating, strings for title and text, integers for helpful_vote and timestamp, and booleans for verified_purchase. Reviews are structured as individual rows where each row represents one customer review with associated product and user identifiers.
 
-Q2: What was the most helpful analysis method and why?
-A: Building top_products_df through a merge of review ratings with item metadata
-   was the most insightful step. Joining on parent_asin exposed how average ratings
-   aggregate across multiple reviewers, which is far more reliable than any single
-   review. It also revealed that real Amazon data skews heavily toward 5-star ratings,
-   making the 4.5-star threshold a meaningful but non-trivial filter that still returns
-   a manageable subset of products.
+Question 2: What do you think of this output above - was this what you expected? Why or why not?
+Answer: The output was largely what I expected — a tabular view of review data with ratings, titles, and text. However, I was surprised to see that the 'images' column contains nested list objects rather than simple strings, and the 'timestamp' is stored as a Unix epoch integer rather than a human-readable date. This tells me that real-world datasets often require additional transformation before they are analysis-ready.
 
-Q3: What did you learn about Python data types and pandas?
-A: I learned that real-world datasets require careful type coercion — prices arrive
-   as strings with dollar signs, ratings may be stored as floats or strings depending
-   on the split, and 'missing' values can appear as None, NaN, or empty strings. Using
-   pd.to_numeric(..., errors='coerce') combined with .dropna() was the safest pattern
-   for handling this gracefully without losing valid rows unnecessarily.
+Question 3: Describe what we did to the pandas DataFrame in order to change how the outputs are reflected.
+Answer: We used pd.set_option() to adjust three display settings: display.max_columns was set to None so all columns appear without truncation; display.width was set to 1000 to prevent line wrapping; and display.max_colwidth was set to 50 to keep individual cell values readable. We also defined Items_To_Print = 10 and passed it to .head() so that exactly 10 rows are displayed. These settings persist for the entire session.
 
-Q4: What would you do differently or extend next?
-A: I would expand the merge to include review text and use TF-IDF or a lightweight
-   embedding model to cluster top-rated products by review sentiment, not just rating
-   score. I would also replace the per-product get_product lookup with a vectorized
-   title-search index (e.g., using difflib or a fuzzy matcher) for better performance
-   at scale.
+Question 4: Compare the Reviews Metadata dataset (the dataset immediately above this cell) and the Reviews dataset that you analyzed earlier. What are the differences between the 2 datasets?
+Answer: The Reviews dataset contains customer-generated data: ratings, review text, helpfulness votes, and user IDs — one row per review event. The Metadata dataset contains product-level attributes: title, average_rating, price, description, categories, store, and images — one row per product. The Reviews dataset has 10 columns while Metadata has 16. The key shared field is parent_asin, which allows the two datasets to be joined. Reviews represent what customers said; Metadata represents what the product is.
 
-Q5: How does this project connect to AI and machine learning?
-A: Product rating aggregation and top-product filtering are foundational preprocessing
-   steps in recommendation systems. The top_products_df I built here is exactly the
-   kind of labeled, filtered dataset used to train collaborative filtering or
-   content-based recommendation models. Understanding how to load, clean, and filter
-   at this stage is a prerequisite for any downstream ML pipeline.
+Question 5: Which data analysis method you find to be the most insightful or helpful?
+Answer: The .info() method is the most insightful because it provides a complete picture in one call: the number of non-null entries per column, the data type of each column, and total memory usage. This is especially valuable with large datasets because you can immediately identify which columns have missing values and which will need type coercion before analysis — without having to write separate .isnull().sum() and .dtypes calls.
+
+Question 6: What trend (if any) do you notice with price and frequency?
+Answer: The histogram shows a right-skewed distribution, meaning most highly-rated Electronics products cluster in the lower price ranges (under $50), with frequency dropping sharply as price increases. This suggests that affordable products dominate the top-rated category, possibly because lower-priced items attract more reviews and it is easier to meet buyer expectations at lower price points. A small number of high-priced items still achieve high ratings, visible as the long right tail.
+
+Question 7: What trend (if any) do you notice with price and rating?
+Answer: The scatterplot shows no strong linear correlation between price and average rating. Products across a wide range of prices achieve ratings at or above 4.5. If anything, there is a slight concentration of high ratings (5.0) among lower-priced items, while mid-to-high priced items show more rating variance. This suggests that price alone is not a reliable predictor of customer satisfaction, and that product quality, accurate descriptions, and value perception matter more than price tier.
