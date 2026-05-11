@@ -1,0 +1,55 @@
+A Data-Driven Approach to AI and Python
+Author: Sam Sepassi
+Program: AI Programming with Python Nanodegree (nd089)
+=======================================================
+
+PROJECT SUMMARY AND CONCLUSIONS
+
+Dataset: Amazon Reviews (Beauty & Personal Care category)
+Sample Size: 100 reviews + 100 metadata items
+
+--- Key Findings ---
+
+1. Rating Distribution:
+   - Reviews are fairly evenly distributed across 1-5 star ratings
+   - Mean rating: ~3.5 stars
+   - The histogram showed no strong skew, suggesting honest customer feedback
+
+2. Price vs. Rating:
+   - No strong linear correlation between product price and average rating
+   - Products at all price points received both high and low ratings
+   - This challenges the assumption that higher-priced products are better-rated
+
+3. Missing Data Handling:
+   - ~24% of metadata items lacked price information
+   - Resolved with median imputation (median price: ~$48.67)
+   - try-except blocks safeguarded against KeyError and missing field access
+
+4. Verified vs. Unverified Purchases:
+   - ~50% of reviews were from verified purchases
+   - Important context for weighting review credibility
+
+--- Most Helpful Analysis Method ---
+The combined subplot visualization (Part 6.3) was the most impactful — it allowed
+simultaneous comparison of the rating distribution and price relationship, which is
+exactly the kind of at-a-glance insight useful for business presentations.
+
+The try-except exception handling (Part 3.3) was the most important for production
+readiness — large datasets from Hugging Face frequently have incomplete records, and
+robust error handling prevents crashes and surfaces data quality issues cleanly.
+
+--- Portfolio Notes ---
+This project demonstrates:
+- Loading and sampling large Hugging Face datasets with controlled for loops
+- Pandas DataFrame inspection (.head, .info, .describe, .columns)
+- Defensive programming with try-except blocks
+- Data cleaning and missing value imputation
+- Data visualization with Matplotlib subplots (histogram + scatterplot)
+- Pythonic loop patterns and boolean operators
+
+All outputs are saved as:
+  - amazon_reviews_analysis.ipynb (notebook)
+  - project_summary.txt (this file)
+  - rating_distribution.png
+  - rating_vs_price_scatter.png
+  - combined_analysis.png
