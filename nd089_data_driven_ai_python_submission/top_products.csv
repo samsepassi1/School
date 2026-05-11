@@ -1,0 +1,21 @@
+title,average_rating,price,parent_asin
+Electronics Product 1,4.5,29.99,ASIN0000
+Electronics Product 2,4.6,39.989999999999995,ASIN0001
+Electronics Product 3,4.7,49.989999999999995,ASIN0002
+Electronics Product 4,4.8,59.989999999999995,ASIN0003
+Electronics Product 5,4.9,69.99,ASIN0004
+Electronics Product 6,5.0,79.99,ASIN0005
+Electronics Product 7,4.5,89.99,ASIN0006
+Electronics Product 8,4.6,99.99,ASIN0007
+Electronics Product 9,4.7,109.99,ASIN0008
+Electronics Product 10,4.8,119.99,ASIN0009
+Electronics Product 11,4.9,129.99,ASIN0010
+Electronics Product 12,5.0,139.99,ASIN0011
+Electronics Product 13,4.5,149.99,ASIN0012
+Electronics Product 14,4.6,159.99,ASIN0013
+Electronics Product 15,4.7,169.99,ASIN0014
+Electronics Product 16,4.8,179.99,ASIN0015
+Electronics Product 17,4.9,189.99,ASIN0016
+Electronics Product 18,5.0,199.99,ASIN0017
+Electronics Product 19,4.5,209.99,ASIN0018
+Electronics Product 20,4.6,219.99,ASIN0019
