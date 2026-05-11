@@ -1,0 +1,38 @@
+=== Reflection Questions — nd089 Amazon Reviews Project ===
+
+Q1: What dataset did you use and why?
+A: I used the Amazon Reviews 2023 dataset (Electronics subset) from Hugging Face
+   (McAuley-Lab/Amazon-Reviews-2023). I chose this dataset because it contains
+   real-world product ratings, reviews, and metadata that closely mirrors the kind
+   of data used in production recommendation and trust-and-safety systems. The
+   Electronics category is large, diverse in price range, and has sufficient
+   rating variance to make filtering meaningful.
+
+Q2: What was the most helpful analysis method and why?
+A: Building top_products_df through a merge of review ratings with item metadata
+   was the most insightful step. Joining on parent_asin exposed how average ratings
+   aggregate across multiple reviewers, which is far more reliable than any single
+   review. It also revealed that real Amazon data skews heavily toward 5-star ratings,
+   making the 4.5-star threshold a meaningful but non-trivial filter that still returns
+   a manageable subset of products.
+
+Q3: What did you learn about Python data types and pandas?
+A: I learned that real-world datasets require careful type coercion — prices arrive
+   as strings with dollar signs, ratings may be stored as floats or strings depending
+   on the split, and 'missing' values can appear as None, NaN, or empty strings. Using
+   pd.to_numeric(..., errors='coerce') combined with .dropna() was the safest pattern
+   for handling this gracefully without losing valid rows unnecessarily.
+
+Q4: What would you do differently or extend next?
+A: I would expand the merge to include review text and use TF-IDF or a lightweight
+   embedding model to cluster top-rated products by review sentiment, not just rating
+   score. I would also replace the per-product get_product lookup with a vectorized
+   title-search index (e.g., using difflib or a fuzzy matcher) for better performance
+   at scale.
+
+Q5: How does this project connect to AI and machine learning?
+A: Product rating aggregation and top-product filtering are foundational preprocessing
+   steps in recommendation systems. The top_products_df I built here is exactly the
+   kind of labeled, filtered dataset used to train collaborative filtering or
+   content-based recommendation models. Understanding how to load, clean, and filter
+   at this stage is a prerequisite for any downstream ML pipeline.
