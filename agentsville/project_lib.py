@@ -1,547 +1,681 @@
-"""
-project_lib.py
-==============
+"""Provides utility functions for the project."""
 
-Helper library for the AgentsVille Trip Planner project.
-
-Contents
---------
-* Pydantic models used throughout the project (``Traveler``, ``Activity``,
-  ``Weather``, ``ItineraryActivity``, ``ItineraryDay``, ``TravelPlan``).
-* A small mock "external API" returning weather forecasts and activities for
-  the city of AgentsVille between 2025-06-09 and 2025-06-20.
-* A handful of pure helper utilities used by the agents and tools defined
-  in ``project_starter.ipynb``.
-
-The notebook expects to import the public names defined at the bottom of this
-module via ``from project_lib import *``.
-"""
-
-from __future__ import annotations
-
-import math
-import operator
-from datetime import date, timedelta
 from enum import Enum
-from typing import Iterable, List, Optional
 
-from pydantic import BaseModel, Field, field_validator
-
-
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
-
-CITY = "AgentsVille"
+SINGLE_TAB_LEVEL = 4
 
 
-class WeatherCondition(str, Enum):
-    SUNNY = "sunny"
-    PARTLY_CLOUDY = "partly_cloudy"
-    CLOUDY = "cloudy"
-    RAINY = "rainy"
-    STORMY = "stormy"
-    WINDY = "windy"
+class Interest(str, Enum):
+    ART = "art"
+    COOKING = "cooking"
+    COMEDY = "comedy"
+    DANCING = "dancing"
+    FITNESS = "fitness"
+    GARDENING = "gardening"
+    HIKING = "hiking"
+    MOVIES = "movies"
+    MUSIC = "music"
+    PHOTOGRAPHY = "photography"
+    READING = "reading"
+    SPORTS = "sports"
+    TECHNOLOGY = "technology"
+    THEATRE = "theatre"
+    TENNIS = "tennis"
+    WRITING = "writing"
+
+    def __str__(self):
+        return self.value
+
+    def __repr__(self):
+        return self.value
 
 
-# ---------------------------------------------------------------------------
-# Pydantic models (the notebook also defines ``VacationInfo`` itself).
-# ---------------------------------------------------------------------------
+class ChatAgent:
+    """A chat agent that interacts with OpenAI's API to facilitate conversations.
 
-class Traveler(BaseModel):
-    """A single person on the trip."""
+    This class manages chat history, formats system prompts, and handles
+    communication with OpenAI's chat completion API. It provides methods to
+    add messages, get responses, and maintain conversation context.
 
-    name: str
-    age: int = Field(..., ge=0, le=120)
-    interests: List[str] = Field(
-        default_factory=list,
-        description="Free-form interest tags, e.g. ['food', 'history', 'music'].",
-    )
-
-
-class Weather(BaseModel):
-    """A simple daily weather forecast."""
-
-    date: date
-    condition: WeatherCondition
-    temperature_high_c: float
-    temperature_low_c: float
-    precipitation_chance: float = Field(..., ge=0.0, le=1.0)
-    description: str
-
-
-class Activity(BaseModel):
-    """An activity offered in AgentsVille on a specific date."""
-
-    activity_id: str = Field(..., description="Stable identifier, e.g. 'ACT-007'.")
-    name: str
-    date: date
-    start_time: str = Field(..., description="24h HH:MM, e.g. '09:30'.")
-    end_time: str = Field(..., description="24h HH:MM, e.g. '11:00'.")
-    location: str
-    description: str
-    price_usd: float = Field(..., ge=0.0)
-    related_interests: List[str] = Field(default_factory=list)
-    is_outdoor: bool = Field(
-        ...,
-        description=(
-            "True when the activity is primarily outdoors and might be impacted "
-            "by adverse weather (rain, storms, extreme heat, etc.)."
-        ),
-    )
-
-
-class ItineraryActivity(BaseModel):
-    """A single activity slotted into the itinerary on a specific day."""
-
-    activity_id: str
-    name: str
-    start_time: str
-    end_time: str
-    location: str
-    description: str
-    price_usd: float = Field(..., ge=0.0)
-
-
-class ItineraryDay(BaseModel):
-    date: date
-    weather_summary: str
-    activities: List[ItineraryActivity]
-
-
-class TravelPlan(BaseModel):
-    """The structured output produced by the ItineraryAgent."""
-
-    city: str
-    start_date: date
-    end_date: date
-    travelers: List[str] = Field(
-        ..., description="Names of the people on the trip."
-    )
-    days: List[ItineraryDay]
-    total_cost_usd: float = Field(..., ge=0.0)
-    notes: str = ""
-
-    @field_validator("end_date")
-    @classmethod
-    def _end_after_start(cls, v: date, info):  # type: ignore[override]
-        start = info.data.get("start_date")
-        if start is not None and v < start:
-            raise ValueError("end_date must be on or after start_date")
-        return v
-
-
-# ---------------------------------------------------------------------------
-# Mock "external API" data
-# ---------------------------------------------------------------------------
-
-# Weather forecast for AgentsVille — covers 2025-06-09 through 2025-06-20.
-_WEATHER_RECORDS: List[Weather] = [
-    Weather(
-        date=date(2025, 6, 9),
-        condition=WeatherCondition.SUNNY,
-        temperature_high_c=27.0,
-        temperature_low_c=18.0,
-        precipitation_chance=0.05,
-        description="Clear and warm, light breeze through the afternoon.",
-    ),
-    Weather(
-        date=date(2025, 6, 10),
-        condition=WeatherCondition.SUNNY,
-        temperature_high_c=28.0,
-        temperature_low_c=18.0,
-        precipitation_chance=0.05,
-        description="Bright and sunny all day, perfect for being outdoors.",
-    ),
-    Weather(
-        date=date(2025, 6, 11),
-        condition=WeatherCondition.PARTLY_CLOUDY,
-        temperature_high_c=26.0,
-        temperature_low_c=17.0,
-        precipitation_chance=0.20,
-        description="Mix of sun and clouds, slight chance of an afternoon shower.",
-    ),
-    Weather(
-        date=date(2025, 6, 12),
-        condition=WeatherCondition.CLOUDY,
-        temperature_high_c=23.0,
-        temperature_low_c=16.0,
-        precipitation_chance=0.30,
-        description="Overcast and cool, mostly dry but humid.",
-    ),
-    Weather(
-        date=date(2025, 6, 13),
-        condition=WeatherCondition.RAINY,
-        temperature_high_c=20.0,
-        temperature_low_c=15.0,
-        precipitation_chance=0.85,
-        description="Steady rain throughout the day, strong winds at times.",
-    ),
-    Weather(
-        date=date(2025, 6, 14),
-        condition=WeatherCondition.SUNNY,
-        temperature_high_c=29.0,
-        temperature_low_c=19.0,
-        precipitation_chance=0.05,
-        description="Hot and sunny, great beach and lake weather.",
-    ),
-    Weather(
-        date=date(2025, 6, 15),
-        condition=WeatherCondition.STORMY,
-        temperature_high_c=22.0,
-        temperature_low_c=17.0,
-        precipitation_chance=0.95,
-        description="Thunderstorms expected — outdoor activities should be avoided.",
-    ),
-    Weather(
-        date=date(2025, 6, 16),
-        condition=WeatherCondition.PARTLY_CLOUDY,
-        temperature_high_c=25.0,
-        temperature_low_c=17.0,
-        precipitation_chance=0.15,
-        description="Pleasant, mostly sunny, brief cloudy spells.",
-    ),
-    Weather(
-        date=date(2025, 6, 17),
-        condition=WeatherCondition.SUNNY,
-        temperature_high_c=27.0,
-        temperature_low_c=18.0,
-        precipitation_chance=0.05,
-        description="Clear skies and warm temperatures.",
-    ),
-    Weather(
-        date=date(2025, 6, 18),
-        condition=WeatherCondition.WINDY,
-        temperature_high_c=24.0,
-        temperature_low_c=16.0,
-        precipitation_chance=0.10,
-        description="Strong winds across the city, good for sailing, tough for cycling.",
-    ),
-    Weather(
-        date=date(2025, 6, 19),
-        condition=WeatherCondition.CLOUDY,
-        temperature_high_c=22.0,
-        temperature_low_c=15.0,
-        precipitation_chance=0.25,
-        description="Grey and cool, occasional drizzle possible.",
-    ),
-    Weather(
-        date=date(2025, 6, 20),
-        condition=WeatherCondition.SUNNY,
-        temperature_high_c=28.0,
-        temperature_low_c=18.0,
-        precipitation_chance=0.05,
-        description="Sunny and warm, ideal for outdoor exploration.",
-    ),
-]
-
-
-# Five activities per day across a wide variety of interests + indoor/outdoor mix.
-def _build_activities() -> List[Activity]:
-    raw = [
-        # 2025-06-10 — sunny
-        ("ACT-001", "Riverside Park Walking Tour", date(2025, 6, 10), "09:00", "11:00",
-         "Riverside Park", "A guided walking tour through AgentsVille's scenic riverside park.",
-         25.0, ["outdoor", "history", "walking"], True),
-        ("ACT-002", "AgentsVille Art Museum", date(2025, 6, 10), "11:30", "14:00",
-         "Downtown — Museum District", "Explore three floors of contemporary and classical art.",
-         30.0, ["art", "culture"], False),
-        ("ACT-003", "Chef Marco's Italian Cooking Class", date(2025, 6, 10), "15:00", "17:30",
-         "Old Town Kitchen Studio", "Hands-on class making fresh pasta and tiramisu.",
-         85.0, ["food", "cooking"], False),
-        ("ACT-004", "Sunset Jazz Cruise", date(2025, 6, 10), "19:00", "21:30",
-         "AgentsVille Marina", "Live jazz quartet aboard a sunset boat cruise with light tapas.",
-         95.0, ["music", "food", "outdoor"], True),
-        ("ACT-005", "Night Market Food Tour", date(2025, 6, 10), "20:00", "22:00",
-         "Old Town Square", "Walking tour of the night market with eight tasting stops.",
-         55.0, ["food", "outdoor", "culture"], True),
-
-        # 2025-06-11 — partly cloudy
-        ("ACT-006", "Mountain Bike Adventure", date(2025, 6, 11), "08:30", "12:00",
-         "AgentsVille Mountain Trails", "Guided mountain bike ride along intermediate trails.",
-         70.0, ["outdoor", "adventure", "sports"], True),
-        ("ACT-007", "Old Town History Walking Tour", date(2025, 6, 11), "10:00", "12:00",
-         "Old Town", "Two-hour tour of cobblestone streets with a local historian.",
-         20.0, ["history", "walking", "culture"], True),
-        ("ACT-008", "Brewery Hop Tour", date(2025, 6, 11), "14:00", "17:00",
-         "Brewery District", "Visit three craft breweries with tastings and brewer Q&A.",
-         65.0, ["food", "drinks"], False),
-        ("ACT-009", "Skyline Observatory Visit", date(2025, 6, 11), "17:30", "19:00",
-         "AgentsVille Tower, 88th Floor", "Panoramic city views from the highest observatory in town.",
-         40.0, ["views", "architecture"], False),
-        ("ACT-010", "Live Comedy Night", date(2025, 6, 11), "20:00", "22:00",
-         "Laugh Lounge", "Stand-up showcase featuring four headliners.",
-         30.0, ["entertainment", "nightlife"], False),
-
-        # 2025-06-12 — cloudy
-        ("ACT-011", "Modern Art Gallery Tour", date(2025, 6, 12), "10:00", "12:00",
-         "Riverwalk Gallery", "Curated tour of the city's most-talked-about modern gallery.",
-         25.0, ["art", "culture"], False),
-        ("ACT-012", "Underground Speakeasy Cocktail Class", date(2025, 6, 12), "13:00", "15:00",
-         "Hidden Cellar Bar", "Hands-on cocktail-making in a 1920s-themed speakeasy.",
-         60.0, ["drinks", "history"], False),
-        ("ACT-013", "Cooking with Locals: Street Food Edition", date(2025, 6, 12), "15:30", "18:00",
-         "Market Hall Kitchen", "Cook three iconic AgentsVille street-food dishes with a local chef.",
-         75.0, ["food", "cooking", "culture"], False),
-        ("ACT-014", "Vintage Vinyl & Record Shop Walk", date(2025, 6, 12), "16:00", "18:00",
-         "Music Quarter", "Walking tour through the city's most beloved record shops.",
-         15.0, ["music", "shopping"], True),
-        ("ACT-015", "Ghost Tour at Night", date(2025, 6, 12), "20:30", "22:30",
-         "Old Town", "Spooky storytelling tour through AgentsVille's haunted alleys.",
-         35.0, ["history", "entertainment", "outdoor"], True),
-
-        # 2025-06-13 — rainy
-        ("ACT-016", "Indoor Climbing Gym Session", date(2025, 6, 13), "09:00", "11:00",
-         "Vertical AgentsVille", "Drop-in session at the city's largest indoor climbing gym.",
-         30.0, ["sports", "adventure"], False),
-        ("ACT-017", "Heritage Theater Cinema Marathon", date(2025, 6, 13), "11:30", "16:00",
-         "Heritage Theater", "Triple feature of restored classic films with intermissions.",
-         25.0, ["entertainment", "film"], False),
-        ("ACT-018", "Pottery Workshop", date(2025, 6, 13), "13:00", "16:00",
-         "Clay Studio", "Wheel-throwing pottery workshop, take home what you make.",
-         70.0, ["art", "crafts"], False),
-        ("ACT-019", "Jazz Club Night at Blue Note 2", date(2025, 6, 13), "19:30", "22:30",
-         "Downtown Jazz Club", "Two sets from a local jazz quintet, dinner available.",
-         50.0, ["music", "nightlife"], False),
-        ("ACT-020", "Spa & Wellness Evening", date(2025, 6, 13), "17:00", "20:00",
-         "Lotus Spa", "Three-hour spa circuit with sauna, steam, and a 30-minute massage.",
-         120.0, ["wellness", "relaxation"], False),
-
-        # 2025-06-14 — sunny
-        ("ACT-021", "Lakeside Kayaking", date(2025, 6, 14), "09:00", "11:30",
-         "Lake AgentsVille", "Guided kayaking around the calm bays of Lake AgentsVille.",
-         55.0, ["outdoor", "adventure", "sports"], True),
-        ("ACT-022", "Botanical Gardens Tour", date(2025, 6, 14), "11:00", "13:00",
-         "AgentsVille Botanical Gardens", "Stroll through themed gardens at peak summer bloom.",
-         18.0, ["nature", "outdoor"], True),
-        ("ACT-023", "Outdoor Food Festival", date(2025, 6, 14), "12:00", "16:00",
-         "Festival Park", "Annual food festival with 40+ vendors and live music stages.",
-         20.0, ["food", "outdoor", "music"], True),
-        ("ACT-024", "Open-Air Concert in the Park", date(2025, 6, 14), "18:00", "21:00",
-         "Festival Park Bandshell", "Headline indie band performs an open-air evening concert.",
-         60.0, ["music", "outdoor"], True),
-        ("ACT-025", "Stargazing Picnic", date(2025, 6, 14), "21:30", "23:30",
-         "Hilltop Overlook", "Astronomer-led stargazing with telescopes and a picnic basket.",
-         45.0, ["nature", "outdoor", "science"], True),
-
-        # 2025-06-15 — stormy
-        ("ACT-026", "AgentsVille Science Museum", date(2025, 6, 15), "09:30", "12:30",
-         "Museum District", "Hands-on exhibits across robotics, space, and biology.",
-         28.0, ["science", "family"], False),
-        ("ACT-027", "Indoor Aquarium Visit", date(2025, 6, 15), "11:00", "13:30",
-         "Harbour Aquarium", "Massive indoor aquarium with kelp forest and shark tunnel.",
-         32.0, ["nature", "family"], False),
-        ("ACT-028", "Wine Tasting at Cellar 9", date(2025, 6, 15), "14:00", "16:00",
-         "Wine District — Cellar 9", "Guided tasting of nine regional wines with cheese pairings.",
-         55.0, ["drinks", "food"], False),
-        ("ACT-029", "Library Cafe Reading Club", date(2025, 6, 15), "15:00", "17:00",
-         "Central Library Cafe", "Low-key reading club discussion with coffee and pastries.",
-         10.0, ["books", "relaxation"], False),
-        ("ACT-030", "Symphony Orchestra Concert", date(2025, 6, 15), "19:30", "21:30",
-         "Concert Hall", "AgentsVille Symphony performs a classical romantic-era program.",
-         70.0, ["music", "culture"], False),
-
-        # 2025-06-16 — partly cloudy
-        ("ACT-031", "Bicycle City Loop", date(2025, 6, 16), "09:00", "12:00",
-         "Bike Hub Downtown", "Three-hour guided bike loop covering the city's main sights.",
-         40.0, ["outdoor", "sports", "history"], True),
-        ("ACT-032", "Photography Walk", date(2025, 6, 16), "10:00", "12:30",
-         "Old Town", "Photo-focused walking tour with a professional photographer.",
-         45.0, ["art", "walking", "outdoor"], True),
-        ("ACT-033", "Lunchtime Cooking Demo", date(2025, 6, 16), "12:30", "14:00",
-         "Market Hall Kitchen", "Live cooking demo with tasting menu of seasonal dishes.",
-         35.0, ["food", "cooking"], False),
-        ("ACT-034", "Vintage Shopping Tour", date(2025, 6, 16), "15:00", "17:30",
-         "Vintage Quarter", "Curated tour of the city's best vintage and second-hand shops.",
-         20.0, ["shopping", "fashion"], False),
-        ("ACT-035", "Rooftop Bar Hop", date(2025, 6, 16), "20:00", "23:00",
-         "Downtown Skyline", "Visit three rooftop bars with skyline views.",
-         70.0, ["drinks", "nightlife", "views"], False),
-
-        # 2025-06-17 — sunny
-        ("ACT-036", "Hot Air Balloon Sunrise Flight", date(2025, 6, 17), "05:30", "08:00",
-         "Balloon Field North", "Sunrise hot-air balloon flight over the AgentsVille valley.",
-         220.0, ["adventure", "outdoor", "views"], True),
-        ("ACT-037", "Farmers Market Tasting Tour", date(2025, 6, 17), "09:30", "11:30",
-         "Saturday Farmers Market", "Tasting tour through the city's famous Saturday farmers market.",
-         40.0, ["food", "outdoor"], True),
-        ("ACT-038", "Historic Castle Day Trip", date(2025, 6, 17), "10:00", "16:00",
-         "AgentsVille Castle", "Half-day excursion to the medieval castle on the city's edge.",
-         60.0, ["history", "outdoor"], True),
-        ("ACT-039", "Afternoon Tea at the Grand", date(2025, 6, 17), "15:00", "16:30",
-         "The Grand Hotel", "Classic afternoon tea service with pastries and finger sandwiches.",
-         55.0, ["food"], False),
-        ("ACT-040", "Theater Performance: 'AgentsVille Nights'", date(2025, 6, 17), "19:30", "22:00",
-         "Royal Theatre", "Award-winning new play about life in modern AgentsVille.",
-         85.0, ["entertainment", "culture"], False),
-
-        # 2025-06-18 — windy
-        ("ACT-041", "Sailing Lesson on the Bay", date(2025, 6, 18), "09:00", "12:00",
-         "Marina Sail School", "Beginner sailing lesson on the wind-friendly bay.",
-         110.0, ["adventure", "outdoor", "sports"], True),
-        ("ACT-042", "Maritime Museum Tour", date(2025, 6, 18), "13:00", "15:00",
-         "Harbour Museum", "Two centuries of AgentsVille's seafaring history.",
-         22.0, ["history", "culture"], False),
-        ("ACT-043", "Chocolate-Making Workshop", date(2025, 6, 18), "15:30", "17:30",
-         "Cocoa Lab", "Make and take home a small box of artisan chocolates.",
-         65.0, ["food", "crafts"], False),
-        ("ACT-044", "Comedy Improv Show", date(2025, 6, 18), "20:00", "21:30",
-         "Improv Theatre", "Audience-driven improv comedy show.",
-         28.0, ["entertainment"], False),
-        ("ACT-045", "Late-Night Dessert Tour", date(2025, 6, 18), "21:00", "23:00",
-         "Sweet Quarter", "Walking tour with stops at five late-night dessert spots.",
-         40.0, ["food", "walking"], True),
-
-        # 2025-06-19 — cloudy
-        ("ACT-046", "AgentsVille History Museum", date(2025, 6, 19), "10:00", "12:30",
-         "Museum District", "Permanent exhibits on the city's two-thousand-year history.",
-         18.0, ["history", "culture"], False),
-        ("ACT-047", "Indoor Botanical Conservatory", date(2025, 6, 19), "11:00", "13:00",
-         "Glasshouse Conservatory", "Tropical glasshouse with rare orchids and butterflies.",
-         15.0, ["nature"], False),
-        ("ACT-048", "Coffee & Pastry Crawl", date(2025, 6, 19), "13:30", "16:00",
-         "Cafe District", "Walk between five top-rated cafes with curated tastings.",
-         35.0, ["food", "walking"], True),
-        ("ACT-049", "Live Music: Acoustic Lounge", date(2025, 6, 19), "19:00", "21:00",
-         "Acoustic Lounge", "Singer-songwriter showcase with three local artists.",
-         25.0, ["music"], False),
-        ("ACT-050", "Late Bookstore & Wine Evening", date(2025, 6, 19), "20:00", "22:30",
-         "Inkwell Bookstore", "Independent bookstore opens late for wine, talks, and signings.",
-         20.0, ["books", "drinks"], False),
-
-        # 2025-06-20 — sunny
-        ("ACT-051", "Sunrise Yoga in the Park", date(2025, 6, 20), "07:00", "08:30",
-         "Riverside Park Lawn", "Drop-in sunrise yoga class.",
-         18.0, ["wellness", "outdoor"], True),
-        ("ACT-052", "Boat Cruise Along the Coast", date(2025, 6, 20), "10:00", "13:00",
-         "AgentsVille Marina", "Three-hour coastal cruise with lunch on board.",
-         95.0, ["outdoor", "food", "views"], True),
-        ("ACT-053", "Architectural Walking Tour", date(2025, 6, 20), "11:00", "13:00",
-         "Downtown", "Tour of AgentsVille's most striking modern and historic buildings.",
-         25.0, ["history", "architecture", "walking"], True),
-        ("ACT-054", "Family-Style Italian Dinner", date(2025, 6, 20), "18:30", "21:00",
-         "Trattoria della Piazza", "Multi-course family-style dinner at a beloved trattoria.",
-         70.0, ["food"], False),
-        ("ACT-055", "Fireworks Finale by the River", date(2025, 6, 20), "21:30", "22:30",
-         "Riverside Esplanade", "Free public fireworks display along the river.",
-         0.0, ["outdoor", "entertainment"], True),
-    ]
-
-    return [
-        Activity(
-            activity_id=row[0],
-            name=row[1],
-            date=row[2],
-            start_time=row[3],
-            end_time=row[4],
-            location=row[5],
-            description=row[6],
-            price_usd=row[7],
-            related_interests=row[8],
-            is_outdoor=row[9],
-        )
-        for row in raw
-    ]
-
-
-_ACTIVITY_RECORDS: List[Activity] = _build_activities()
-
-
-# ---------------------------------------------------------------------------
-# Mock API helpers
-# ---------------------------------------------------------------------------
-
-def _date_range(start: date, end: date) -> Iterable[date]:
-    cur = start
-    while cur <= end:
-        yield cur
-        cur += timedelta(days=1)
-
-
-def get_weather_data(start_date: date, end_date: date) -> List[Weather]:
-    """Return the daily weather forecast for AgentsVille between two dates (inclusive)."""
-
-    return [w for w in _WEATHER_RECORDS if start_date <= w.date <= end_date]
-
-
-def get_activities_data(start_date: date, end_date: date) -> List[Activity]:
-    """Return all activities offered in AgentsVille between two dates (inclusive)."""
-
-    return [a for a in _ACTIVITY_RECORDS if start_date <= a.date <= end_date]
-
-
-def get_activities_by_date(target_date: date) -> List[Activity]:
-    """Return every activity offered on a given date."""
-
-    return [a for a in _ACTIVITY_RECORDS if a.date == target_date]
-
-
-# ---------------------------------------------------------------------------
-# Calculator helper used by ``calculator_tool``
-# ---------------------------------------------------------------------------
-
-_ALLOWED_OPERATORS = {
-    "+": operator.add,
-    "-": operator.sub,
-    "*": operator.mul,
-    "/": operator.truediv,
-    "%": operator.mod,
-    "**": operator.pow,
-}
-
-
-def safe_calculator(expression: str) -> float:
-    """Evaluate a simple arithmetic expression safely.
-
-    Supports ``+``, ``-``, ``*``, ``/``, ``%``, ``**`` and parentheses on
-    floating-point numbers. Anything else raises ``ValueError``.
+    Attributes:
+        system_prompt_template (str): Template for the system prompt using {variable_name} placeholders.
     """
+    system_prompt = "You are a helpful assistant."
+    messages = []
 
-    import ast
+    def __init__(self, name=None, system_prompt=None, client=None, model=None):
+        self.name = name or self.__class__.__name__
+        if system_prompt:
+            self.system_prompt = system_prompt
+        self.client = client
+        self.model = model
+        self.reset()
 
-    allowed_nodes = (
-        ast.Expression,
-        ast.BinOp,
-        ast.UnaryOp,
-        ast.Constant,
-        ast.Num,  # py<3.8 compat
-        ast.Add,
-        ast.Sub,
-        ast.Mult,
-        ast.Div,
-        ast.Mod,
-        ast.Pow,
-        ast.USub,
-        ast.UAdd,
-        ast.FloorDiv,
-        ast.Load,
-    )
+    def add_message(self, role, content):
+        """Add a message to the chat history.
 
-    try:
-        tree = ast.parse(expression, mode="eval")
-    except SyntaxError as exc:
-        raise ValueError(f"Could not parse expression: {expression!r}") from exc
+        Args:
+            role (str): The role of the message ("system", "user", or "assistant").
+            content (str): The content of the message.
 
-    for node in ast.walk(tree):
-        if not isinstance(node, allowed_nodes):
-            raise ValueError(
-                f"Unsupported syntax in expression: {type(node).__name__}"
+        Raises:
+            ValueError: If the role is not one of "system", "user", or "assistant".
+        """
+        if role not in ["system", "user", "assistant"]:
+            raise ValueError(f"Invalid role: {role}")
+        self.messages.append({"role": role, "content": content})
+        if role == "system":
+            print_in_box(
+                content,
+                f"{self.name} - System Prompt",
+            )
+        elif role == "user":
+            print_in_box(
+                content,
+                f"{self.name} - User Prompt",
+            )
+        elif role == "assistant":
+            print_in_box(
+                content,
+                f"{self.name} - Assistant Response",
             )
 
-    return float(eval(compile(tree, "<calc>", "eval"), {"__builtins__": {}}, {}))
+    def reset(self):
+        """Reset the chat history and re-initialize with the system prompt.
+
+        This method clears all existing messages and adds the system prompt
+        formatted with the template_kwargs.
+        """
+        from textwrap import dedent
+
+        system_prompt = dedent(self.system_prompt).strip()
+
+        # Clear previous messages and add the system prompt
+        self.messages = []
+        self.add_message(
+            "system",
+            system_prompt,
+        )
+
+    def get_response(self, add_to_messages=True, model=None, client=None, **kwargs):
+        """Get a response from the OpenAI API.
+
+        Args:
+            add_to_messages (bool, optional): Whether to add the response to the chat history
+            using the add_message method and the assistant role. Defaults to True.
+
+        Returns:
+            str: The response from the OpenAI API.
 
 
-__all__ = [
-    "CITY",
-    "WeatherCondition",
-    "Traveler",
-    "Weather",
-    "Activity",
-    "ItineraryActivity",
-    "ItineraryDay",
-    "TravelPlan",
-    "get_weather_data",
-    "get_activities_data",
-    "get_activities_by_date",
-    "safe_calculator",
+        """
+        response = do_chat_completion(
+            messages=self.messages,
+            model=model or self.model,
+            client=client or self.client,
+            **kwargs
+        )
+        if add_to_messages:
+            self.add_message("assistant", response)
+        return response
+
+    def chat(self, user_message, add_to_messages=True, model=None, **kwargs):
+        """Send a message to the chat and get a response.
+
+        Args:
+            user_message (str): The message to send to the chat.
+
+        Returns:
+            str: The response from the OpenAI API.
+        """
+        self.add_message("user", user_message)
+        return self.get_response(add_to_messages=add_to_messages, model=model, **kwargs)
+
+
+def print_in_box(text, title="", cols=120, tab_level=0):
+    """
+    Prints the given text in a box with the specified title and dimensions.
+
+    Args:
+        text: The text to print in the box.
+        title: The title of the box.
+        cols: The width of the box.
+        tab_level: The level of indentation for the box.
+    """
+    import textwrap
+
+    text = str(text)
+
+    # Make a box using extended ASCII characters
+    if cols < 4 + tab_level * SINGLE_TAB_LEVEL:
+        cols = 4 + tab_level * SINGLE_TAB_LEVEL
+
+    tabs = " " * tab_level * SINGLE_TAB_LEVEL
+
+    top = (
+        tabs
+        + "\u2554"
+        + "\u2550" * (cols - 2 - tab_level * SINGLE_TAB_LEVEL)
+        + "\u2557"
+    )
+    if tab_level == 0:
+        print()  # Print a newline before any box at level 0
+
+    if title:
+        # replace the middle of the top with the title
+        title = "[ " + title + " ]"
+        top = top[: (cols - len(title)) // 2] + title + top[(cols + len(title)) // 2 :]
+    print(top)
+
+    for line in text.split("\n"):
+        for wrapped_line in textwrap.wrap(
+            line, cols - 4 - tab_level * SINGLE_TAB_LEVEL
+        ):
+            print(
+                f"{tabs}\u2551 {wrapped_line:<{cols - 4 - tab_level * SINGLE_TAB_LEVEL}} \u2551"
+            )
+
+    print(
+        f"{tabs}\u255a"
+        + "\u2550" * (cols - 2 - tab_level * SINGLE_TAB_LEVEL)
+        + "\u255d"
+    )
+
+
+def do_chat_completion(messages: list[dict[str, str]], model=None, client=None, **kwargs):
+    """A simple wrapper around OpenAI's chat completion API.
+
+    Args:
+        messages: A list of messages to send to the chat completion API.
+
+    Returns:
+        str: The response from the chat completion API.
+
+    Raises:
+        openai.OpenAIError: If the chat completion API returns an error.
+
+    Examples:
+        >>> messages = [
+        ...     {"role": "user", "content": "Hello, how are you?"},
+        ...     {"role": "assistant", "content": "I'm good, thanks!"},
+        ... ]
+        >>> from unittest.mock import patch
+        >>> with patch('openai.OpenAI') as mock_openai:
+        ...     # Setup mock response
+        ...     mock_client = mock_openai.return_value
+        ...     mock_chat = mock_client.chat
+        ...     mock_completions = mock_chat.completions
+        ...     mock_create = mock_completions.create
+        ...     mock_response = mock_create.return_value
+        ...     mock_response.choices = [type('obj', (object,), {'message': type('msg', (object,), {'content': "I'm good, thanks!"})()})]
+        ...     response = do_chat_completion(messages)
+        >>> response
+        "I'm good, thanks!"
+    """
+    if client is None:
+        raise ValueError("A valid OpenAI client must be provided.")
+    
+    if model is None:
+        raise ValueError("A valid model must be provided.")
+
+    if "response_format" not in kwargs:
+        response = client.chat.completions.create(  # type: ignore
+            model=model,
+            messages=messages,  # type: ignore
+            **kwargs,  # type: ignore
+        )
+    else:
+        response = client.beta.chat.completions.parse(  # type: ignore
+            model=model,
+            messages=messages,  # type: ignore
+            **kwargs,  # type: ignore
+        )
+
+    if hasattr(response, "error"):
+        raise RuntimeError(
+            f"OpenAI API returned an error: {str(response.error)}"
+        )
+
+    return response.choices[0].message.content
+
+
+ACTIVITY_CALENDAR = [
+    {
+        "activity_id": "event-2025-06-10-0",
+        "name": "FutureTech Breakfast Meet-Up",
+        "start_time": "2025-06-10 09:00",
+        "end_time": "2025-06-10 11:00",
+        "location": "The Innovation Atrium, Tech District, AgentsVille",
+        "description": "Join fellow technology enthusiasts for a dynamic morning at the FutureTech Breakfast Meet-Up! Dive into the latest trends in tech, gadget demos, and networking opportunities over coffee and fresh pastries. Held indoors at the spacious Innovation Atrium, this event is perfect for tech lovers eager to exchange ideas and discover new possibilities in a comfortable, modern setting.",
+        "price": 20,
+        "related_interests": ["technology"],
+    },
+    {
+        "activity_id": "event-2025-06-10-1",
+        "name": "Serve & Savor: Tennis and Taste Luncheon",
+        "start_time": "2025-06-10 12:00",
+        "end_time": "2025-06-10 13:30",
+        "location": "The Grand Racquet Terrace, AgentsVille",
+        "description": "Join us for 'Serve & Savor,' the ultimate crossover event for cooking and tennis enthusiasts in AgentsVille! Kick off your lunch hour with a friendly round of doubles on our outdoor courts, then unwind with a hands-on cooking workshop led by a local chef, where you'll prepare and enjoy delicious energy-boosting recipes. Whether you come for the sport or the flavors, this energizing luncheon celebrates both passions in a lively outdoor setting. Ideal for anyone who loves to play, cook, or simply savor fresh food and fun!",
+        "price": 20,
+        "related_interests": ["cooking", "tennis"],
+    },
+    {
+        "activity_id": "event-2025-06-10-2",
+        "name": "Artful Athletics: Paint & Play Extravaganza",
+        "start_time": "2025-06-10 15:00",
+        "end_time": "2025-06-10 17:00",
+        "location": "Creative Courts Park, AgentsVille",
+        "description": "Join us for an exciting afternoon at Creative Courts Park, where the worlds of art and sports collide! At 'Artful Athletics: Paint & Play Extravaganza', you'll participate in collaborative outdoor murals inspired by your favorite sports, and then get moving with fun, friendly sports mini-games. Whether you love painting or playing, this event celebrates creativity, teamwork, and the joy of movement under the open sky. Perfect for art lovers and sports enthusiasts alike—come ready to express yourself and get active! (Event is held outdoors; in case of rain, we move indoors to the Community Gym nearby.)",
+        "price": 15,
+        "related_interests": ["art", "sports"],
+    },
+    {
+        "activity_id": "event-2025-06-10-3",
+        "name": "AgentsVille Twilight Writing Escape",
+        "start_time": "2025-06-10 19:00",
+        "end_time": "2025-06-10 21:00",
+        "location": "The Ink Loft, 12 Quill Lane, AgentsVille",
+        "description": "Join fellow writers for an inspiring evening at The Ink Loft, where words flow as freely as the coffee! This writing-themed event welcomes all—novelists, poets, bloggers, or anyone with a passion for storytelling. Set indoors in AgentsVille's coziest lounge, enjoy writing games, group prompts, and opportunities to read your work aloud. Connect, create, and celebrate the art of writing in this creative indoor haven.",
+        "price": 15,
+        "related_interests": ["writing", "reading", "art"],
+    },
+    {
+        "activity_id": "event-2025-06-11-0",
+        "name": "Morning Groove Dance Party",
+        "start_time": "2025-06-11 09:00",
+        "end_time": "2025-06-11 10:30",
+        "location": "Rhythm Hall, Center Plaza, AgentsVille",
+        "description": "Start your day with energy and joy at the Morning Groove Dance Party! This lively event welcomes dancers of all levels to join a vibrant indoor session filled with upbeat music and fun routines. Whether you love modern pop, Latin beats, or classic disco, our dance instructors will guide you to move and groove. Connect with fellow dance lovers in the colorful atmosphere of Rhythm Hall. Perfect for fans of dancing, music, and fitness. Let the rhythm move you! (Indoor event.)",
+        "price": 15,
+        "related_interests": ["dancing", "music", "fitness"],
+    },
+    {
+        "activity_id": "event-2025-06-11-1",
+        "name": "Tech Lunch & Learn: AI Frontiers",
+        "start_time": "2025-06-11 12:00",
+        "end_time": "2025-06-11 13:30",
+        "location": "The Digital Atrium, AgentsVille",
+        "description": "Join fellow tech enthusiasts for a dynamic lunchtime event exploring the future of artificial intelligence! Held indoors at The Digital Atrium, this Tech Lunch & Learn features engaging lightning talks, interactive demos, and networking opportunities all centered around technology and innovation. Enjoy light lunch fare as you connect with others passionate about technology, AI, and the digital world. Whether you're a seasoned developer or just curious about tech, this event is for you! Related interests: technology, music (sound tech demos), photography (AI imaging), writing (AI creativity).",
+        "price": 20,
+        "related_interests": ["technology", "music", "photography", "writing"],
+    },
+    {
+        "activity_id": "event-2025-06-11-2",
+        "name": "AgentsVille Art & Music Fusion Fest",
+        "start_time": "2025-06-11 15:00",
+        "end_time": "2025-06-11 17:30",
+        "location": "The Echo Gardens Amphitheater, AgentsVille",
+        "description": "Immerse yourself in an unforgettable afternoon at the Echo Gardens Amphitheater, where the vibrant worlds of art and music collide! Surrounded by lush gardens under the open sky, enjoy live performances from talented local musicians while exploring an interactive outdoor art gallery featuring works from AgentsVille's creative community. This engaging outdoor event is perfect for art and music enthusiasts who love to be inspired and connect with fellow creatives. Don't miss out on the fusion of melodies and colors in a relaxing, friendly atmosphere!",
+        "price": 18,
+        "related_interests": ["art", "music"],
+    },
+    {
+        "activity_id": "event-2025-06-11-3",
+        "name": "Palette & Palate: Art Meets Cooking Experience",
+        "start_time": "2025-06-11 18:30",
+        "end_time": "2025-06-11 20:30",
+        "location": "The Creative Canvas Studio, Artisanal Lane, AgentsVille",
+        "description": "Immerse yourself in a colorful evening where art and cooking blend together! At 'Palette & Palate,' participants will begin indoors at The Creative Canvas Studio with a guided session to paint their own culinary-inspired masterpiece. Afterwards, a local chef will lead an interactive cooking class, teaching you how to craft vibrant, edible works of art. Whether you're an art enthusiast, a food lover, or both, this creative night is perfect for socializing and expressing yourself through color and flavor! All materials and ingredients are provided. This event is held indoors and welcomes all experience levels in art and cooking.",
+        "price": 25,
+        "related_interests": ["art", "cooking"],
+    },
+    {
+        "activity_id": "event-2025-06-12-0",
+        "name": "AgentsVille Nature & Green Thumb Adventure",
+        "start_time": "2025-06-12 08:00",
+        "end_time": "2025-06-12 10:00",
+        "location": "Echo Ridge Botanical Trails, AgentsVille",
+        "description": "Join fellow nature enthusiasts for a morning of outdoor adventure that blends hiking and gardening! Explore the picturesque Echo Ridge trails on a gentle hike while expert guides introduce you to local plant life and teach hands-on gardening tips along the way. Get your hands dirty with mini-plantings and learn how to cultivate native species. Perfect for lovers of both hiking and gardening, this outdoor event promises fresh air, community, and green inspiration.",
+        "price": 15,
+        "related_interests": ["hiking", "gardening"],
+    },
+    {
+        "activity_id": "event-2025-06-12-1",
+        "name": "Soundtrack Picnic: Lunchtime Movies & Melodies",
+        "start_time": "2025-06-12 12:00",
+        "end_time": "2025-06-12 13:30",
+        "location": "Starlight Amphitheater, AgentsVille",
+        "description": "Experience the magic of classic movie scenes paired with live music at the outdoor Starlight Amphitheater! Bring your lunch and relax on the lawn as musicians perform iconic film soundtracks while selected clips light up our open-air screen. Perfect for movie buffs and music lovers alike, this engaging event celebrates both arts in a sunny lunchtime setting. In case of rain, the event will move indoors to the adjacent Harmony Hall. Come for the tunes, stay for the cinematic wonder!",
+        "price": 15,
+        "related_interests": ["movies", "music"],
+    },
+    {
+        "activity_id": "event-2025-06-12-2",
+        "name": "Trail Tales: Writing & Hiking Adventure",
+        "start_time": "2025-06-12 14:00",
+        "end_time": "2025-06-12 16:30",
+        "location": "Whispering Pines Trailhead, AgentsVille",
+        "description": "Embark on an outdoor writing journey with fellow enthusiasts on the scenic trails of AgentsVille! Trail Tales is a unique event that combines hiking through beautiful pine forests and creative writing activities inspired by nature. Whether you love writing poetry, stories, or journal entries, this event is perfect for those who enjoy both writing and hiking. You'll have guided prompts, collaborative exercises, and plenty of fresh air. Suitable for writers of all levels who want to fuel their creativity while exploring the outdoors.",
+        "price": 20,
+        "related_interests": ["writing", "hiking"],
+    },
+    {
+        "activity_id": "event-2025-06-12-3",
+        "name": "Tech & Film Fusion Night",
+        "start_time": "2025-06-12 19:00",
+        "end_time": "2025-06-12 21:30",
+        "location": "Virtual Reality Theater, Silicon Plaza, AgentsVille",
+        "description": "Dive into an immersive evening where the magic of movies meets the latest in technology! Join fellow movie buffs and tech enthusiasts for a special screening of cutting-edge sci-fi short films, followed by an interactive panel with local filmmakers and VR technologists. Experience the future of entertainment and discuss how technology is transforming the world of cinema. This exciting, indoor event at the Virtual Reality Theater is perfect for anyone interested in technology and movies.",
+        "price": 15,
+        "related_interests": ["technology", "movies"],
+    },
+    {
+        "activity_id": "event-2025-06-13-0",
+        "name": "Laugh & Groove: Morning Comedy Dance Bash",
+        "start_time": "2025-06-13 09:00",
+        "end_time": "2025-06-13 10:30",
+        "location": "The Jiving Parlor, Central Plaza, AgentsVille",
+        "description": "Start your day with big laughs and even bigger moves at the Laugh & Groove Morning Comedy Dance Bash! Hosted indoors at The Jiving Parlor in the heart of AgentsVille, this lively event blends hilarious stand-up performances with upbeat group dance sessions. Whether you love to dance, enjoy comedy, or just want a fun way to kick off your day, you'll find your place here. Perfect for fans of dancing and comedy alike—come ready to laugh, groove, and connect!",
+        "price": 15,
+        "related_interests": ["dancing", "comedy"],
+    },
+    {
+        "activity_id": "event-2025-06-13-1",
+        "name": "Trails & Tales: Lunchtime Hiking and Writing Retreat",
+        "start_time": "2025-06-13 12:00",
+        "end_time": "2025-06-13 13:30",
+        "location": "Whispering Pines Trailhead, AgentsVille",
+        "description": "Step into the great outdoors for Trails & Tales, a unique lunchtime event combining invigorating hiking and creative writing in the beautiful forests of AgentsVille. Take in the scenery on a guided hike, pausing at scenic spots to reflect and write with fellow nature-loving writers. Whether you're an avid hiker, passionate about writing, or want to creatively recharge in nature, this outdoor adventure is for you! Please note: This event is outdoors. All writing materials and a light snack provided.",
+        "price": 15,
+        "related_interests": ["hiking", "writing"],
+    },
+    {
+        "activity_id": "event-2025-06-13-2",
+        "name": "Art & Lens: Outdoor Creative Walk",
+        "start_time": "2025-06-13 15:00",
+        "end_time": "2025-06-13 17:00",
+        "location": "Sunset Promenade Art Park, AgentsVille",
+        "description": "Join us for 'Art & Lens: Outdoor Creative Walk', where art lovers and photography enthusiasts unite! Explore the vibrant scenery of Sunset Promenade Art Park in AgentsVille, capturing inspiring moments and sketching as you go. Bring your camera, sketchbook, or both, and enjoy a guided creative journey with plenty of opportunities to connect, learn, and create. This engaging event is held entirely outdoors and is perfect for anyone passionate about art and photography.",
+        "price": 15,
+        "related_interests": ["art", "photography"],
+    },
+    {
+        "activity_id": "event-2025-06-13-3",
+        "name": "Sunset Groove Hike",
+        "start_time": "2025-06-13 18:00",
+        "end_time": "2025-06-13 20:00",
+        "location": "Starlit Ridge, AgentsVille",
+        "description": "Experience the perfect fusion of adventure and rhythm at the Sunset Groove Hike! Join fellow hiking and dancing enthusiasts as we traverse the scenic trails of Starlit Ridge just as the sun sets. Halfway through our energizing hike, we'll stop at a panoramic viewpoint for a lively group dance session led by a professional instructor, with music and views to inspire all. This outdoor event combines the joy of hiking with the fun of dancing, offering a memorable evening in nature. All experience levels are welcome—let's move and groove under the open sky!",
+        "price": 15,
+        "related_interests": ["hiking", "dancing"],
+    },    
+    {
+        "activity_id": "event-2025-06-14-0",
+        "name": "Sunrise Nature & Plant Walk",
+        "start_time": "2025-06-14 08:00",
+        "end_time": "2025-06-14 10:00",
+        "location": "Emerald Meadows Park, AgentsVille",
+        "description": "Experience the perfect blend of hiking and gardening! Join us for a refreshing outdoor morning hike through scenic Emerald Meadows Park, where we'll stop along the way to learn about local plants and do hands-on gardening activities. Whether you're a hiking enthusiast or a plant lover, this outdoor adventure is tailored for you. Come connect with nature and fellow enthusiasts while nurturing both your body and the local flora.",
+        "price": 15,
+        "related_interests": ["hiking", "gardening"],
+    },
+    {
+        "activity_id": "event-2025-06-14-1",
+        "name": "Lunchtime Bloom: Community Garden Party",
+        "start_time": "2025-06-14 12:00",
+        "end_time": "2025-06-14 13:30",
+        "location": "Green Haven Park, AgentsVille",
+        "description": "Join us for a vibrant outdoor gardening event in the heart of AgentsVille! 'Lunchtime Bloom' is the perfect gathering for plant lovers and nature enthusiasts. Learn hands-on gardening tips, participate in a flower-planting session, and connect with fellow green thumbs. Enjoy light refreshments in the fresh air while exploring the world of gardening. Whether you're a seasoned gardener or just getting started, this lively outdoor event promises inspiration and fun for all ages.",
+        "price": 15,
+        "related_interests": ["gardening", "fitness"],
+    },
+    {
+        "activity_id": "event-2025-06-14-2",
+        "name": "AgentsVille Summer Garden Party",
+        "start_time": "2025-06-14 14:00",
+        "end_time": "2025-06-14 16:30",
+        "location": "The Blooming Courtyard, AgentsVille",
+        "description": "Join us for an afternoon of blossoming fun at the AgentsVille Summer Garden Party! Whether you're a seasoned gardener or just getting started, this outdoor event invites everyone to dig in and grow together. Explore hands-on workshops, plant your own flowers to take home, enjoy garden games, and connect with fellow plant enthusiasts. The event will celebrate all things green, combining education, creativity, and relaxation for anyone interested in gardening and nature. Perfect for families, friends, and solo adventurers who love the outdoors and greenery!",
+        "price": 15,
+        "related_interests": ["gardening", "art", "fitness"],
+    },
+    {
+        "activity_id": "event-2025-06-14-3",
+        "name": "Dancing Through Prose: A Creative Movement & Writing Evening",
+        "start_time": "2025-06-14 19:00",
+        "end_time": "2025-06-14 21:00",
+        "location": "Writers' Waltz Hall, AgentsVille",
+        "description": "Join us for 'Dancing Through Prose,' a lively evening where the worlds of dance and writing beautifully intersect! Guided by local choreographers and creative writers, you'll be inspired by movement to spark your written words, and then let the rhythm of your prose take you back to the dance floor. This event is perfect for anyone who loves dancing and writing, no matter your experience level. Held indoors at the charming Writers' Waltz Hall, you'll enjoy a vibrant and supportive atmosphere where your imagination can truly move. Don't miss this unique celebration of movement and storytelling!",
+        "price": 15,
+        "related_interests": ["dancing", "writing"],
+    },
+    {
+        "activity_id": "event-2025-06-15-0",
+        "name": "Writers' Sunrise Workshop",
+        "start_time": "2025-06-15 09:00",
+        "end_time": "2025-06-15 11:00",
+        "location": "Starlight Literary Cafe, AgentsVille",
+        "description": "Kickstart your morning creativity at the Starlight Literary Cafe! Join fellow writers for an inspiring writing workshop surrounded by the cozy ambiance of our indoor cafe. Whether you're working on a novel, exploring poetry, or journaling, this event is perfect for connecting with like-minded enthusiasts. Enjoy writing prompts, group discussions, and plenty of coffee. Ideal for anyone interested in writing, reading, and art. (Indoors event)",
+        "price": 15,
+        "related_interests": ["writing", "reading", "art"],
+    },
+    {
+        "activity_id": "event-2025-06-15-1",
+        "name": "Lunchtime Groove: AgentsVille Dance Social",
+        "start_time": "2025-06-15 12:00",
+        "end_time": "2025-06-15 13:30",
+        "location": "Sunbeam Community Hall, Downtown AgentsVille",
+        "description": "Join us for Lunchtime Groove, AgentsVille's exciting indoor dance social! Shake off your midday blues with an hour and a half of energetic dancing, fun choreography, and great music. Whether you're a beginner or a seasoned dancer, enjoy learning new moves and meeting fellow dance lovers. Related interests: dancing, music, fitness.",
+        "price": 15,
+        "related_interests": ["dancing", "music", "fitness"],
+    },
+    {
+        "activity_id": "event-2025-06-15-2",
+        "name": "AgentsVille Summer Dance Jam",
+        "start_time": "2025-06-15 15:00",
+        "end_time": "2025-06-15 17:00",
+        "location": "The Groove Pavilion, Central Park, AgentsVille",
+        "description": "Get ready to dance the afternoon away at AgentsVille's Summer Dance Jam! Whether you're a dancing enthusiast or just looking to bust a move, join us at the spacious, open-air Groove Pavilion in Central Park. Expect a lively mix of pop, salsa, and swing tunes, interactive group lessons, and fun dance-offs. This outdoor event welcomes dancers of all levels and ages. Make new friends, learn new moves, and celebrate your love for music and dancing!",
+        "price": 15,
+        "related_interests": ["dancing", "music", "fitness"],
+    },
+    {
+        "activity_id": "event-2025-06-15-3",
+        "name": "Twilight Tennis Rally",
+        "start_time": "2025-06-15 18:00",
+        "end_time": "2025-06-15 20:00",
+        "location": "Grand Courts at Sunfield Park, AgentsVille",
+        "description": "Join us for a thrilling outdoor evening of tennis under the setting sun at the Grand Courts! Whether you're a beginner or a seasoned player, this event offers friendly matches, skill challenges, and social time with fellow tennis enthusiasts. Embrace the fresh air, lively music, and exciting giveaways all themed around the love of tennis. Don't miss your chance to rally, serve, and have fun! Perfect for those passionate about tennis, fitness, and meeting new people.",
+        "price": 15,
+        "related_interests": ["tennis", "fitness", "music"],
+    },
 ]
+
+
+INCLIMATE_WEATHER_CONDITIONS = ["thunderstorm", "rainy"]
+
+WEATHER_FORECAST = [
+    {
+        "date": "2025-06-10",
+        "city": "AgentsVille",
+        "temperature": 31,
+        "temperature_unit": "celsius",
+        "condition": "clear",
+        "description": "A bright and sunny day in AgentsVille with clear skies and warm temperatures. Perfect weather for outdoor activities!",
+    },
+    {
+        "date": "2025-06-11",
+        "city": "AgentsVille",
+        "temperature": 34,
+        "temperature_unit": "celsius",
+        "condition": "partly cloudy",
+        "description": "A warm day with periods of sunshine and mixed clouds, making it a perfect opportunity for outdoor activities.",
+    },
+    {
+        "date": "2025-06-12",
+        "city": "AgentsVille",
+        "temperature": 28,
+        "temperature_unit": "celsius",
+        "condition": "thunderstorm",
+        "description": "A thunderstorm is expected to roll in during the afternoon, bringing heavy rain and gusty winds. The atmosphere will feel charged with humidity, creating a sultry and dramatic setting as clouds build in the sky.",
+    },
+    {
+        "date": "2025-06-13",
+        "city": "AgentsVille",
+        "temperature": 15,
+        "temperature_unit": "celsius",
+        "condition": "rainy",
+        "description": "Cloudy skies with intermittent rain showers throughout the day, accompanied by a cool breeze and a chance of occasional thunderstorms.",
+    },
+    {
+        "date": "2025-06-14",
+        "city": "AgentsVille",
+        "temperature": 14,
+        "temperature_unit": "celsius",
+        "condition": "rainy",
+        "description": "A steady rain is expected throughout the day with overcast skies and cool temperatures. Residents should be prepared for slick roads and carry umbrellas.",
+    },
+    {
+        "date": "2025-06-15",
+        "city": "AgentsVille",
+        "temperature": 31,
+        "temperature_unit": "celsius",
+        "condition": "sunny",
+        "description": "A bright and sunny day perfect for outdoor activities with no chance of rain.",
+    },
+]
+
+
+def call_activities_api_mocked(
+    date: str | None = None, city: str | None = None, activity_ids: list[str] | None = None
+) -> list[dict[str, str | int]]:
+    """Calls the mocked activities API to get a list of activities for a given date and city.
+
+    This function simulates an API call to retrieve activities based on the provided date and city.
+
+    Args:
+        date: The date to get activities for. Must be in the format YYYY-MM-DD.
+        city: The city to get activities for. Only "AgentsVille" is supported.
+        activity_ids: A list of activity IDs to filter the results. If None, all activities for the date and city will be returned.
+
+    Returns:
+        A list of activities for the given date and city. Currently only returns activities
+        for AgentsVille between 2025-06-10 and 2025-06-15.
+    """
+    import datetime
+
+    # If the city is not AgentsVille, return an empty list
+    if city and city != "AgentsVille":
+        return []
+
+    # Verify the date format
+    if date:
+        try:
+            datetime.datetime.strptime(date, "%Y-%m-%d")
+        except ValueError:
+            print(f"Invalid date format: {date}")
+            return []
+
+    # If the date is not between 2025-06-10 and 2025-06-15, return an empty list
+    if date and (date < "2025-06-10" or date > "2025-06-15"):
+        print(f"Date {date} is outside the valid range (2025-06-10 - 2025-06-15)")
+        return []
+
+    activities = ACTIVITY_CALENDAR
+
+    if date:
+        activities = [event for event in activities if event["start_time"].startswith(date)]
+
+    if activity_ids:
+        activities = [event for event in activities if event["activity_id"] in activity_ids]
+
+    if not activities:
+        print(f"No activities found for {date} in {city}.")
+    return activities
+
+
+def call_activity_by_id_api_mocked(activity_id: str):
+    """Calls the mocked activity API to get an activity by its ID.
+
+    Args:
+        activity_id: The ID of the event to retrieve.
+
+    Returns:
+        A dictionary containing the event details, or an empty dictionary if not found.
+    """
+    for event in ACTIVITY_CALENDAR:
+        if event["activity_id"] == activity_id:
+            return event
+    print(f"Event with ID {activity_id} not found.")
+    return None
+
+
+def call_weather_api_mocked(date: str, city: str) -> dict[str, str | int]:
+    """
+    Returns the weather forecast for a given date and city.
+
+    Args:
+        date: The date to get weather for. Must be in the format YYYY-MM-DD.
+        city: The city to get weather for.
+
+    Returns:
+        A dictionary containing the weather forecast for the given date and city.
+    """
+    import datetime
+
+    # If the city is not AgentsVille, return an empty dictionary
+    if city != "AgentsVille":
+        return {}
+
+    # Verify the date format
+    try:
+        datetime.datetime.strptime(date, "%Y-%m-%d")
+    except ValueError:
+        print(f"Invalid date format: {date}")
+        return {}
+
+    # If the date is not between 2025-06-10 and 2025-06-15, return an empty dictionary
+    if date < "2025-06-10" or date > "2025-06-15":
+        print(f"Date {date} is outside the valid range (2025-06-10 - 2025-06-15)")
+        return {}
+
+    return next(
+        (forecast for forecast in WEATHER_FORECAST if forecast["date"] == date), {}
+    )
+
+
+def narrate_my_trip(vacation_info, itinerary, client, model, filename="/tmp/my_trip_narration.mp3"):
+    from IPython.display import Audio, Markdown, display
+    from openai import OpenAI
+
+    resp = do_chat_completion(
+        messages=[
+            {
+                "role": "user",
+                "content": f"""
+                Here is information on the trip collected by the Onboarding Agent:
+                {vacation_info}.
+
+                Here is the final itinerary:
+                {itinerary}
+                
+                Introduce the trip (travelers, interests, restrictions, and total cost) and
+                then discuss each day of the itinerary.
+
+                Do not specify the cost of each activity.
+
+                Do not reference the the narrative itself in the response.
+                """,
+            }
+        ],
+        client=client,
+        model=model,
+    )
+    display(Markdown(resp))
+
+    try:
+        if resp:
+            with client.audio.speech.with_streaming_response.create(
+                model="gpt-4o-mini-tts",
+                voice="coral",
+                input=resp,
+                instructions="Speak in a cheerful and positive tone.",
+            ) as response:
+                response.stream_to_file(filename)
+
+            display(Audio(filename))
+        else:
+            print("No response from the chat completion API.")
+    except Exception:
+        pass
