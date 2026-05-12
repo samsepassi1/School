@@ -323,6 +323,19 @@ class DemoGPT(nn.Module):
         pad_id: int = 0,
     ):
         super().__init__()
+        # Stash the exact constructor args so they can be persisted in a
+        # checkpoint and used to rebuild an identical model at inference.
+        self.config = {
+            "vocab_size": vocab_size,
+            "max_len": max_len,
+            "d_model": d_model,
+            "n_heads": n_heads,
+            "n_layers": n_layers,
+            "d_ff": d_ff,
+            "num_classes": num_classes,
+            "dropout": dropout,
+            "pad_id": pad_id,
+        }
         self.pad_id = pad_id
         self.tok_emb = nn.Embedding(vocab_size, d_model, padding_idx=pad_id)
         self.pos_emb = nn.Embedding(max_len, d_model)
@@ -452,9 +465,7 @@ def train_model(model, train_loader, val_loader, epochs=4, lr=3e-4, weight_decay
                 "model_state_dict": model.state_dict(),
                 "val_acc": val_acc,
                 "epoch": epoch,
-                "config": {
-                    "vocab_size": VOCAB_SIZE, "pad_id": PAD_ID, "max_len": MAX_LEN,
-                },
+                "config": model.config,
             }, ckpt_path)
             print(f"  saved checkpoint -> {ckpt_path} (val_acc={val_acc:.4f})")
 
@@ -514,11 +525,9 @@ CELLS.append(code(
         self.device = device or DEVICE
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
         ckpt = torch.load(ckpt_path, map_location=self.device)
-        cfg = ckpt["config"]
+        cfg = dict(ckpt["config"])
         self.max_len = cfg["max_len"]
-        self.model = DemoGPT(
-            vocab_size=cfg["vocab_size"], pad_id=cfg["pad_id"], max_len=cfg["max_len"],
-        ).to(self.device)
+        self.model = DemoGPT(**cfg).to(self.device)
         self.model.load_state_dict(ckpt["model_state_dict"])
         self.model.eval()
 
