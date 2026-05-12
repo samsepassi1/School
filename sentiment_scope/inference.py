@@ -63,6 +63,11 @@ class DemoGPT(nn.Module):
     def __init__(self, vocab_size, max_len=256, d_model=192, n_heads=6,
                  n_layers=4, d_ff=768, num_classes=2, dropout=0.1, pad_id=0):
         super().__init__()
+        self.config = {
+            "vocab_size": vocab_size, "max_len": max_len, "d_model": d_model,
+            "n_heads": n_heads, "n_layers": n_layers, "d_ff": d_ff,
+            "num_classes": num_classes, "dropout": dropout, "pad_id": pad_id,
+        }
         self.pad_id = pad_id
         self.tok_emb = nn.Embedding(vocab_size, d_model, padding_idx=pad_id)
         self.pos_emb = nn.Embedding(max_len, d_model)
@@ -93,13 +98,13 @@ def predict(texts, ckpt_path, tokenizer_name="bert-base-uncased", device=None):
     device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
     ckpt = torch.load(ckpt_path, map_location=device)
-    cfg = ckpt["config"]
-    model = DemoGPT(vocab_size=cfg["vocab_size"], pad_id=cfg["pad_id"],
-                    max_len=cfg["max_len"]).to(device)
+    cfg = dict(ckpt["config"])
+    max_len = cfg["max_len"]
+    model = DemoGPT(**cfg).to(device)
     model.load_state_dict(ckpt["model_state_dict"])
     model.eval()
 
-    enc = tokenizer(texts, max_length=cfg["max_len"], padding="max_length",
+    enc = tokenizer(texts, max_length=max_len, padding="max_length",
                     truncation=True, return_tensors="pt").to(device)
     with torch.no_grad():
         logits = model(enc["input_ids"], enc["attention_mask"])
