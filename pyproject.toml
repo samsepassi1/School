@@ -1,0 +1,52 @@
+[project]
+name = "multimodal-moderation"
+version = "0.1.0"
+description = "AI-powered multimodal content moderation for ACME Enterprise customer service"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7",
+    "pydantic-ai>=0.0.14",
+    "pydantic-evals>=0.0.14",
+    "google-genai>=0.3.0",
+    "gradio>=4.44",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-dotenv>=1.0",
+    "opentelemetry-api>=1.27",
+    "opentelemetry-sdk>=1.27",
+    "opentelemetry-exporter-otlp>=1.27",
+    "openinference-instrumentation-google-genai>=0.1.0",
+    "arize-phoenix>=5.0",
+    "arize-phoenix-otel>=0.6",
+    "httpx>=0.27",
+    "pillow>=10.0",
+    "python-multipart>=0.0.9",
+]
+
+[project.scripts]
+multimodal-moderation = "main:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agents", "schemas", "evals"]
+include = [
+    "main.py",
+    "gradio_app.py",
+    "fastapi_app.py",
+    "tracing.py",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
