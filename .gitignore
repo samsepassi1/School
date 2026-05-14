@@ -1,0 +1,10 @@
+# multimodal-moderation
+.env
+.venv/
+uv.lock
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+phoenix_db/
+.phoenix/
