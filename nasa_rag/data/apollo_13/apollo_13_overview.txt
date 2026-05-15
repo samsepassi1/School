@@ -1,0 +1,13 @@
+Apollo 13 Mission Overview
+
+Apollo 13 was the seventh crewed mission in the Apollo space program and was intended to be the third Moon landing. The craft was launched from Kennedy Space Center on April 11, 1970, but the lunar landing was aborted after an oxygen tank in the service module ruptured two days into the mission, disabling its electrical and life-support systems. The crew, supported by backup systems aboard the Lunar Module Aquarius, instead looped around the Moon and returned safely to Earth on April 17, 1970.
+
+The crew consisted of Commander James A. Lovell, Command Module Pilot John L. "Jack" Swigert, and Lunar Module Pilot Fred W. Haise. Swigert was a late replacement for the original CMP Ken Mattingly, who had been exposed to German measles.
+
+The accident: At 55 hours and 55 minutes mission elapsed time, while the crew was performing a routine "cryo stir" of the oxygen tanks, an electrical short in oxygen tank no. 2 ignited the tank's Teflon insulation. The resulting fire caused the tank to rupture, venting its contents to space and damaging oxygen tank no. 1. The Service Module's fuel cells, which depended on oxygen and hydrogen for electricity, began to fail.
+
+At 03:08 UTC on April 14, Swigert reported to Mission Control: "Okay, Houston, we've had a problem here." When asked to repeat by CAPCOM Jack Lousma, Lovell responded: "Houston, we've had a problem. We've had a main B bus undervolt."
+
+Mission Control under Flight Director Gene Kranz reorganized the operation around survival. The crew shut down the Command Module Odyssey to preserve its batteries for re-entry and used the Lunar Module Aquarius as a "lifeboat." Critical improvisations included building a CO2 scrubber adapter from a plastic bag, cardboard from the flight plan, suit hoses, and duct tape so the Command Module's square lithium hydroxide canisters could be used in the Lunar Module's round receptacles.
+
+The crew executed a free-return trajectory burn followed by two additional burns to speed their return. They re-entered Earth's atmosphere on April 17, 1970, and splashed down safely in the South Pacific Ocean at 18:07:41 UTC, about 6.5 km from the recovery ship USS Iwo Jima.

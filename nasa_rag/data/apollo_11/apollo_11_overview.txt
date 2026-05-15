@@ -1,0 +1,16 @@
+Apollo 11 Mission Overview
+
+Apollo 11 was the American spaceflight that first landed humans on the Moon. Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969, at 20:17 UTC, and Armstrong became the first person to step onto the Moon's surface six hours and 39 minutes later, on July 21 at 02:56 UTC. Aldrin joined him 19 minutes later, and they spent about two and a quarter hours together exploring the site they had named Tranquility Base upon landing. Command Module Pilot Michael Collins flew the Command Module Columbia alone in lunar orbit while they were on the Moon's surface.
+
+Launch occurred from Kennedy Space Center, Florida on July 16, 1969, atop a Saturn V launch vehicle. The mission carried a crew of three: Neil Armstrong (Commander), Michael Collins (Command Module Pilot), and Edwin "Buzz" Aldrin Jr. (Lunar Module Pilot).
+
+Armstrong and Aldrin collected 21.55 kilograms (47.5 lb) of lunar material to be brought back to Earth. They left behind an American flag, a patch honoring the fallen Apollo 1 crew, and a plaque inscribed: "Here men from the planet Earth first set foot upon the Moon. July 1969 A.D. We came in peace for all mankind."
+
+Apollo 11 splashed down in the Pacific Ocean on July 24, 1969, at 16:50 UTC. The mission fulfilled President John F. Kennedy's 1961 goal of landing a man on the Moon and returning him safely to Earth before the end of the decade.
+
+Key Timeline:
+- July 16, 1969 13:32 UTC: Launch from LC-39A, Kennedy Space Center.
+- July 19, 1969 17:21 UTC: Lunar orbit insertion.
+- July 20, 1969 20:17 UTC: Eagle lands at Tranquility Base.
+- July 21, 1969 02:56 UTC: Armstrong steps onto the Moon.
+- July 24, 1969 16:50 UTC: Splashdown in the Pacific Ocean.
