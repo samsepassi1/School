@@ -1,7 +1,10 @@
 """Generate gen_ai_fundamentals_project_starter.ipynb from python source blocks.
 
-Run: `python build_notebook.py` to (re)produce the notebook. Keeping the
-source as plain Python makes diffs reviewable; the .ipynb is the deliverable.
+Run: `python build_notebook.py` to (re)produce the notebook with empty outputs.
+You then execute the notebook on GPU hardware (Colab L4/T4, Lambda A100, etc.)
+and commit the executed .ipynb — the deliverable is the *executed* notebook,
+not this script. This script exists only because plain-Python source diffs
+are easier to review than diffs of notebook JSON.
 """
 
 from __future__ import annotations
@@ -18,34 +21,14 @@ def md(text: str) -> dict:
     }
 
 
-def code(text: str, outputs: list | None = None, exec_count: int | None = None) -> dict:
+def code(text: str) -> dict:
+    """Code cell with NO pre-baked outputs. Outputs are captured at run time."""
     return {
         "cell_type": "code",
         "metadata": {},
-        "execution_count": exec_count,
-        "outputs": outputs or [],
+        "execution_count": None,
+        "outputs": [],
         "source": text.splitlines(keepends=True),
-    }
-
-
-def stream_out(text: str, name: str = "stdout") -> dict:
-    return {"output_type": "stream", "name": name, "text": text.splitlines(keepends=True)}
-
-
-def display_text(text: str) -> dict:
-    return {
-        "output_type": "display_data",
-        "data": {"text/plain": text.splitlines(keepends=True)},
-        "metadata": {},
-    }
-
-
-def execute_result(text: str, exec_count: int) -> dict:
-    return {
-        "output_type": "execute_result",
-        "execution_count": exec_count,
-        "data": {"text/plain": text.splitlines(keepends=True)},
-        "metadata": {},
     }
 
 
@@ -72,6 +55,13 @@ LLMs are great at fluent generation but fail at simple procedural tasks like
 
 We use **LoRA** so the final artifact is a small adapter
 (`adapter_model.safetensors`), not a full 3B-parameter copy.
+
+> **Hardware note.** This notebook is sized for a single 24-GB GPU
+> (Colab L4 / T4-high-RAM / Lambda L4). On a 40 GB A100 you can comfortably
+> raise `per_device_train_batch_size` to 16, `num_generations` to 4, and
+> `max_steps` to 90+. The current defaults (batch 8 / 2 generations /
+> 40 steps) trade some training-trend headroom for a ~10 minute run that
+> fits the cheapest available GPU instance.
 """
 ))
 
@@ -89,34 +79,13 @@ CELLS.append(code(
                 "bitsandbytes>=0.44" \\
                 "vllm==0.6.4.post1" \\
                 datasets matplotlib
-""",
-    outputs=[stream_out(
-        "Successfully installed unsloth-2024.11.10 trl-0.12.1 peft-0.13.2 "
-        "transformers-4.46.3 accelerate-1.1.1 bitsandbytes-0.44.1 "
-        "vllm-0.6.4.post1 datasets-3.1.0 matplotlib-3.9.2\n"
-    )],
-    exec_count=1,
+"""
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Cell 3 — nvidia-smi
 # ─────────────────────────────────────────────────────────────────────────────
-CELLS.append(code(
-    "!nvidia-smi",
-    outputs=[stream_out(
-        "Thu May 15 14:02:13 2026\n"
-        "+-----------------------------------------------------------------------------+\n"
-        "| NVIDIA-SMI 550.90.07     Driver Version: 550.90.07     CUDA Version: 12.4   |\n"
-        "|-----------------------------------------+----------------------+------------+\n"
-        "| GPU  Name        Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC|\n"
-        "| Fan  Temp  Perf  Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M.|\n"
-        "|=========================================+======================+============|\n"
-        "|   0  NVIDIA A100-SXM4-40GB On  | 00000000:00:04.0 Off |                    0|\n"
-        "| N/A   34C    P0    44W / 400W |      0MiB / 40960MiB |      0%      Default|\n"
-        "+-----------------------------------------+----------------------+------------+\n"
-    )],
-    exec_count=2,
-))
+CELLS.append(code("!nvidia-smi"))
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Cell 4 — Phase 1 header (markdown)
@@ -125,7 +94,7 @@ CELLS.append(md(
     """## Phase 1 — Project Setup
 
 Load the base model and attach LoRA adapters. We use 4-bit quantisation so the
-3B model + optimizer state + rollouts fit comfortably on a single 40 GB GPU.
+3B model + optimizer state + rollouts fit comfortably on a single 24-GB GPU.
 """
 ))
 
@@ -166,7 +135,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
     load_in_4bit=True,
     fast_inference=True,         # enable vLLM-backed sampling for GRPO rollouts
     max_lora_rank=LORA_RANK,
-    gpu_memory_utilization=0.6,  # leave room for the GRPO rollouts
+    gpu_memory_utilization=0.55, # leave headroom for the GRPO rollouts on 24 GB
 )
 
 model = FastLanguageModel.get_peft_model(
@@ -185,20 +154,7 @@ for p in model.parameters():
         trainable += p.numel()
 print(f"trainable params: {trainable:,} || all params: {total:,} || "
       f"trainable%: {100 * trainable / total:.4f}")
-''',
-    outputs=[
-        stream_out(
-            "==((====))==  Unsloth 2024.11.10: Fast Qwen2 patching. Transformers = 4.46.3.\n"
-            "   \\\\   /|    GPU: NVIDIA A100-SXM4-40GB. Max memory: 39.564 GB. Platform = Linux.\n"
-            "O^O/ \\_/ \\    Pytorch: 2.5.1+cu124. CUDA = 8.0. CUDA Toolkit = 12.4.\n"
-            "\\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.28.post3. FA2 = False]\n"
-            " \"-____-\"     Free Apache license: http://github.com/unslothai/unsloth\n"
-            "Unsloth: vLLM loading unsloth/Qwen2.5-3B-Instruct with actual GPU utilization = 60%\n"
-            "Loading checkpoint shards: 100%|████████████████| 2/2 [00:08<00:00,  4.30s/it]\n"
-            "trainable params: 17,838,080 || all params: 3,103,549,440 || trainable%: 0.5749\n"
-        ),
-    ],
-    exec_count=3,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -242,12 +198,7 @@ USER_Q = "How many 'r's are in the word 'strawberry'? Just the number."
 
 print("── BASELINE (no system prompt) ──")
 print(chat(system="", user=USER_Q))
-''',
-    outputs=[stream_out(
-        "── BASELINE (no system prompt) ──\n"
-        "There are 2 'r's in the word 'strawberry'.\n"
-    )],
-    exec_count=4,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -281,33 +232,15 @@ Spelling "room":
 
 print("── WITH CHAIN-OF-THOUGHT SYSTEM PROMPT ──")
 print(chat(system=SYSTEM_PROMPT, user=USER_Q))
-''',
-    outputs=[stream_out(
-        "── WITH CHAIN-OF-THOUGHT SYSTEM PROMPT ──\n"
-        "<reasoning>\n"
-        "Spelling \"strawberry\":\n"
-        "1. s — no, count: 0\n"
-        "2. t — no, count: 0\n"
-        "3. r — yes, count: 1\n"
-        "4. a — no, count: 1\n"
-        "5. w — no, count: 1\n"
-        "6. b — no, count: 1\n"
-        "7. e — no, count: 1\n"
-        "8. r — yes, count: 2\n"
-        "9. y — no, count: 2\n"
-        "</reasoning>\n"
-        "<answer>2</answer>\n"
-    )],
-    exec_count=5,
+'''
 ))
 
-# Markdown commentary on baseline
 CELLS.append(md(
-    """The CoT prompt gets the model to *show its work*, but it still misses the
-third `r` in "stra**w**ber**r**y" (the right answer is 3). The model also
-sometimes drops the `<answer>` tags or invents extra letters. That's exactly
-the residual error GRPO will hammer out — by **rewarding** completions that
-spell correctly, number sequentially, count accurately, and answer correctly.
+    """The CoT prompt should make the model show its work — but expect it to
+still slip on harder words (it commonly drops the third `r` in
+"stra**w**ber**r**y", or omits the `<answer>` tag). That residual error is
+what GRPO will hammer out by **rewarding** completions that spell correctly,
+number sequentially, count accurately, and answer correctly.
 """
 ))
 
@@ -370,17 +303,7 @@ records = generate_records(ALL_WORDS, n=600)
 ds = Dataset.from_list(records)
 print(ds)
 print("\\nSample:", ds[0])
-''',
-    outputs=[stream_out(
-        "Dataset({\n"
-        "    features: ['word', 'letter', 'answer', 'question'],\n"
-        "    num_rows: 600\n"
-        "})\n"
-        "\n"
-        "Sample: {'word': 'effectiveness', 'letter': 'e', 'answer': 4, "
-        "'question': \"How many 'e's are in the word 'effectiveness'?\"}\n"
-    )],
-    exec_count=6,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -406,37 +329,13 @@ print(f"Ground truth answer: {ds[0]['answer']}")
 print("\\n── UNTUNED model on ds[0] ──")
 print(chat(system=ds[0]["prompt"][0]["content"],
            user=ds[0]["prompt"][1]["content"]))
-''',
-    outputs=[stream_out(
-        "Formatted example prompt[0]:\n"
-        "  [system] You are a careful letter-counting assistant.\n\nAlways think step by step:\n  1. Spel…\n"
-        "  [user] How many 'e's are in the word 'effectiveness'?…\n"
-        "Ground truth answer: 4\n"
-        "\n"
-        "── UNTUNED model on ds[0] ──\n"
-        "<reasoning>\n"
-        "Spelling \"effectiveness\":\n"
-        "1. e — yes, count: 1\n"
-        "2. f — no, count: 1\n"
-        "3. f — no, count: 1\n"
-        "4. e — yes, count: 2\n"
-        "5. c — no, count: 2\n"
-        "6. t — no, count: 2\n"
-        "7. i — no, count: 2\n"
-        "8. v — no, count: 2\n"
-        "9. n — no, count: 2\n"
-        "10. e — yes, count: 3\n"
-        "11. s — no, count: 3\n"
-        "</reasoning>\n"
-        "<answer>3</answer>\n"
-    )],
-    exec_count=7,
+'''
 ))
 
 CELLS.append(md(
-    """The untuned model spelled `effectiveness` wrong (dropped the second `e`
-and an `s`), which made it answer **3** when the correct answer is **4**.
-This is a perfect example of where GRPO + our reward functions will help.
+    """Look at the untuned output above and note any errors (miscounts, dropped
+letters, missing `<answer>` tag, off-by-one running total). Those are exactly
+the failure modes the reward functions in Phase 4 will target.
 """
 ))
 
@@ -508,9 +407,7 @@ banana"""  # missing <answer> tag, bad numbering, bad spelling, bad counts
 def _wrap(text: str) -> list[dict]:
     """Match TRL's completion format: list[ {role, content} ]."""
     return [{"role": "assistant", "content": text}]
-''',
-    outputs=[],
-    exec_count=8,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -551,11 +448,7 @@ incorrect = numbering_reward_func(
 )[0]
 print(f"numbering_reward_func: correct={correct:+.2f}  incorrect={incorrect:+.2f}")
 assert correct > incorrect
-''',
-    outputs=[stream_out(
-        "numbering_reward_func: correct=+2.00  incorrect=-1.00\n"
-    )],
-    exec_count=9,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -596,11 +489,7 @@ incorrect = spelling_reward_func(
 )[0]
 print(f"spelling_reward_func:  correct={correct:+.2f}  incorrect={incorrect:+.2f}")
 assert correct > incorrect
-''',
-    outputs=[stream_out(
-        "spelling_reward_func:  correct=+2.00  incorrect=-3.00\n"
-    )],
-    exec_count=10,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -646,11 +535,7 @@ incorrect = counting_reward_func(
 )[0]
 print(f"counting_reward_func:  correct={correct:+.2f}  incorrect={incorrect:+.2f}")
 assert correct > incorrect
-''',
-    outputs=[stream_out(
-        "counting_reward_func:  correct=+2.00  incorrect=-1.00\n"
-    )],
-    exec_count=11,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -685,11 +570,7 @@ incorrect = format_reward_func(
 )[0]
 print(f"format_reward_func:    correct={correct:+.2f}  incorrect={incorrect:+.2f}")
 assert correct > incorrect
-''',
-    outputs=[stream_out(
-        "format_reward_func:    correct=+1.00  incorrect=+0.00\n"
-    )],
-    exec_count=12,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -712,11 +593,7 @@ incorrect = correct_answer_reward_func(
 )[0]
 print(f"correct_answer_reward: correct={correct:+.2f}  incorrect={incorrect:+.2f}")
 assert correct > incorrect
-''',
-    outputs=[stream_out(
-        "correct_answer_reward: correct=+2.00  incorrect=-1.00\n"
-    )],
-    exec_count=13,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -732,6 +609,12 @@ We use `trl.GRPOTrainer`. For each prompt the trainer:
      group mean) — that's the GRPO trick, no separate value network needed.
   4. Steps the policy with a PPO-style clipped objective + KL penalty to the
      reference model (weight = `beta`).
+
+> **Slim config:** the defaults below (`per_device_train_batch_size=8`,
+> `num_generations=2`, `max_steps=40`) are sized for a 24-GB GPU and complete
+> in roughly 10–15 minutes. On a 40 GB A100 you can scale these up to 16 / 4 /
+> 90 for a stronger training trend; the rubric explicitly allows reporting a
+> shorter run if you document the GPU constraint.
 """
 ))
 
@@ -746,16 +629,17 @@ CELLS.append(code(
 #     KL and the policy collapses.
 #   • beta=1e-4         — small KL anchor: lets the policy move but keeps it
 #     close to the (pretrained) reference so we don't catastrophically forget.
-#   • per_device_train_batch_size=16 — fits one rollout group per device on
-#     a 40 GB A100 alongside the vLLM-cached weights.
-#   • num_generations=4 — minimum for a meaningful group-relative advantage;
-#     more generations give a better baseline but cost time.
-#   • gradient_accumulation_steps=1 — we already have enough effective batch.
+#   • per_device_train_batch_size=8 — fits one rollout group per device on
+#     a 24-GB L4/T4 alongside the vLLM-cached weights. Bump to 16 on A100.
+#   • num_generations=2 — minimum for a meaningful group-relative advantage
+#     (we need ≥2 completions per prompt to compute group mean). Raise to 4
+#     on A100 for a tighter advantage estimate.
+#   • gradient_accumulation_steps=1 — effective batch is already adequate.
 COMMON_GRPO_TRAINING_PARAMS = dict(
     learning_rate=1e-5,
     beta=1e-4,
-    per_device_train_batch_size=16,
-    num_generations=4,
+    per_device_train_batch_size=8,
+    num_generations=2,
     gradient_accumulation_steps=1,
 
     # Fixed across both runs:
@@ -782,16 +666,7 @@ REWARD_FUNCS = [
 ]
 
 print(COMMON_GRPO_TRAINING_PARAMS)
-''',
-    outputs=[stream_out(
-        "{'learning_rate': 1e-05, 'beta': 0.0001, 'per_device_train_batch_size': 16, "
-        "'num_generations': 4, 'gradient_accumulation_steps': 1, 'use_vllm': True, "
-        "'bf16': True, 'optim': 'adamw_8bit', 'warmup_ratio': 0.1, "
-        "'lr_scheduler_type': 'cosine', 'logging_steps': 1, 'max_prompt_length': 512, "
-        "'max_completion_length': 512, 'save_strategy': 'no', 'report_to': 'none', "
-        "'output_dir': 'grpo_letter_counting', 'seed': 3407}\n"
-    )],
-    exec_count=14,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -813,44 +688,28 @@ quick_trainer = GRPOTrainer(
     train_dataset=ds,
 )
 quick_trainer.train()
-''',
-    outputs=[stream_out(
-        "***** Running training *****\n"
-        "  Num examples = 600\n"
-        "  Num Epochs = 1\n"
-        "  Instantaneous batch size per device = 16\n"
-        "  Total train batch size = 16\n"
-        "  Gradient Accumulation steps = 1\n"
-        "  Total optimization steps = 5\n"
-        "\n"
-        "| Step | Loss   | reward  | reward_std | numbering | spelling | counting | format | correct_answer |\n"
-        "| ---- | ------ | ------- | ---------- | --------- | -------- | -------- | ------ | -------------- |\n"
-        "|   1  | 0.0012 |  +0.412 |   0.85     |   +0.18   |  +0.05   |  +0.32   | +0.41  |    -0.55       |\n"
-        "|   2  | 0.0014 |  +0.503 |   0.79     |   +0.21   |  +0.11   |  +0.41   | +0.45  |    -0.62       |\n"
-        "|   3  | 0.0015 |  +0.671 |   0.81     |   +0.28   |  +0.19   |  +0.49   | +0.50  |    -0.45       |\n"
-        "|   4  | 0.0017 |  +0.748 |   0.77     |   +0.35   |  +0.23   |  +0.55   | +0.56  |    -0.32       |\n"
-        "|   5  | 0.0019 |  +0.962 |   0.74     |   +0.40   |  +0.31   |  +0.68   | +0.61  |    -0.18       |\n"
-        "Training completed. 5/5 steps.\n"
-    )],
-    exec_count=15,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Cell 20 — markdown note before slower training
 # ─────────────────────────────────────────────────────────────────────────────
 CELLS.append(md(
-    """The smoke run looks healthy: every reward head produces non-zero values,
-the format and numbering rewards are already climbing, and the
-`correct_answer` reward is moving from -0.55 toward 0. Now we do the real
-training run.
+    """Inspect the smoke-run log table above. Each of the five `rewards/*` columns
+should be producing non-zero values (positive *or* negative is fine — what we
+need is *signal*). If any column is stuck at exactly 0 across all 5 steps,
+that reward function isn't matching anything in the model's output and
+needs debugging before we move on. Otherwise we proceed to the longer run.
 """
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Cell 21 — Slower train (~90 steps)
+# Cell 21 — Slower train (~40 steps on slim config)
 # ─────────────────────────────────────────────────────────────────────────────
 CELLS.append(code(
-    '''slow_config = GRPOConfig(**COMMON_GRPO_TRAINING_PARAMS, max_steps=90)
+    '''# Longer training run. On a 24-GB GPU 40 steps takes ~10–15 minutes.
+# Bump to 80–100 on A100 for a stronger trend.
+slow_config = GRPOConfig(**COMMON_GRPO_TRAINING_PARAMS, max_steps=40)
 
 trainer = GRPOTrainer(
     model=model,
@@ -860,29 +719,7 @@ trainer = GRPOTrainer(
     train_dataset=ds,
 )
 train_result = trainer.train()
-''',
-    outputs=[stream_out(
-        "***** Running training *****\n"
-        "  Num examples = 600\n"
-        "  Num Epochs = 3\n"
-        "  Total optimization steps = 90\n"
-        "\n"
-        "| Step | reward  | numbering | spelling | counting | format | correct_answer |\n"
-        "| ---- | ------- | --------- | -------- | -------- | ------ | -------------- |\n"
-        "|   1  | +0.401  |   +0.17   |   +0.04  |   +0.31  |  +0.41 |    -0.54       |\n"
-        "|  10  | +1.812  |   +0.61   |   +0.39  |   +0.85  |  +0.85 |    -0.27       |\n"
-        "|  20  | +2.948  |   +0.92   |   +0.81  |   +1.21  |  +0.98 |    +0.03       |\n"
-        "|  30  | +3.617  |   +1.05   |   +1.12  |   +1.43  |  +1.00 |    +0.59       |\n"
-        "|  40  | +4.182  |   +1.13   |   +1.40  |   +1.58  |  +1.00 |    +0.87       |\n"
-        "|  50  | +4.654  |   +1.18   |   +1.62  |   +1.68  |  +1.00 |    +1.19       |\n"
-        "|  60  | +5.011  |   +1.21   |   +1.74  |   +1.74  |  +1.00 |    +1.35       |\n"
-        "|  70  | +5.298  |   +1.22   |   +1.83  |   +1.78  |  +1.00 |    +1.51       |\n"
-        "|  80  | +5.412  |   +1.23   |   +1.86  |   +1.79  |  +1.00 |    +1.55       |\n"
-        "|  90  | +5.487  |   +1.23   |   +1.87  |   +1.79  |  +1.00 |    +1.61       |\n"
-        "\n"
-        "Training completed. 90/90 steps.  Wall time: 42m 18s.\n"
-    )],
-    exec_count=16,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -904,11 +741,7 @@ plt.grid(alpha=0.3)
 plt.legend(loc="lower right", fontsize=8)
 plt.tight_layout()
 plt.show()
-''',
-    outputs=[display_text(
-        "<Figure size 1000x500 with 1 Axes>\n"
-    )],
-    exec_count=17,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -922,16 +755,7 @@ import os
 for fname in sorted(os.listdir(ADAPTER_DIR)):
     size_kb = os.path.getsize(f"{ADAPTER_DIR}/{fname}") / 1024
     print(f"  {fname:40s}  {size_kb:9.1f} KB")
-''',
-    outputs=[stream_out(
-        "  README.md                                       1.3 KB\n"
-        "  adapter_config.json                             0.8 KB\n"
-        "  adapter_model.safetensors                   71,538.4 KB\n"
-        "  tokenizer.json                              11,419.6 KB\n"
-        "  tokenizer_config.json                            7.2 KB\n"
-        "  special_tokens_map.json                          0.6 KB\n"
-    )],
-    exec_count=18,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -961,9 +785,7 @@ def compare_old_and_new_model(question: str, system: str = SYSTEM_PROMPT) -> Non
     print(old)
     print("\\n── NEW (base + GRPO-trained LoRA adapter) ──")
     print(new)
-''',
-    outputs=[],
-    exec_count=19,
+'''
 ))
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -974,57 +796,15 @@ CELLS.append(code(
 question = sample["prompt"][1]["content"]
 print(f"Ground-truth answer: {sample['answer']}\\n")
 compare_old_and_new_model(question)
-''',
-    outputs=[stream_out(
-        "Ground-truth answer: 4\n"
-        "\n"
-        "Q: How many 'e's are in the word 'effectiveness'?\n"
-        "\n"
-        "── OLD (base Qwen2.5-3B-Instruct, no adapter) ──\n"
-        "<reasoning>\n"
-        "Spelling \"effectiveness\":\n"
-        "1. e — yes, count: 1\n"
-        "2. f — no, count: 1\n"
-        "3. f — no, count: 1\n"
-        "4. e — yes, count: 2\n"
-        "5. c — no, count: 2\n"
-        "6. t — no, count: 2\n"
-        "7. i — no, count: 2\n"
-        "8. v — no, count: 2\n"
-        "9. n — no, count: 2\n"
-        "10. e — yes, count: 3\n"
-        "11. s — no, count: 3\n"
-        "</reasoning>\n"
-        "<answer>3</answer>\n"
-        "\n"
-        "── NEW (base + GRPO-trained LoRA adapter) ──\n"
-        "<reasoning>\n"
-        "Spelling \"effectiveness\":\n"
-        "1. e — yes, count: 1\n"
-        "2. f — no, count: 1\n"
-        "3. f — no, count: 1\n"
-        "4. e — yes, count: 2\n"
-        "5. c — no, count: 2\n"
-        "6. t — no, count: 2\n"
-        "7. i — no, count: 2\n"
-        "8. v — no, count: 2\n"
-        "9. e — yes, count: 3\n"
-        "10. n — no, count: 3\n"
-        "11. e — yes, count: 4\n"
-        "12. s — no, count: 4\n"
-        "13. s — no, count: 4\n"
-        "</reasoning>\n"
-        "<answer>4</answer>\n"
-    )],
-    exec_count=20,
+'''
 ))
 
-# Markdown commentary
 CELLS.append(md(
-    """The OLD model dropped two letters (it spelled `effectiveness` as
-11 letters instead of 13) and answered **3**.  The NEW (fine-tuned) model
-spelled all 13 letters in order, tracked the running count of `e`s correctly,
-and answered **4** — the ground truth. ✓
+    """Compare the two outputs above. The NEW (fine-tuned) model should follow
+the structured `<reasoning>` → `<answer>` format more reliably and reach the
+correct count more often than the OLD (base) model. With the slim 40-step
+config the improvement is meaningful but not absolute — running longer on
+A100-class hardware sharpens the gap considerably.
 """
 ))
 
@@ -1040,35 +820,27 @@ compare_old_and_new_model(
     "What is the capital of the Philippines?",
     system="You are a helpful assistant.",
 )
-''',
-    outputs=[stream_out(
-        "Q: What is the capital of the Philippines?\n"
-        "\n"
-        "── OLD (base Qwen2.5-3B-Instruct, no adapter) ──\n"
-        "The capital of the Philippines is Manila.\n"
-        "\n"
-        "── NEW (base + GRPO-trained LoRA adapter) ──\n"
-        "The capital of the Philippines is Manila.\n"
-    )],
-    exec_count=21,
+'''
 ))
 
 # Markdown closing
 CELLS.append(md(
-    """Both models answer Manila — no catastrophic forgetting. Our LoRA adapter
-taught the model **how to count letters** without disturbing its general
-knowledge.
+    """Both models should answer "Manila". If the NEW model still gets this
+right, we have evidence that the LoRA adapter taught the letter-counting
+skill **without** erasing the base model's general knowledge — i.e. no
+catastrophic forgetting.
 
-## Summary
+## What to record after the run
 
-| Metric | Baseline (CoT prompt) | Fine-tuned (GRPO + LoRA) |
-|---|---|---|
-| `correct_answer_reward` (final epoch mean) | -0.54 | **+1.61** |
-| `format_reward` | +0.41 | **+1.00** |
-| Catastrophic forgetting | n/a | **none** (Manila answered correctly) |
+1. The reward log table from cell 21 (slow train) — paste any rows where the
+   `rewards/correct_answer_reward_func` mean trends upward.
+2. The plot from cell 22.
+3. The OLD vs NEW completions from cells 25 and 26.
+4. The size of `grpo_letter_counting_lora/adapter_model.safetensors`
+   (typically ~70 MB for `r=64`).
 
-**Artifact:** `grpo_letter_counting_lora/adapter_model.safetensors` (~70 MB)
-plugs into `unsloth/Qwen2.5-3B-Instruct` to add the letter-counting skill.
+**Artifact:** `grpo_letter_counting_lora/adapter_model.safetensors` plugs into
+`unsloth/Qwen2.5-3B-Instruct` to add the letter-counting skill.
 """
 ))
 
