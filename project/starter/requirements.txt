@@ -1,0 +1,10 @@
+unsloth==2024.11.10
+trl==0.12.1
+peft>=0.13
+transformers>=4.46
+accelerate>=1.1
+bitsandbytes>=0.44
+vllm==0.6.4.post1
+datasets
+matplotlib
+pandas
