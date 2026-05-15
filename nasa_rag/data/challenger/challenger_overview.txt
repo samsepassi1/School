@@ -1,0 +1,18 @@
+STS-51-L Challenger Mission Overview
+
+The Space Shuttle Challenger disaster occurred on January 28, 1986, when the Space Shuttle Challenger (mission STS-51-L) broke apart 73 seconds into flight, killing all seven crew members. The spacecraft disintegrated over the Atlantic Ocean off the coast of Cape Canaveral, Florida, at 16:39:13 UTC.
+
+The crew of STS-51-L:
+- Francis R. "Dick" Scobee, Commander
+- Michael J. Smith, Pilot
+- Ellison S. Onizuka, Mission Specialist
+- Judith A. Resnik, Mission Specialist
+- Ronald E. McNair, Mission Specialist
+- Gregory B. Jarvis, Payload Specialist
+- Sharon Christa McAuliffe, Payload Specialist (Teacher in Space Project)
+
+The disintegration of the orbiter began after a joint in its right solid rocket booster (SRB) failed at liftoff. The failure was caused by the O-ring seals used in the joint that were not designed to handle the unusually cold conditions that existed at this launch. The seals' failure caused a breach in the SRB joint, allowing pressurized burning gas from within the solid rocket motor to reach the outside and impinge upon the adjacent SRB attachment hardware and external fuel tank. This led to the separation of the right-hand SRB's aft attachment and the structural failure of the external tank. Aerodynamic forces broke up the orbiter.
+
+The launch took place at 16:38:00 UTC after several days of delays and on a morning when air temperature was about 36°F (2°C), well below the temperature at which any previous shuttle had been launched. The crew compartment, designed to remain intact, detached from the disintegrating orbiter and fell into the ocean. Evidence indicates that some of the crew survived the initial breakup; whether they survived until water impact is unknown.
+
+Aftermath: NASA grounded the Space Shuttle fleet for nearly three years pending investigation and redesign by the Rogers Commission. Vice Chairman Neil Armstrong, Sally Ride, and physicist Richard Feynman were among the commission members. Feynman's famous public demonstration—dropping an O-ring sample into a glass of ice water and showing it lost resilience—dramatized the technical finding.

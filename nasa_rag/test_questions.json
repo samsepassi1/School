@@ -1,0 +1,38 @@
+[
+  {
+    "question": "Give me a high-level overview of the Apollo 11 mission.",
+    "category": "overview",
+    "mission": "Apollo 11",
+    "reference": "Apollo 11 was the first crewed lunar landing, launched July 16, 1969 from Kennedy Space Center on a Saturn V. Neil Armstrong and Buzz Aldrin landed in the Lunar Module Eagle at Tranquility Base on July 20, 1969; Michael Collins remained in lunar orbit aboard Columbia. The crew returned with 21.55 kg of lunar samples and splashed down in the Pacific on July 24, 1969."
+  },
+  {
+    "question": "What problems did Apollo 13 encounter and how was the crew brought home safely?",
+    "category": "emergency",
+    "mission": "Apollo 13",
+    "reference": "An electrical short ignited oxygen tank 2, rupturing it and damaging tank 1. The crew used the Lunar Module Aquarius as a lifeboat, executed a PC+2 burn, and improvised a CO2 scrubber adapter. They splashed down safely on April 17, 1970."
+  },
+  {
+    "question": "What was the technical root cause of the Challenger disaster and which factors contributed?",
+    "category": "disaster analysis",
+    "mission": "Challenger",
+    "reference": "The right SRB joint's O-rings failed at the cold launch temperature, breaching the joint and allowing hot gas to impinge on the external tank. Contributing factors included a temperature-sensitive O-ring design, an overridden engineer recommendation against launch, internal communication failures, and schedule pressure."
+  },
+  {
+    "question": "Who were the crew members of STS-51-L Challenger?",
+    "category": "crew",
+    "mission": "Challenger",
+    "reference": "Dick Scobee, Michael Smith, Ellison Onizuka, Judith Resnik, Ronald McNair, Gregory Jarvis, and Christa McAuliffe."
+  },
+  {
+    "question": "What were the 1201 and 1202 program alarms during the Apollo 11 landing?",
+    "category": "technical",
+    "mission": "Apollo 11",
+    "reference": "Executive-overflow alarms from the Lunar Module guidance computer; Steve Bales cleared them as non-critical and the landing continued."
+  },
+  {
+    "question": "Give me the key timeline of Apollo 11 from launch to splashdown.",
+    "category": "timeline",
+    "mission": "Apollo 11",
+    "reference": "Launch July 16, 1969 13:32 UTC; lunar orbit insertion July 19 17:21 UTC; Eagle landing July 20 20:17 UTC; first step July 21 02:56 UTC; splashdown July 24 16:50 UTC."
+  }
+]
