@@ -1,0 +1,24 @@
+Rogers Commission Findings on the Challenger Disaster
+
+The Presidential Commission on the Space Shuttle Challenger Accident, chaired by former Secretary of State William P. Rogers, was established by President Ronald Reagan on February 3, 1986. The commission submitted its final report on June 6, 1986.
+
+Primary technical cause:
+The Commission concluded that the loss of Space Shuttle Challenger was caused by a failure in the joint between the two lower segments of the right Solid Rocket Motor. The specific failure was the destruction of the seals (the primary and secondary O-rings) that are intended to prevent hot gases from leaking through the joint during the propellant burn. The evidence assembled by the Commission indicated that no other element of the Space Shuttle system contributed to this failure.
+
+Contributing factors identified:
+1. The O-ring design was vulnerable to a number of factors, particularly cold temperature. At the temperature at launch (about 36°F), the O-rings lost the resilience needed to seal the joint.
+2. Morton Thiokol engineers, including Roger Boisjoly and Allan McDonald, raised concerns the night before launch about O-ring performance in cold weather and initially recommended against launching. Under pressure from NASA managers, Thiokol management reversed the engineers' recommendation.
+3. Communication failures within NASA prevented critical information about O-ring concerns from reaching senior decision-makers. The flight readiness review process did not adequately surface the O-ring problem despite a history of partial O-ring erosion on prior missions.
+4. Schedule pressure to meet flight rates contributed to acceptance of higher risk.
+
+Famous public demonstration:
+Commission member and physicist Richard P. Feynman performed a now-famous demonstration during a public hearing: he placed a small piece of O-ring material in a clamp, submerged it in a glass of ice water for several minutes, and then showed that the material did not spring back to its original shape. His conclusion: "I believe that has some significance for our problem."
+
+Recommendations:
+The Commission made nine recommendations, including:
+- Redesign the SRB joint and seal.
+- Establish an independent Office of Safety, Reliability, and Quality Assurance.
+- Restructure shuttle program management and improve communication channels.
+- Improve the flight readiness review and certification process.
+- Provide for crew escape capability in some flight regimes.
+- Carefully review the shuttle flight rate to ensure it is consistent with resources.

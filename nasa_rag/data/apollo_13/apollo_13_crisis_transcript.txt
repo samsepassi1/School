@@ -1,0 +1,22 @@
+Apollo 13 Crisis Transcript (Excerpt)
+
+055:54:53 Swigert: Okay, Houston, we've had a problem here.
+055:55:19 Lousma (CAPCOM): This is Houston. Say again, please.
+055:55:20 Lovell: Houston, we've had a problem. We've had a main B bus undervolt.
+055:55:35 Lousma: Roger, main B undervolt. Okay, stand by, 13, we're looking at it.
+
+The crew quickly reported additional anomalies: Quad C and Quad D thruster activity, a master alarm, and an attitude excursion. Within minutes, Mission Control observed that O2 tank 2 quantity had dropped to zero and O2 tank 1 pressure was steadily falling. Fuel cells 1 and 3 had failed.
+
+056:09:07 Lovell: It looks to me, looking out the hatch, that we are venting something. We are venting something out into space.
+056:09:22 Lousma: Roger, we copy you're venting.
+056:09:30 Lovell: It's a gas of some sort.
+
+Flight Director Gene Kranz convened his white team and instructed: "Let's everybody keep cool. We've got the LM still attached. The LM spacecraft is good." He famously rejected pessimism in the control room: "Failure is not an option." (The phrase was popularized by the film; in the actual transcripts Kranz's directive was that the crew was going to come home.)
+
+Key engineering decisions:
+1. Power-down the Command Module Odyssey to a minimal cold-soak configuration to preserve its 2,181 amp-hour entry batteries.
+2. Use the Lunar Module Aquarius as a lifeboat. Aquarius was designed for two men for 45 hours on the lunar surface; it would now have to support three men for nearly 90 hours.
+3. Execute a "PC+2" burn 2 hours after pericynthion using the LM's descent propulsion system to shorten the return trip by 10 hours.
+4. Construct a CO2 scrubber "mailbox" adapter using a plastic stowage bag, a sock, a flight-plan cover, suit hoses, and gray tape, so the CM's square LiOH canisters could function in the LM.
+
+The crew endured cold cabin temperatures of approximately 38°F (3°C), water rationing of 6 ounces per person per day, and minimal sleep. They successfully re-entered and splashed down on April 17, 1970.
