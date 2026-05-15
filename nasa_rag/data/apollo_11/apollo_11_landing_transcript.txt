@@ -1,0 +1,21 @@
+Apollo 11 Lunar Module Landing Transcript (Excerpt)
+
+102:45:40 Aldrin: 100 feet, 3 1/2 down, 9 forward. Five percent. Quantity light.
+102:45:45 Aldrin: Seventy-five feet. Looking good. Down a half, 6 forward.
+102:45:54 Duke (CAPCOM): 60 seconds.
+102:45:57 Aldrin: Lights on. Down 2 1/2. Forward. Forward. Good.
+102:46:01 Aldrin: 40 feet, down 2 1/2. Kicking up some dust.
+102:46:07 Aldrin: 30 feet, 2 1/2 down. Faint shadow.
+102:46:16 Aldrin: 4 forward. 4 forward. Drifting to the right a little. Six... down a half.
+102:46:25 Duke: 30 seconds.
+102:46:31 Aldrin: Contact light.
+102:46:37 Armstrong: Shutdown.
+102:46:38 Aldrin: Okay. Engine stop.
+102:46:43 Aldrin: ACA out of detent.
+102:46:45 Armstrong: Out of detent. Auto.
+102:46:46 Aldrin: Mode control, both auto. Descent engine command override, off. Engine arm, off. 413 is in.
+102:46:57 Duke: We copy you down, Eagle.
+102:47:11 Armstrong: Houston, Tranquility Base here. The Eagle has landed.
+102:47:16 Duke: Roger, Tranquility. We copy you on the ground. You got a bunch of guys about to turn blue. We're breathing again. Thanks a lot.
+
+The landing was notable for the program alarms 1201 and 1202 raised by the Lunar Module's guidance computer during the final descent, indicating executive overflow. Steve Bales, the guidance officer, and his back room engineers determined the alarms were not critical and gave the call to continue the landing. Armstrong manually piloted the Lunar Module past a boulder-strewn area, landing with approximately 25 seconds of fuel remaining.

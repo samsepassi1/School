@@ -1,0 +1,41 @@
+NASA Mission Intelligence — Evaluation Dataset
+================================================
+Each entry below was used to manually test the RAG system. The "Expected"
+text is a paraphrase of what the answer should contain, drawn from the
+ingested source files under ./data. Categories: overview, emergency,
+disaster analysis, crew, technical, timeline.
+
+Q: Give me a high-level overview of the Apollo 11 mission.
+Mission: Apollo 11
+Category: overview
+Expected: Apollo 11 was the first crewed lunar landing, launched July 16, 1969 from Kennedy Space Center on a Saturn V. Neil Armstrong and Buzz Aldrin landed in the Lunar Module Eagle at Tranquility Base on July 20, 1969; Michael Collins remained in lunar orbit aboard Columbia. The crew returned with 21.55 kg of lunar samples and splashed down in the Pacific on July 24, 1969.
+
+Q: What problems did Apollo 13 encounter and how was the crew brought home safely?
+Mission: Apollo 13
+Category: emergency
+Expected: At ~55 hours 55 minutes mission elapsed time an electrical short ignited oxygen tank 2, which ruptured and damaged tank 1, knocking out the fuel cells. The crew used the Lunar Module Aquarius as a lifeboat, executed a PC+2 burn with the LM descent engine, jury-rigged a CO2 scrubber adapter from plastic bag, cardboard, suit hoses, and duct tape, and re-entered safely on April 17, 1970.
+
+Q: What was the technical root cause of the Challenger disaster and which factors contributed?
+Mission: Challenger
+Category: disaster analysis
+Expected: The Rogers Commission concluded the right SRB joint's primary and secondary O-rings failed at the cold launch temperature (~36F), allowing hot gases to breach the joint, impinge on the external tank, and trigger aerodynamic breakup. Contributing factors included a temperature-sensitive O-ring design, Morton Thiokol engineers' overridden no-launch recommendation, internal communication failures, and schedule pressure.
+
+Q: Who were the crew members of STS-51-L Challenger?
+Mission: Challenger
+Category: crew
+Expected: Dick Scobee (Commander), Michael J. Smith (Pilot), Ellison Onizuka, Judith Resnik, Ronald McNair (Mission Specialists), Gregory Jarvis (Payload Specialist), and Christa McAuliffe (Teacher in Space Payload Specialist).
+
+Q: What were the 1201 and 1202 program alarms during the Apollo 11 landing?
+Mission: Apollo 11
+Category: technical
+Expected: They were executive-overflow alarms raised by the Lunar Module's guidance computer during final descent. Guidance officer Steve Bales and his back-room engineers determined the alarms were not critical and cleared Eagle to continue. Armstrong then piloted past a boulder field, landing with about 25 seconds of fuel remaining.
+
+Q: Give me the key timeline of Apollo 11 from launch to splashdown.
+Mission: Apollo 11
+Category: timeline
+Expected: Launch July 16, 1969 13:32 UTC from LC-39A; lunar orbit insertion July 19 17:21 UTC; Eagle landing July 20 20:17 UTC at Tranquility Base; Armstrong's first step July 21 02:56 UTC; Pacific splashdown July 24 16:50 UTC.
+
+Q: What was the first exchange between Apollo 13 and Mission Control after the oxygen tank explosion?
+Mission: Apollo 13
+Category: timeline
+Expected: At about 55h 55m MET Jack Swigert reported "Okay, Houston, we've had a problem here." CAPCOM Jack Lousma asked him to repeat, and Jim Lovell radioed "Houston, we've had a problem. We've had a main B bus undervolt." Within minutes Lovell also reported "It looks to me, looking out the hatch, that we are venting something out into space."
