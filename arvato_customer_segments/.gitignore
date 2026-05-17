@@ -1,0 +1,9 @@
+# Proprietary Arvato/Udacity data files - do not commit
+*.csv
+*.zip
+*.html
+
+# Local env / notebooks
+.venv/
+.ipynb_checkpoints/
+__pycache__/
