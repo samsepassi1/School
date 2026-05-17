@@ -7,3 +7,6 @@
 .venv/
 .ipynb_checkpoints/
 __pycache__/
+
+# Allow helper scripts
+!run_and_package_submission.py
