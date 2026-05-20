@@ -1,0 +1,1351 @@
+shot_id,game_id,player_name,shot_type,shot_zone_basic,shot_distance,shot_made_flag,result,period,minutes_remaining,loc_x,loc_y
+289,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,3,7,127,120
+1036,002200167,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),2,0,Missed,1,1,-11,125
+535,002200133,Stephen Curry,3PT Field Goal,Left Corner 3,26,0,Missed,1,0,27,353
+346,002200122,Stephen Curry,3PT Field Goal,Left Corner 3,26,1,Made,4,7,-13,134
+1075,002200170,Stephen Curry,2PT Field Goal,Mid-Range,8,1,Made,1,0,-95,66
+782,002200149,Stephen Curry,2PT Field Goal,Restricted Area,6,1,Made,4,5,54,101
+303,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,4,0,149,395
+754,002200147,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),3,1,Made,4,2,120,188
+536,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,10,61,434
+76,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,4,-182,98
+405,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,1,6,203,200
+1308,002200104,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),21,0,Missed,2,8,190,187
+915,002200158,Stephen Curry,2PT Field Goal,Restricted Area,8,0,Missed,4,3,117,147
+551,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,3,0,70,190
+1221,002200180,Stephen Curry,2PT Field Goal,Restricted Area,1,0,Missed,1,10,159,197
+43,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,1,2,-247,34
+259,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,10,209,0
+115,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,2,9,-223,77
+585,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,4,5,-124,274
+1046,002200168,Stephen Curry,2PT Field Goal,Mid-Range,8,1,Made,4,5,191,175
+78,002200106,Stephen Curry,3PT Field Goal,Right Corner 3,31,1,Made,1,9,-118,162
+49,002200104,Stephen Curry,3PT Field Goal,Left Corner 3,30,1,Made,3,6,226,169
+367,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,1,5,242,197
+1054,002200168,Stephen Curry,2PT Field Goal,Restricted Area,11,0,Missed,1,0,-197,201
+1029,002200166,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,0,Missed,2,4,154,91
+624,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,2,9,41,244
+390,002200124,Stephen Curry,3PT Field Goal,Left Corner 3,24,1,Made,1,11,-177,7
+316,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,11,37,127
+1006,002200165,Stephen Curry,2PT Field Goal,Restricted Area,3,1,Made,4,8,-220,134
+869,002200155,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,0,Missed,4,2,151,174
+1032,002200167,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,3,2,-182,3
+358,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,3,3,-63,56
+1001,002200164,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),17,0,Missed,4,10,-1,17
+394,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,7,-150,415
+233,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,2,5,181,443
+67,002200105,Stephen Curry,3PT Field Goal,Left Corner 3,33,0,Missed,2,0,-83,329
+296,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,3,5,-209,287
+168,002200111,Stephen Curry,3PT Field Goal,Right Corner 3,26,1,Made,2,9,135,194
+867,002200155,Stephen Curry,2PT Field Goal,Mid-Range,15,0,Missed,4,11,-134,40
+934,002200160,Stephen Curry,2PT Field Goal,Mid-Range,2,0,Missed,2,6,-207,9
+1057,002200168,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,1,Made,1,1,-118,40
+51,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,3,11,120,142
+265,002200117,Stephen Curry,3PT Field Goal,Right Corner 3,23,1,Made,4,6,-28,183
+196,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,2,4,-15,184
+901,002200157,Stephen Curry,2PT Field Goal,Restricted Area,12,1,Made,4,11,-194,25
+32,002200103,Stephen Curry,3PT Field Goal,Left Corner 3,25,0,Missed,3,3,238,416
+922,002200159,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,1,Made,3,11,-87,143
+552,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,1,-147,270
+903,002200157,Stephen Curry,2PT Field Goal,Mid-Range,15,1,Made,4,9,-186,78
+1251,002200100,Stephen Curry,2PT Field Goal,Mid-Range,3,1,Made,1,11,-25,189
+163,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,3,2,221,442
+885,002200156,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),14,0,Missed,4,5,65,97
+220,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,3,-9,323
+939,002200160,Stephen Curry,2PT Field Goal,Restricted Area,1,1,Made,3,10,-97,52
+618,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,1,7,-192,438
+101,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,2,2,128,305
+275,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,5,204,88
+721,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,4,0,76,362
+730,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,1,2,-145,138
+1307,002200104,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),12,1,Made,2,11,182,151
+889,002200156,Stephen Curry,2PT Field Goal,Mid-Range,5,1,Made,4,5,20,112
+427,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,2,0,104,423
+1041,002200167,Stephen Curry,2PT Field Goal,Mid-Range,15,0,Missed,2,4,101,181
+374,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,4,11,78,300
+208,002200114,Stephen Curry,3PT Field Goal,Right Corner 3,30,1,Made,4,9,-242,462
+192,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,3,9,-68,363
+715,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,7,194,142
+1024,002200166,Stephen Curry,2PT Field Goal,Mid-Range,10,1,Made,1,6,-130,69
+1218,002200180,Stephen Curry,2PT Field Goal,Mid-Range,4,1,Made,1,10,156,127
+63,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,2,9,-5,324
+1105,002200172,Stephen Curry,2PT Field Goal,Mid-Range,5,1,Made,3,11,135,27
+940,002200160,Stephen Curry,2PT Field Goal,Mid-Range,15,0,Missed,1,9,32,13
+581,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,2,2,-3,347
+882,002200156,Stephen Curry,2PT Field Goal,Restricted Area,17,0,Missed,1,10,-189,160
+44,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,4,4,-245,98
+628,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,5,-12,194
+218,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,2,245,325
+847,002200153,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,1,Made,3,7,23,124
+1070,002200169,Stephen Curry,2PT Field Goal,Restricted Area,17,0,Missed,3,5,-101,169
+909,002200158,Stephen Curry,2PT Field Goal,Mid-Range,1,1,Made,2,1,-22,12
+458,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,2,11,-230,299
+464,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,0,120,146
+254,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,3,1,124,292
+1094,002200171,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,0,Missed,2,1,-132,140
+527,002200132,Stephen Curry,3PT Field Goal,Left Corner 3,33,0,Missed,1,9,-215,100
+432,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,1,10,82,126
+799,002200150,Stephen Curry,2PT Field Goal,Mid-Range,3,1,Made,3,10,-3,3
+1039,002200167,Stephen Curry,2PT Field Goal,Mid-Range,20,0,Missed,3,5,34,25
+802,002200150,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,4,3,200,16
+1065,002200169,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,1,Made,4,0,-120,1
+1254,002200100,Stephen Curry,2PT Field Goal,Restricted Area,19,0,Missed,4,8,-187,123
+506,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,1,5,140,223
+420,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,4,3,-216,464
+1233,002200181,Stephen Curry,2PT Field Goal,Restricted Area,0,1,Made,3,3,-18,23
+1116,002200173,Stephen Curry,2PT Field Goal,Mid-Range,6,1,Made,4,7,147,46
+716,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,7,-88,59
+1027,002200166,Stephen Curry,2PT Field Goal,Mid-Range,18,1,Made,2,9,-142,169
+479,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,1,7,-140,414
+415,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,1,7,57,88
+438,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,1,56,330
+679,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,4,6,-77,327
+610,002200137,Stephen Curry,3PT Field Goal,Left Corner 3,28,0,Missed,2,0,-189,16
+777,002200148,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,3,4,-2,88
+727,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,2,11,-153,170
+1050,002200168,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,1,9,215,152
+823,002200152,Stephen Curry,2PT Field Goal,Restricted Area,18,1,Made,2,8,11,211
+1325,002200105,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,1,10,128,195
+560,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,10,-208,457
+184,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,5,103,11
+247,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,3,5,-214,351
+567,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,7,153,28
+65,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,1,246,383
+1157,002200175,Stephen Curry,2PT Field Goal,Restricted Area,7,1,Made,1,3,-74,27
+788,002200149,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,4,7,-169,117
+353,002200122,Stephen Curry,3PT Field Goal,Left Corner 3,32,0,Missed,1,8,-139,12
+309,002200120,Stephen Curry,3PT Field Goal,Right Corner 3,27,0,Missed,4,10,-108,341
+244,002200116,Stephen Curry,3PT Field Goal,Left Corner 3,31,0,Missed,2,8,-63,361
+917,002200158,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,2,9,-67,173
+578,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,4,9,169,72
+908,002200158,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),14,0,Missed,4,11,-12,63
+865,002200155,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,4,8,-112,128
+1083,002200170,Stephen Curry,2PT Field Goal,Restricted Area,11,0,Missed,4,10,-107,124
+58,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,2,9,-129,0
+413,002200126,Stephen Curry,3PT Field Goal,Left Corner 3,34,0,Missed,4,8,0,123
+1232,002200181,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),20,0,Missed,4,11,57,147
+237,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,1,8,-205,159
+650,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,1,42,432
+23,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,4,8,8,358
+678,002200141,Stephen Curry,3PT Field Goal,Left Corner 3,27,0,Missed,2,0,148,460
+344,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,2,-77,112
+701,002200143,Stephen Curry,3PT Field Goal,Left Corner 3,25,1,Made,2,6,117,128
+589,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,9,112,122
+846,002200153,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),5,0,Missed,3,10,-182,30
+712,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,1,4,-140,384
+429,002200127,Stephen Curry,3PT Field Goal,Left Corner 3,25,1,Made,1,9,44,340
+668,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,2,8,196,331
+778,002200148,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),11,1,Made,1,10,202,53
+874,002200155,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),1,1,Made,1,6,194,191
+306,002200119,Stephen Curry,3PT Field Goal,Left Corner 3,22,1,Made,3,11,-213,225
+221,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,3,5,-58,21
+1186,002200178,Stephen Curry,2PT Field Goal,Restricted Area,11,0,Missed,1,8,202,169
+81,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,5,88,135
+1127,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,1,Made,3,8,-129,180
+461,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,6,90,7
+350,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,3,6,-143,366
+478,002200130,Stephen Curry,3PT Field Goal,Left Corner 3,23,1,Made,1,6,-89,233
+1257,002200101,Stephen Curry,2PT Field Goal,Restricted Area,13,1,Made,1,9,-122,60
+1230,002200181,Stephen Curry,2PT Field Goal,Restricted Area,1,0,Missed,1,1,-178,153
+807,002200150,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,4,4,111,28
+787,002200149,Stephen Curry,2PT Field Goal,Mid-Range,1,1,Made,2,5,209,115
+534,002200133,Stephen Curry,3PT Field Goal,Right Corner 3,31,0,Missed,4,3,92,265
+1055,002200168,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,0,Missed,1,10,22,181
+503,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,0,17,181
+944,002200160,Stephen Curry,2PT Field Goal,Mid-Range,20,1,Made,3,4,-164,125
+818,002200151,Stephen Curry,2PT Field Goal,Restricted Area,13,0,Missed,4,8,106,14
+1279,002200102,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),3,1,Made,3,8,-217,75
+175,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,4,-224,312
+231,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,4,2,98,447
+261,002200117,Stephen Curry,3PT Field Goal,Left Corner 3,33,0,Missed,2,5,-143,250
+906,002200158,Stephen Curry,2PT Field Goal,Mid-Range,9,0,Missed,1,1,-63,148
+1004,002200165,Stephen Curry,2PT Field Goal,Mid-Range,4,0,Missed,3,3,-54,211
+1053,002200168,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,4,8,38,45
+1290,002200103,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,2,2,-119,53
+892,002200157,Stephen Curry,2PT Field Goal,Mid-Range,15,1,Made,3,9,52,37
+933,002200159,Stephen Curry,2PT Field Goal,Restricted Area,20,1,Made,3,8,46,165
+277,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,5,223,266
+845,002200153,Stephen Curry,2PT Field Goal,Restricted Area,7,1,Made,1,1,124,124
+1139,002200174,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,0,Missed,1,4,173,170
+631,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,1,3,106,339
+1114,002200172,Stephen Curry,2PT Field Goal,Mid-Range,2,1,Made,3,3,194,68
+56,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,9,-93,146
+666,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,3,2,209,423
+1265,002200101,Stephen Curry,2PT Field Goal,Restricted Area,9,1,Made,2,5,113,195
+575,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,3,-186,82
+1244,002200100,Stephen Curry,2PT Field Goal,Restricted Area,0,0,Missed,4,3,-33,81
+583,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,0,115,68
+1110,002200172,Stephen Curry,2PT Field Goal,Mid-Range,4,0,Missed,4,4,128,19
+86,002200107,Stephen Curry,3PT Field Goal,Right Corner 3,33,0,Missed,2,7,166,421
+123,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,2,3,99,330
+1281,002200102,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),12,1,Made,2,4,-155,9
+965,002200162,Stephen Curry,2PT Field Goal,Mid-Range,13,0,Missed,1,5,103,180
+322,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,3,-127,421
+943,002200160,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,3,1,73,151
+1336,002200106,Stephen Curry,2PT Field Goal,Mid-Range,15,0,Missed,1,1,59,154
+613,002200138,Stephen Curry,3PT Field Goal,Right Corner 3,30,0,Missed,2,2,-133,232
+1288,002200103,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,3,7,60,45
+886,002200156,Stephen Curry,2PT Field Goal,Mid-Range,17,1,Made,4,7,-151,213
+852,002200154,Stephen Curry,2PT Field Goal,Restricted Area,3,0,Missed,3,11,-184,73
+128,002200109,Stephen Curry,3PT Field Goal,Right Corner 3,25,1,Made,2,0,-231,112
+532,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,4,10,95,205
+1103,002200172,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),2,0,Missed,3,8,83,64
+1030,002200166,Stephen Curry,2PT Field Goal,Mid-Range,12,0,Missed,1,6,205,46
+1202,002200179,Stephen Curry,2PT Field Goal,Restricted Area,9,1,Made,4,6,4,198
+1137,002200174,Stephen Curry,2PT Field Goal,Restricted Area,17,0,Missed,1,1,177,117
+428,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,5,-202,301
+1163,002200176,Stephen Curry,2PT Field Goal,Restricted Area,16,1,Made,2,8,77,97
+174,002200112,Stephen Curry,3PT Field Goal,Left Corner 3,30,0,Missed,2,0,-86,152
+371,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,1,11,113,187
+1150,002200175,Stephen Curry,2PT Field Goal,Restricted Area,1,0,Missed,1,6,-158,174
+1155,002200175,Stephen Curry,2PT Field Goal,Restricted Area,18,1,Made,3,2,-11,40
+1063,002200169,Stephen Curry,2PT Field Goal,Restricted Area,17,1,Made,2,8,181,21
+1310,002200104,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,1,0,-151,103
+1335,002200106,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,4,9,-4,142
+806,002200150,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,1,9,-188,201
+29,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,2,0,4,293
+985,002200163,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,1,Made,2,2,85,160
+664,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,1,11,195,342
+240,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,3,9,247,142
+1081,002200170,Stephen Curry,2PT Field Goal,Restricted Area,20,1,Made,2,11,-35,48
+31,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,3,10,169,402
+363,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,3,0,-105,318
+210,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,3,4,65,175
+312,002200120,Stephen Curry,3PT Field Goal,Left Corner 3,26,1,Made,1,10,-121,418
+1249,002200100,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,0,Missed,2,0,4,50
+912,002200158,Stephen Curry,2PT Field Goal,Restricted Area,4,1,Made,4,8,97,215
+1224,002200180,Stephen Curry,2PT Field Goal,Mid-Range,2,1,Made,3,11,81,35
+352,002200122,Stephen Curry,3PT Field Goal,Right Corner 3,29,0,Missed,1,9,103,9
+1303,002200104,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,1,Made,1,11,49,151
+70,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,3,10,162,375
+513,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,1,9,-226,393
+1091,002200171,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),16,1,Made,4,1,-55,105
+964,002200162,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),2,0,Missed,1,1,112,102
+239,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,0,-174,115
+1066,002200169,Stephen Curry,2PT Field Goal,Mid-Range,0,0,Missed,4,6,214,211
+433,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,7,205,444
+594,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,1,4,-9,454
+697,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,2,8,39,66
+724,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,3,2,-5,135
+765,002200147,Stephen Curry,2PT Field Goal,Restricted Area,8,1,Made,3,8,5,175
+572,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,1,5,-231,40
+598,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,2,0,118,212
+467,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,10,-169,91
+48,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,2,10,239,385
+1212,002200179,Stephen Curry,2PT Field Goal,Mid-Range,13,1,Made,2,0,218,109
+113,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,5,-12,55
+155,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,5,93,160
+820,002200151,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,1,Made,2,8,85,11
+482,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,2,8,-37,30
+792,002200149,Stephen Curry,2PT Field Goal,Mid-Range,13,1,Made,2,11,217,214
+1142,002200174,Stephen Curry,2PT Field Goal,Restricted Area,0,1,Made,2,0,116,42
+481,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,4,0,-18,157
+849,002200153,Stephen Curry,2PT Field Goal,Restricted Area,19,1,Made,3,4,55,78
+706,002200143,Stephen Curry,3PT Field Goal,Right Corner 3,29,1,Made,3,2,-211,241
+1339,002200106,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,4,4,-80,8
+339,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,1,3,131,323
+1334,002200106,Stephen Curry,2PT Field Goal,Restricted Area,6,1,Made,1,8,-34,30
+198,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,7,-93,323
+1333,002200106,Stephen Curry,2PT Field Goal,Restricted Area,8,0,Missed,3,0,-175,17
+700,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,1,1,220,350
+270,002200117,Stephen Curry,3PT Field Goal,Left Corner 3,22,0,Missed,1,7,94,301
+630,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,6,186,462
+670,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,1,0,246,228
+107,002200108,Stephen Curry,3PT Field Goal,Left Corner 3,25,0,Missed,2,1,11,52
+1158,002200176,Stephen Curry,2PT Field Goal,Mid-Range,0,0,Missed,4,2,65,21
+297,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,3,3,136,72
+1262,002200101,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,4,4,207,7
+1320,002200105,Stephen Curry,2PT Field Goal,Restricted Area,20,0,Missed,4,2,-114,125
+370,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,6,247,418
+988,002200163,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,2,5,-196,155
+1010,002200165,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,1,Made,1,11,50,77
+1115,002200172,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,3,3,-205,115
+243,002200116,Stephen Curry,3PT Field Goal,Left Corner 3,32,0,Missed,2,10,-167,207
+377,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,2,9,241,375
+629,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,3,11,154,377
+1174,002200177,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,2,7,4,57
+1280,002200102,Stephen Curry,2PT Field Goal,Mid-Range,5,1,Made,3,6,93,18
+435,002200127,Stephen Curry,3PT Field Goal,Left Corner 3,28,0,Missed,3,6,-74,174
+722,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,2,9,-123,397
+54,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,2,7,-198,59
+382,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,3,5,-153,64
+755,002200147,Stephen Curry,2PT Field Goal,Mid-Range,1,0,Missed,2,9,-91,193
+109,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,1,7,137,359
+1040,002200167,Stephen Curry,2PT Field Goal,Restricted Area,15,1,Made,1,4,38,179
+548,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,5,-102,455
+1342,002200107,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,1,9,116,157
+1203,002200179,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,3,3,7,219
+774,002200148,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,1,3,122,103
+573,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,1,1,163,308
+1295,002200103,Stephen Curry,2PT Field Goal,Restricted Area,12,1,Made,1,2,99,51
+970,002200162,Stephen Curry,2PT Field Goal,Restricted Area,1,0,Missed,4,3,128,168
+983,002200163,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,1,Made,3,0,-129,112
+1338,002200106,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,1,Made,2,5,174,73
+170,002200111,Stephen Curry,3PT Field Goal,Right Corner 3,27,1,Made,4,0,-49,157
+286,002200118,Stephen Curry,3PT Field Goal,Left Corner 3,28,0,Missed,2,0,175,444
+621,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,9,63,356
+209,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,11,212,37
+767,002200148,Stephen Curry,2PT Field Goal,Mid-Range,1,0,Missed,1,11,-120,155
+140,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,2,6,160,419
+942,002200160,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),0,0,Missed,3,5,25,188
+1144,002200175,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),16,1,Made,2,11,-79,171
+199,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,4,8,148,304
+365,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,10,148,197
+398,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,1,3,167,153
+809,002200151,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,1,Made,2,5,200,185
+10,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,3,11,-61,295
+147,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,3,7,65,170
+993,002200164,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,3,9,-179,58
+282,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,4,3,-48,50
+298,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,3,0,65,129
+494,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,2,4,89,466
+291,002200119,Stephen Curry,3PT Field Goal,Left Corner 3,28,0,Missed,3,1,152,163
+570,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,6,136,265
+873,002200155,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,0,Missed,3,0,-187,189
+916,002200158,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),11,0,Missed,1,10,50,219
+1349,002200107,Stephen Curry,2PT Field Goal,Restricted Area,13,0,Missed,2,0,115,138
+490,002200130,Stephen Curry,3PT Field Goal,Left Corner 3,33,1,Made,3,1,148,306
+899,002200157,Stephen Curry,2PT Field Goal,Restricted Area,16,0,Missed,3,5,-71,31
+714,002200143,Stephen Curry,3PT Field Goal,Left Corner 3,22,0,Missed,2,9,-110,144
+410,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,2,2,-104,29
+135,002200109,Stephen Curry,3PT Field Goal,Left Corner 3,24,0,Missed,1,4,88,378
+900,002200157,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,3,5,-10,145
+756,002200147,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,1,Made,3,6,24,158
+1149,002200175,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,1,Made,2,4,167,218
+1175,002200177,Stephen Curry,2PT Field Goal,Restricted Area,11,0,Missed,1,10,-166,105
+1119,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,0,Missed,2,9,-192,150
+599,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,5,174,117
+158,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,6,184,378
+1167,002200176,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),14,1,Made,4,0,-60,174
+919,002200158,Stephen Curry,2PT Field Goal,Mid-Range,16,1,Made,2,2,142,48
+1170,002200176,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,1,Made,1,0,12,194
+816,002200151,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,1,Made,4,7,-99,83
+411,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,7,19,153
+1201,002200179,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,2,4,72,115
+930,002200159,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,3,2,-150,47
+1146,002200175,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,4,10,-7,23
+1005,002200165,Stephen Curry,2PT Field Goal,Mid-Range,1,1,Made,3,5,-62,22
+331,002200121,Stephen Curry,3PT Field Goal,Left Corner 3,34,0,Missed,2,1,63,443
+96,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,5,64,282
+812,002200151,Stephen Curry,2PT Field Goal,Restricted Area,15,1,Made,4,6,191,219
+894,002200157,Stephen Curry,2PT Field Goal,Restricted Area,2,1,Made,4,0,87,84
+522,002200132,Stephen Curry,3PT Field Goal,Right Corner 3,32,0,Missed,4,8,81,138
+526,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,3,10,-167,87
+156,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,1,1,218,48
+529,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,10,126,348
+528,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,1,9,1,359
+579,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,0,79,369
+351,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,2,7,-122,363
+514,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,4,7,-183,350
+945,002200160,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),17,1,Made,1,8,23,95
+1022,002200166,Stephen Curry,2PT Field Goal,Mid-Range,2,1,Made,1,10,16,70
+842,002200153,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),12,1,Made,2,0,-68,172
+342,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,1,0,173,401
+354,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,5,-239,208
+308,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,2,3,-61,406
+430,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,8,14,343
+783,002200149,Stephen Curry,2PT Field Goal,Mid-Range,12,1,Made,1,5,-169,110
+1117,002200173,Stephen Curry,2PT Field Goal,Restricted Area,17,1,Made,3,10,-206,35
+707,002200143,Stephen Curry,3PT Field Goal,Right Corner 3,29,0,Missed,4,4,127,236
+660,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,1,7,-191,137
+1178,002200177,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,1,9,-81,100
+124,002200109,Stephen Curry,3PT Field Goal,Left Corner 3,29,1,Made,4,6,136,242
+178,002200112,Stephen Curry,3PT Field Goal,Right Corner 3,22,1,Made,1,3,120,281
+287,002200118,Stephen Curry,3PT Field Goal,Right Corner 3,25,1,Made,1,5,134,171
+1300,002200104,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,0,Missed,1,8,134,115
+1121,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,1,Made,3,4,138,183
+294,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,8,7,319
+485,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,1,6,13,465
+1151,002200175,Stephen Curry,2PT Field Goal,Mid-Range,6,1,Made,3,11,202,189
+361,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,2,2,155,151
+1168,002200176,Stephen Curry,2PT Field Goal,Mid-Range,8,1,Made,2,0,-16,148
+968,002200162,Stephen Curry,2PT Field Goal,Mid-Range,17,1,Made,1,3,60,214
+88,002200107,Stephen Curry,3PT Field Goal,Right Corner 3,25,0,Missed,3,3,190,401
+1089,002200171,Stephen Curry,2PT Field Goal,Mid-Range,0,0,Missed,3,0,14,17
+447,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,1,6,-55,420
+1210,002200179,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,4,0,-94,192
+771,002200148,Stephen Curry,2PT Field Goal,Mid-Range,17,0,Missed,3,6,144,122
+1087,002200170,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,1,6,-86,25
+1013,002200165,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,1,4,172,218
+720,002200144,Stephen Curry,3PT Field Goal,Right Corner 3,33,0,Missed,3,2,152,403
+290,002200119,Stephen Curry,3PT Field Goal,Right Corner 3,22,0,Missed,1,4,-183,49
+285,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,4,10,12,350
+1327,002200106,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),17,0,Missed,3,6,166,195
+1278,002200102,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),11,1,Made,3,11,-173,90
+462,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,10,-134,353
+739,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,2,5,80,271
+266,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,3,6,133,125
+327,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,2,0,-63,394
+348,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,3,3,32,49
+380,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,3,9,76,85
+59,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,3,7,-14,372
+422,002200126,Stephen Curry,3PT Field Goal,Left Corner 3,30,0,Missed,2,3,-158,405
+1273,002200102,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,0,Missed,2,2,64,17
+425,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,3,6,171,261
+881,002200156,Stephen Curry,2PT Field Goal,Restricted Area,13,1,Made,4,6,162,96
+1225,002200180,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,3,6,-82,35
+810,002200151,Stephen Curry,2PT Field Goal,Restricted Area,10,1,Made,4,1,-25,112
+864,002200155,Stephen Curry,2PT Field Goal,Restricted Area,15,0,Missed,2,7,138,58
+843,002200153,Stephen Curry,2PT Field Goal,Restricted Area,1,1,Made,4,1,0,146
+333,002200121,Stephen Curry,3PT Field Goal,Right Corner 3,28,1,Made,3,2,-182,415
+1191,002200178,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,2,7,158,19
+1258,002200101,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,4,7,184,204
+591,002200136,Stephen Curry,3PT Field Goal,Left Corner 3,27,1,Made,4,9,-66,204
+1211,002200179,Stephen Curry,2PT Field Goal,Restricted Area,10,1,Made,2,4,119,192
+471,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,4,9,47,319
+588,002200136,Stephen Curry,3PT Field Goal,Left Corner 3,28,1,Made,2,11,102,181
+898,002200157,Stephen Curry,2PT Field Goal,Mid-Range,13,0,Missed,3,6,-125,146
+824,002200152,Stephen Curry,2PT Field Goal,Restricted Area,1,0,Missed,1,9,171,5
+963,002200162,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,1,Made,1,8,-209,68
+328,002200121,Stephen Curry,3PT Field Goal,Left Corner 3,28,0,Missed,1,3,-217,51
+497,002200131,Stephen Curry,3PT Field Goal,Left Corner 3,23,1,Made,1,8,-85,458
+318,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,3,2,36,4
+1042,002200167,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),5,0,Missed,4,10,43,96
+83,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,5,-84,90
+129,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,3,10,105,332
+780,002200149,Stephen Curry,2PT Field Goal,Restricted Area,16,1,Made,2,3,105,7
+12,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,1,6,-242,343
+538,002200133,Stephen Curry,3PT Field Goal,Left Corner 3,26,0,Missed,2,3,28,361
+171,002200112,Stephen Curry,3PT Field Goal,Right Corner 3,22,0,Missed,2,0,-237,8
+596,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,3,4,-190,318
+1237,002200181,Stephen Curry,2PT Field Goal,Mid-Range,9,1,Made,1,9,129,159
+260,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,1,4,-76,203
+672,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,1,5,-131,219
+1314,002200105,Stephen Curry,2PT Field Goal,Mid-Range,12,1,Made,1,11,187,178
+676,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,1,4,-1,83
+1111,002200172,Stephen Curry,2PT Field Goal,Restricted Area,17,1,Made,1,8,195,25
+1284,002200103,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,4,10,-44,62
+332,002200121,Stephen Curry,3PT Field Goal,Left Corner 3,28,0,Missed,3,10,-37,199
+355,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,2,10,149,242
+138,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,1,211,308
+381,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,1,11,191,42
+292,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,1,2,-143,225
+1098,002200171,Stephen Curry,2PT Field Goal,Mid-Range,10,1,Made,2,3,-92,90
+493,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,3,0,-227,363
+141,002200110,Stephen Curry,3PT Field Goal,Left Corner 3,34,0,Missed,1,6,38,253
+904,002200157,Stephen Curry,2PT Field Goal,Mid-Range,0,0,Missed,4,6,-150,2
+1106,002200172,Stephen Curry,2PT Field Goal,Mid-Range,7,0,Missed,2,2,-145,203
+558,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,5,126,432
+139,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,2,140,178
+1182,002200177,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,1,0,-169,90
+1043,002200167,Stephen Curry,2PT Field Goal,Restricted Area,20,1,Made,2,5,120,191
+224,002200115,Stephen Curry,3PT Field Goal,Left Corner 3,31,0,Missed,1,1,179,225
+651,002200140,Stephen Curry,3PT Field Goal,Right Corner 3,31,1,Made,3,11,173,298
+274,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,2,1,-169,396
+323,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,2,2,-244,154
+451,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,7,192,66
+409,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,3,6,192,90
+325,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,2,9,220,313
+597,002200137,Stephen Curry,3PT Field Goal,Right Corner 3,34,1,Made,2,6,101,388
+299,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,2,7,-201,66
+723,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,3,11,149,189
+636,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,4,9,200,364
+549,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,3,10,-89,254
+1252,002200100,Stephen Curry,2PT Field Goal,Mid-Range,18,1,Made,2,9,-120,28
+1272,002200102,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,4,5,175,44
+1000,002200164,Stephen Curry,2PT Field Goal,Restricted Area,12,0,Missed,3,10,94,95
+1298,002200104,Stephen Curry,2PT Field Goal,Mid-Range,3,1,Made,3,8,144,107
+752,002200147,Stephen Curry,2PT Field Goal,Mid-Range,3,0,Missed,1,4,183,86
+1026,002200166,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,2,4,53,165
+1160,002200176,Stephen Curry,2PT Field Goal,Restricted Area,1,1,Made,4,1,128,201
+947,002200160,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),1,0,Missed,2,7,161,86
+1228,002200181,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),2,0,Missed,1,10,50,108
+626,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,3,1,-157,221
+1172,002200177,Stephen Curry,2PT Field Goal,Restricted Area,6,1,Made,1,0,-165,117
+602,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,4,4,-117,107
+477,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,1,-206,60
+615,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,4,1,-27,135
+745,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,2,6,149,269
+321,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,3,-148,39
+910,002200158,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,1,9,-18,73
+798,002200150,Stephen Curry,2PT Field Goal,Mid-Range,17,1,Made,2,3,-60,0
+952,002200161,Stephen Curry,2PT Field Goal,Mid-Range,18,0,Missed,1,10,89,207
+1100,002200171,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,3,6,93,173
+486,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,1,1,-124,74
+39,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,1,0,-183,288
+30,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,2,0,-50,123
+242,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,3,7,77,177
+737,002200145,Stephen Curry,3PT Field Goal,Left Corner 3,30,1,Made,3,3,-203,225
+958,002200161,Stephen Curry,2PT Field Goal,Mid-Range,9,0,Missed,3,8,-40,109
+136,002200109,Stephen Curry,3PT Field Goal,Right Corner 3,30,0,Missed,4,8,151,295
+310,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,4,9,-85,81
+1125,002200173,Stephen Curry,2PT Field Goal,Restricted Area,16,0,Missed,1,2,-205,167
+582,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,3,7,-212,368
+1080,002200170,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,3,5,153,54
+1192,002200178,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),17,1,Made,4,5,-117,160
+744,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,1,9,-43,291
+1340,002200107,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,2,5,-165,30
+553,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,9,-84,125
+3,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,1,8,-202,58
+111,002200108,Stephen Curry,3PT Field Goal,Left Corner 3,23,1,Made,2,5,154,325
+759,002200147,Stephen Curry,2PT Field Goal,Mid-Range,9,0,Missed,4,11,-202,153
+1164,002200176,Stephen Curry,2PT Field Goal,Mid-Range,17,1,Made,4,4,89,83
+861,002200154,Stephen Curry,2PT Field Goal,Restricted Area,12,0,Missed,4,9,-187,35
+1031,002200166,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),1,1,Made,4,9,-173,94
+1193,002200178,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),1,1,Made,1,9,-108,61
+936,002200160,Stephen Curry,2PT Field Goal,Restricted Area,18,1,Made,2,6,-217,169
+376,002200124,Stephen Curry,3PT Field Goal,Left Corner 3,27,1,Made,4,1,-91,247
+617,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,3,197,220
+453,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,2,9,234,121
+1199,002200178,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,0,Missed,2,5,51,199
+314,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,3,5,-13,380
+439,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,8,-212,27
+442,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,1,0,-124,222
+1093,002200171,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,2,9,202,139
+319,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,1,2,414
+661,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,2,3,-150,281
+925,002200159,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),16,0,Missed,4,11,196,12
+5,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,4,78,166
+100,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,3,1,97,94
+424,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,2,91,193
+926,002200159,Stephen Curry,2PT Field Goal,Mid-Range,11,0,Missed,1,11,83,167
+649,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,7,-133,19
+622,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,2,234,210
+731,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,2,138,415
+423,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,4,2,-119,310
+1287,002200103,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,2,8,-169,181
+1293,002200103,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,1,11,-63,19
+634,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,2,6,-147,76
+1101,002200171,Stephen Curry,2PT Field Goal,Mid-Range,14,0,Missed,2,9,78,207
+654,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,4,8,168,178
+227,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,4,192,83
+584,002200136,Stephen Curry,3PT Field Goal,Right Corner 3,32,1,Made,2,2,67,313
+665,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,4,9,-70,183
+803,002200150,Stephen Curry,2PT Field Goal,Restricted Area,15,1,Made,3,3,-191,157
+566,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,4,3,-69,390
+66,002200105,Stephen Curry,3PT Field Goal,Left Corner 3,33,0,Missed,2,11,-218,416
+858,002200154,Stephen Curry,2PT Field Goal,Mid-Range,8,0,Missed,2,8,218,34
+811,002200151,Stephen Curry,2PT Field Goal,Restricted Area,1,1,Made,4,5,205,24
+211,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,2,-65,322
+643,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,4,-200,148
+1285,002200103,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),21,1,Made,2,10,111,14
+542,002200133,Stephen Curry,3PT Field Goal,Left Corner 3,23,1,Made,4,6,-70,247
+953,002200161,Stephen Curry,2PT Field Goal,Mid-Range,20,1,Made,1,1,-164,111
+1213,002200179,Stephen Curry,2PT Field Goal,Mid-Range,20,0,Missed,3,8,-219,85
+838,002200153,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),20,0,Missed,3,0,122,147
+984,002200163,Stephen Curry,2PT Field Goal,Restricted Area,20,1,Made,1,0,-152,57
+875,002200155,Stephen Curry,2PT Field Goal,Restricted Area,7,1,Made,2,1,-12,100
+1214,002200180,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,1,Made,1,5,-132,153
+1322,002200105,Stephen Curry,2PT Field Goal,Mid-Range,8,0,Missed,3,4,-37,186
+1260,002200101,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),2,1,Made,3,6,69,42
+817,002200151,Stephen Curry,2PT Field Goal,Restricted Area,2,1,Made,1,6,-205,76
+273,002200118,Stephen Curry,3PT Field Goal,Left Corner 3,34,0,Missed,2,10,73,97
+1253,002200100,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),6,1,Made,2,6,56,64
+362,002200123,Stephen Curry,3PT Field Goal,Left Corner 3,27,1,Made,1,3,-59,18
+2,002200102,Stephen Curry,3PT Field Goal,Right Corner 3,33,1,Made,4,1,-59,443
+6,002200102,Stephen Curry,3PT Field Goal,Right Corner 3,23,1,Made,2,9,-198,385
+311,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,5,-184,335
+543,002200133,Stephen Curry,3PT Field Goal,Right Corner 3,26,1,Made,4,8,-2,187
+918,002200158,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),20,0,Missed,1,0,77,18
+1331,002200106,Stephen Curry,2PT Field Goal,Mid-Range,8,1,Made,3,10,104,56
+215,002200114,Stephen Curry,3PT Field Goal,Right Corner 3,30,0,Missed,1,6,175,393
+561,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,2,7,-229,370
+27,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,2,6,234,223
+941,002200160,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,3,1,-54,19
+708,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,4,4,-178,58
+554,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,1,5,11,339
+1247,002200100,Stephen Curry,2PT Field Goal,Mid-Range,14,0,Missed,4,8,104,104
+677,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,3,9,-137,432
+693,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,2,9,37,464
+256,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,11,-185,162
+25,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,3,0,67,441
+336,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,2,2,140,27
+47,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,9,72,359
+106,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,3,3,-113,183
+1009,002200165,Stephen Curry,2PT Field Goal,Mid-Range,18,1,Made,3,6,-102,161
+55,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,3,99,46
+850,002200154,Stephen Curry,2PT Field Goal,Mid-Range,12,0,Missed,1,9,-32,94
+213,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,8,18,362
+120,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,1,5,-217,110
+711,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,1,-4,30
+605,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,1,2,-133,398
+72,002200106,Stephen Curry,3PT Field Goal,Right Corner 3,25,0,Missed,2,6,-155,151
+1261,002200101,Stephen Curry,2PT Field Goal,Mid-Range,17,0,Missed,4,1,-189,105
+590,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,10,-214,334
+45,002200104,Stephen Curry,3PT Field Goal,Right Corner 3,34,0,Missed,2,4,-156,98
+989,002200163,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),14,1,Made,2,2,163,96
+523,002200132,Stephen Curry,3PT Field Goal,Right Corner 3,28,0,Missed,1,5,215,153
+710,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,3,5,-31,377
+705,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,3,-160,17
+746,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,4,2,148,227
+533,002200133,Stephen Curry,3PT Field Goal,Right Corner 3,34,0,Missed,3,10,-169,323
+465,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,4,6,-1,227
+998,002200164,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,0,Missed,1,0,-92,78
+1176,002200177,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,1,Made,2,6,154,35
+638,002200139,Stephen Curry,3PT Field Goal,Left Corner 3,32,1,Made,1,11,53,290
+60,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,6,200,75
+92,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,4,10,196,144
+872,002200155,Stephen Curry,2PT Field Goal,Restricted Area,14,0,Missed,1,8,133,215
+194,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,6,-24,169
+280,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,2,10,181,342
+359,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,2,-35,228
+519,002200132,Stephen Curry,3PT Field Goal,Left Corner 3,31,0,Missed,1,2,227,5
+695,002200142,Stephen Curry,3PT Field Goal,Left Corner 3,31,1,Made,2,7,-154,446
+1197,002200178,Stephen Curry,2PT Field Goal,Mid-Range,5,0,Missed,4,8,-31,174
+182,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,3,1,-178,200
+110,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,3,1,-190,121
+1220,002200180,Stephen Curry,2PT Field Goal,Restricted Area,10,1,Made,3,0,120,56
+946,002200160,Stephen Curry,2PT Field Goal,Restricted Area,9,0,Missed,3,3,205,31
+204,002200113,Stephen Curry,3PT Field Goal,Left Corner 3,27,0,Missed,4,0,-242,98
+673,002200141,Stephen Curry,3PT Field Goal,Left Corner 3,24,1,Made,1,1,-43,405
+1216,002200180,Stephen Curry,2PT Field Goal,Mid-Range,19,0,Missed,2,7,123,130
+545,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,1,3,225,331
+814,002200151,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,0,Missed,3,9,50,198
+793,002200149,Stephen Curry,2PT Field Goal,Restricted Area,10,0,Missed,4,9,188,53
+832,002200152,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),21,1,Made,1,11,198,187
+620,002200138,Stephen Curry,3PT Field Goal,Left Corner 3,22,1,Made,2,11,231,316
+183,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,3,9,-226,38
+137,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,3,0,-228,62
+796,002200150,Stephen Curry,2PT Field Goal,Mid-Range,20,1,Made,2,3,201,63
+80,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,2,7,-81,392
+1096,002200171,Stephen Curry,2PT Field Goal,Mid-Range,2,0,Missed,3,9,-101,186
+999,002200164,Stephen Curry,2PT Field Goal,Restricted Area,2,1,Made,3,2,144,75
+541,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,4,3,231,23
+914,002200158,Stephen Curry,2PT Field Goal,Mid-Range,9,1,Made,3,1,-179,211
+480,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,2,7,131,54
+165,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,1,7,51,399
+248,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,2,194,92
+307,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,1,110,340
+962,002200162,Stephen Curry,2PT Field Goal,Mid-Range,3,1,Made,4,4,141,152
+614,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,2,-112,180
+334,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,1,8,-164,42
+97,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,0,154,310
+868,002200155,Stephen Curry,2PT Field Goal,Mid-Range,0,0,Missed,1,3,-56,186
+772,002200148,Stephen Curry,2PT Field Goal,Mid-Range,20,1,Made,3,6,-15,197
+1015,002200165,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,2,7,-113,216
+1102,002200172,Stephen Curry,2PT Field Goal,Mid-Range,18,0,Missed,2,6,101,165
+1007,002200165,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,3,9,137,123
+1205,002200179,Stephen Curry,2PT Field Goal,Mid-Range,12,0,Missed,3,6,-206,56
+718,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,3,1,-105,387
+1222,002200180,Stephen Curry,2PT Field Goal,Mid-Range,12,0,Missed,1,0,169,177
+302,002200119,Stephen Curry,3PT Field Goal,Right Corner 3,34,0,Missed,3,8,60,207
+1107,002200172,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,2,10,-152,98
+388,002200124,Stephen Curry,3PT Field Goal,Left Corner 3,23,0,Missed,1,2,205,43
+235,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,3,1,115,94
+1124,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,1,Made,1,4,-210,90
+1296,002200103,Stephen Curry,2PT Field Goal,Mid-Range,17,1,Made,4,8,-80,167
+305,002200119,Stephen Curry,3PT Field Goal,Right Corner 3,33,0,Missed,1,4,-167,453
+1195,002200178,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,4,10,173,98
+1345,002200107,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,2,7,169,88
+249,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,4,-92,441
+1112,002200172,Stephen Curry,2PT Field Goal,Restricted Area,0,1,Made,3,4,-208,146
+938,002200160,Stephen Curry,2PT Field Goal,Mid-Range,1,0,Missed,1,2,46,190
+71,002200106,Stephen Curry,3PT Field Goal,Left Corner 3,30,0,Missed,3,4,206,407
+94,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,7,35,241
+691,002200142,Stephen Curry,3PT Field Goal,Right Corner 3,33,0,Missed,3,5,-104,183
+33,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,1,11,190,433
+969,002200162,Stephen Curry,2PT Field Goal,Mid-Range,2,1,Made,3,4,-75,170
+448,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,2,9,193,401
+445,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,4,8,-188,22
+1033,002200167,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,3,5,-18,154
+855,002200154,Stephen Curry,2PT Field Goal,Mid-Range,17,0,Missed,2,6,-12,129
+857,002200154,Stephen Curry,2PT Field Goal,Mid-Range,4,1,Made,1,10,161,110
+77,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,4,6,-107,56
+84,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,2,1,-31,125
+682,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,1,4,-157,148
+82,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,1,6,-34,300
+457,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,9,103,415
+808,002200151,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,3,6,152,171
+932,002200159,Stephen Curry,2PT Field Goal,Mid-Range,4,1,Made,3,4,-212,14
+436,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,2,3,-169,146
+644,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,5,158,13
+741,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,3,3,236,245
+1078,002200170,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,1,11,-174,129
+404,002200125,Stephen Curry,3PT Field Goal,Left Corner 3,32,0,Missed,3,3,130,271
+1177,002200177,Stephen Curry,2PT Field Goal,Mid-Range,1,0,Missed,2,1,63,187
+764,002200147,Stephen Curry,2PT Field Goal,Restricted Area,15,0,Missed,2,9,-132,65
+813,002200151,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),12,1,Made,4,4,-6,196
+104,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,1,87,285
+609,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,3,4,31,304
+680,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,3,4,246,155
+762,002200147,Stephen Curry,2PT Field Goal,Mid-Range,9,1,Made,3,7,4,76
+62,002200105,Stephen Curry,3PT Field Goal,Left Corner 3,25,1,Made,1,9,223,431
+281,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,4,156,106
+994,002200164,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,3,3,-202,16
+238,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,9,173,415
+223,002200115,Stephen Curry,3PT Field Goal,Left Corner 3,28,1,Made,1,0,-117,366
+145,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,4,-103,10
+1259,002200101,Stephen Curry,2PT Field Goal,Mid-Range,16,1,Made,3,8,-91,36
+373,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,2,7,143,335
+118,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,9,-212,440
+1138,002200174,Stephen Curry,2PT Field Goal,Mid-Range,10,1,Made,3,11,102,180
+250,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,3,193,151
+1299,002200104,Stephen Curry,2PT Field Goal,Mid-Range,11,0,Missed,1,3,-196,11
+9,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,4,1,-49,445
+449,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,0,118,293
+255,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,7,-20,83
+593,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,3,0,-149,37
+389,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,2,6,-162,378
+785,002200149,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,1,Made,2,8,-201,183
+1084,002200170,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),14,1,Made,4,3,60,18
+557,002200134,Stephen Curry,3PT Field Goal,Left Corner 3,29,1,Made,4,0,19,161
+460,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,2,1,337
+1243,002200100,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,2,0,-29,217
+144,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,1,160,94
+501,002200131,Stephen Curry,3PT Field Goal,Left Corner 3,27,0,Missed,3,11,52,52
+1246,002200100,Stephen Curry,2PT Field Goal,Restricted Area,18,0,Missed,4,2,-96,137
+539,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,8,117,146
+177,002200112,Stephen Curry,3PT Field Goal,Left Corner 3,26,0,Missed,2,9,-205,63
+1301,002200104,Stephen Curry,2PT Field Goal,Mid-Range,16,0,Missed,2,7,104,132
+770,002200148,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,1,Made,4,7,-4,95
+1090,002200171,Stephen Curry,2PT Field Goal,Mid-Range,15,1,Made,3,0,-67,175
+1113,002200172,Stephen Curry,2PT Field Goal,Restricted Area,18,0,Missed,3,4,57,102
+736,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,8,243,313
+1343,002200107,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,3,5,-196,153
+7,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,3,7,180,34
+704,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,1,8,127,388
+667,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,4,0,-219,392
+1049,002200168,Stephen Curry,2PT Field Goal,Mid-Range,9,0,Missed,2,10,-163,45
+357,002200122,Stephen Curry,3PT Field Goal,Left Corner 3,27,0,Missed,3,4,-21,468
+329,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,2,3,162,421
+887,002200156,Stephen Curry,2PT Field Goal,Mid-Range,16,0,Missed,4,10,64,148
+1037,002200167,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,0,Missed,4,1,-33,188
+1347,002200107,Stephen Curry,2PT Field Goal,Mid-Range,8,1,Made,1,11,145,163
+258,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,9,-158,265
+1062,002200169,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),12,1,Made,1,4,135,163
+372,002200123,Stephen Curry,3PT Field Goal,Right Corner 3,30,1,Made,4,7,113,105
+977,002200163,Stephen Curry,2PT Field Goal,Mid-Range,17,0,Missed,4,6,-97,48
+1241,002200181,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),21,1,Made,1,9,78,166
+142,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,4,0,-133,293
+525,002200132,Stephen Curry,3PT Field Goal,Right Corner 3,23,1,Made,4,9,-243,351
+1229,002200181,Stephen Curry,2PT Field Goal,Mid-Range,14,0,Missed,4,1,-150,142
+826,002200152,Stephen Curry,2PT Field Goal,Restricted Area,9,0,Missed,3,1,-46,62
+948,002200161,Stephen Curry,2PT Field Goal,Restricted Area,7,1,Made,4,1,-203,174
+1283,002200102,Stephen Curry,2PT Field Goal,Mid-Range,12,1,Made,3,1,-12,42
+440,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,4,5,136,399
+531,002200133,Stephen Curry,3PT Field Goal,Right Corner 3,30,0,Missed,4,0,72,467
+921,002200159,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,2,0,-196,9
+226,002200115,Stephen Curry,3PT Field Goal,Left Corner 3,25,1,Made,3,10,-56,336
+859,002200154,Stephen Curry,2PT Field Goal,Restricted Area,5,0,Missed,3,2,84,216
+228,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,2,9,129,421
+1171,002200176,Stephen Curry,2PT Field Goal,Mid-Range,16,0,Missed,1,10,-103,163
+212,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,4,0,11,215
+79,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,4,8,-177,441
+148,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,4,4,77,126
+1323,002200105,Stephen Curry,2PT Field Goal,Restricted Area,12,1,Made,4,2,54,148
+671,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,2,5,-119,38
+1344,002200107,Stephen Curry,2PT Field Goal,Mid-Range,4,1,Made,1,8,212,47
+890,002200156,Stephen Curry,2PT Field Goal,Restricted Area,18,1,Made,2,8,218,59
+743,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,1,10,-234,62
+133,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,8,167,75
+986,002200163,Stephen Curry,2PT Field Goal,Mid-Range,10,1,Made,3,9,-113,9
+408,002200125,Stephen Curry,3PT Field Goal,Right Corner 3,22,0,Missed,4,2,1,332
+844,002200153,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,4,0,-179,146
+507,002200131,Stephen Curry,3PT Field Goal,Left Corner 3,31,1,Made,1,8,-125,11
+1068,002200169,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),2,1,Made,3,9,-115,31
+504,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,4,11,95,229
+879,002200156,Stephen Curry,2PT Field Goal,Restricted Area,8,0,Missed,3,8,-24,169
+347,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,4,8,-229,347
+386,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,5,-108,375
+0,002200101,Stephen Curry,3PT Field Goal,Right Corner 3,32,1,Made,4,4,-148,121
+360,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,7,-89,157
+1276,002200102,Stephen Curry,2PT Field Goal,Restricted Area,16,1,Made,2,2,-212,189
+475,002200129,Stephen Curry,3PT Field Goal,Right Corner 3,33,1,Made,3,0,-87,34
+1156,002200175,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,1,8,182,38
+979,002200163,Stephen Curry,2PT Field Goal,Mid-Range,15,1,Made,3,0,-184,76
+973,002200162,Stephen Curry,2PT Field Goal,Mid-Range,16,0,Missed,2,6,-71,131
+990,002200164,Stephen Curry,2PT Field Goal,Restricted Area,20,0,Missed,2,7,102,152
+781,002200149,Stephen Curry,2PT Field Goal,Restricted Area,2,1,Made,3,4,143,203
+172,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,1,5,-16,3
+450,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,5,70,30
+125,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,1,1,217,219
+1236,002200181,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),21,1,Made,2,11,64,170
+530,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,5,-3,246
+713,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,4,0,-229,165
+90,002200107,Stephen Curry,3PT Field Goal,Right Corner 3,31,0,Missed,4,7,107,459
+1305,002200104,Stephen Curry,2PT Field Goal,Restricted Area,3,1,Made,4,4,141,92
+181,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,3,240,336
+1047,002200168,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,3,8,-130,215
+414,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,1,5,186,316
+251,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,4,103,227
+69,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,2,9,-161,417
+131,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,1,4,78,272
+300,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,1,1,-36,171
+1306,002200104,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),0,1,Made,3,0,-118,214
+326,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,1,1,242,212
+1319,002200105,Stephen Curry,2PT Field Goal,Mid-Range,5,0,Missed,3,4,132,31
+996,002200164,Stephen Curry,2PT Field Goal,Restricted Area,4,1,Made,1,3,-5,28
+499,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,11,177,148
+966,002200162,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,4,2,-147,170
+364,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,4,8,-133,300
+495,002200131,Stephen Curry,3PT Field Goal,Right Corner 3,22,0,Missed,2,6,-223,40
+1256,002200101,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,2,6,-112,106
+338,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,4,7,5,359
+421,002200126,Stephen Curry,3PT Field Goal,Right Corner 3,29,1,Made,3,7,81,437
+164,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,4,2,-200,96
+28,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,3,9,-91,197
+516,002200132,Stephen Curry,3PT Field Goal,Right Corner 3,30,0,Missed,3,9,-10,369
+193,002200113,Stephen Curry,3PT Field Goal,Left Corner 3,25,0,Missed,4,8,146,209
+839,002200153,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),16,1,Made,3,1,-196,57
+982,002200163,Stephen Curry,2PT Field Goal,Mid-Range,9,1,Made,2,6,157,137
+169,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,2,8,-25,52
+893,002200157,Stephen Curry,2PT Field Goal,Restricted Area,13,1,Made,4,2,-165,118
+652,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,1,0,-123,339
+173,002200112,Stephen Curry,3PT Field Goal,Right Corner 3,23,1,Made,2,10,75,145
+518,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,4,139,293
+1097,002200171,Stephen Curry,2PT Field Goal,Restricted Area,16,0,Missed,3,1,-118,72
+967,002200162,Stephen Curry,2PT Field Goal,Mid-Range,4,0,Missed,2,5,86,9
+491,002200130,Stephen Curry,3PT Field Goal,Right Corner 3,29,0,Missed,4,4,150,185
+73,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,2,6,-34,354
+1346,002200107,Stephen Curry,2PT Field Goal,Mid-Range,9,1,Made,4,0,-74,59
+587,002200136,Stephen Curry,3PT Field Goal,Right Corner 3,29,1,Made,1,9,-42,72
+976,002200163,Stephen Curry,2PT Field Goal,Mid-Range,15,0,Missed,3,10,193,163
+657,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,4,6,113,57
+234,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,3,7,144,63
+732,002200145,Stephen Curry,3PT Field Goal,Left Corner 3,27,0,Missed,1,5,117,246
+214,002200114,Stephen Curry,3PT Field Goal,Right Corner 3,25,1,Made,3,5,-63,6
+162,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,2,6,-196,287
+132,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,2,0,-182,317
+978,002200163,Stephen Curry,2PT Field Goal,Restricted Area,3,1,Made,4,9,122,180
+924,002200159,Stephen Curry,2PT Field Goal,Restricted Area,19,1,Made,1,3,-153,153
+1206,002200179,Stephen Curry,2PT Field Goal,Restricted Area,10,1,Made,2,6,-144,36
+185,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,4,0,79,56
+41,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,2,6,-229,237
+692,002200142,Stephen Curry,3PT Field Goal,Left Corner 3,28,1,Made,3,3,-183,213
+108,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,1,2,-140,248
+38,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,4,1,133,365
+568,002200135,Stephen Curry,3PT Field Goal,Right Corner 3,30,1,Made,4,9,-189,156
+1255,002200100,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),6,0,Missed,4,5,119,64
+1143,002200174,Stephen Curry,2PT Field Goal,Mid-Range,13,1,Made,3,3,-209,65
+1304,002200104,Stephen Curry,2PT Field Goal,Restricted Area,7,1,Made,2,10,-147,98
+483,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,3,7,-197,51
+468,002200129,Stephen Curry,3PT Field Goal,Left Corner 3,25,0,Missed,4,2,-203,328
+24,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,3,9,-79,151
+828,002200152,Stephen Curry,2PT Field Goal,Mid-Range,13,1,Made,4,11,-5,192
+1034,002200167,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),5,1,Made,4,10,-57,202
+949,002200161,Stephen Curry,2PT Field Goal,Restricted Area,2,1,Made,4,5,181,109
+1141,002200174,Stephen Curry,2PT Field Goal,Restricted Area,13,1,Made,2,8,150,162
+366,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,3,4,249,60
+505,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,3,9,209,282
+1187,002200178,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,4,5,-99,170
+383,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,1,79,97
+734,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,1,9,-168,124
+717,002200144,Stephen Curry,3PT Field Goal,Right Corner 3,22,1,Made,2,1,-225,302
+1200,002200179,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,1,Made,2,0,148,139
+454,002200128,Stephen Curry,3PT Field Goal,Right Corner 3,26,1,Made,2,5,-55,273
+264,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,1,-35,250
+1313,002200105,Stephen Curry,2PT Field Goal,Restricted Area,19,1,Made,4,11,103,136
+232,002200115,Stephen Curry,3PT Field Goal,Right Corner 3,31,1,Made,3,8,-29,205
+444,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,2,9,-221,187
+395,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,4,5,24,31
+937,002200160,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),21,1,Made,4,1,-24,18
+176,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,3,8,58,454
+18,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,6,-10,51
+1207,002200179,Stephen Curry,2PT Field Goal,Restricted Area,18,0,Missed,1,7,-144,193
+888,002200156,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,2,2,-37,178
+341,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,3,4,-91,350
+862,002200154,Stephen Curry,2PT Field Goal,Mid-Range,5,1,Made,3,8,218,80
+595,002200136,Stephen Curry,3PT Field Goal,Left Corner 3,24,0,Missed,1,4,-122,195
+61,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,1,11,-182,46
+272,002200117,Stephen Curry,3PT Field Goal,Right Corner 3,27,0,Missed,2,0,-82,88
+1092,002200171,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,0,Missed,3,0,26,189
+1311,002200104,Stephen Curry,2PT Field Goal,Mid-Range,9,1,Made,1,6,-163,104
+278,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,8,-248,84
+1048,002200168,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),16,0,Missed,3,11,107,214
+694,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,2,-13,359
+368,002200123,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,2,51,409
+1242,002200100,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,1,4,51,128
+36,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,4,5,-131,160
+735,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,11,231,236
+1198,002200178,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,0,Missed,3,11,-8,39
+662,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,7,220,277
+923,002200159,Stephen Curry,2PT Field Goal,Mid-Range,13,1,Made,3,9,113,198
+974,002200162,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),6,0,Missed,2,0,11,125
+547,002200134,Stephen Curry,3PT Field Goal,Left Corner 3,32,0,Missed,2,8,131,378
+1077,002200170,Stephen Curry,2PT Field Goal,Mid-Range,18,0,Missed,1,11,-58,54
+688,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,3,4,173,406
+738,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,4,6,-42,447
+191,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,3,7,232,107
+456,002200128,Stephen Curry,3PT Field Goal,Left Corner 3,26,0,Missed,1,0,146,161
+393,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,10,-137,362
+675,002200141,Stephen Curry,3PT Field Goal,Right Corner 3,32,1,Made,2,10,36,348
+760,002200147,Stephen Curry,2PT Field Goal,Restricted Area,10,1,Made,4,11,-26,26
+1328,002200106,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,2,2,-165,174
+728,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,11,-247,92
+419,002200126,Stephen Curry,3PT Field Goal,Left Corner 3,26,0,Missed,1,3,106,450
+375,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,4,8,-230,195
+412,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,2,136,425
+74,002200106,Stephen Curry,3PT Field Goal,Right Corner 3,25,1,Made,4,5,146,186
+1263,002200101,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,0,Missed,2,10,-82,116
+1209,002200179,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,3,3,-35,69
+500,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,4,11,-16,226
+825,002200152,Stephen Curry,2PT Field Goal,Restricted Area,12,0,Missed,1,8,-73,117
+1131,002200174,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,3,10,67,115
+616,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,3,11,-135,312
+114,002200108,Stephen Curry,3PT Field Goal,Right Corner 3,34,0,Missed,1,3,6,7
+417,002200126,Stephen Curry,3PT Field Goal,Right Corner 3,34,0,Missed,3,8,-131,126
+601,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,2,3,244,111
+604,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,3,1,-50,233
+1292,002200103,Stephen Curry,2PT Field Goal,Mid-Range,10,1,Made,4,6,-138,56
+89,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,3,5,8,143
+848,002200153,Stephen Curry,2PT Field Goal,Restricted Area,7,0,Missed,3,8,-67,131
+1035,002200167,Stephen Curry,2PT Field Goal,Mid-Range,2,0,Missed,3,11,-118,128
+1291,002200103,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,0,Missed,2,9,-172,110
+753,002200147,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),3,0,Missed,2,1,-144,41
+498,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,1,142,215
+1067,002200169,Stephen Curry,2PT Field Goal,Restricted Area,4,1,Made,4,3,-81,28
+1073,002200169,Stephen Curry,2PT Field Goal,Restricted Area,15,0,Missed,4,5,-25,118
+1239,002200181,Stephen Curry,2PT Field Goal,Restricted Area,6,1,Made,2,8,-199,33
+11,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,8,1,187
+396,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,4,6,-230,157
+1185,002200177,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,2,4,128,104
+555,002200134,Stephen Curry,3PT Field Goal,Left Corner 3,22,0,Missed,3,6,-59,64
+42,002200104,Stephen Curry,3PT Field Goal,Right Corner 3,24,0,Missed,4,10,-224,225
+841,002200153,Stephen Curry,2PT Field Goal,Restricted Area,2,0,Missed,1,2,-75,191
+167,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,4,2,-215,284
+416,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,8,-55,67
+576,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,3,4,128,247
+834,002200152,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,1,Made,3,10,142,150
+267,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,3,7,247,340
+1023,002200166,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,2,1,188,139
+426,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,2,9,32,135
+690,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,4,-136,449
+544,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,1,6,171,84
+1264,002200101,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),17,1,Made,1,9,133,153
+674,002200141,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,3,8,-245,205
+689,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,1,2,59,199
+1190,002200178,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,3,4,58,136
+851,002200154,Stephen Curry,2PT Field Goal,Mid-Range,13,1,Made,1,4,46,98
+1321,002200105,Stephen Curry,2PT Field Goal,Restricted Area,4,1,Made,3,5,-195,209
+159,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,7,-232,17
+895,002200157,Stephen Curry,2PT Field Goal,Restricted Area,18,1,Made,2,4,216,15
+1074,002200170,Stephen Curry,2PT Field Goal,Mid-Range,4,0,Missed,1,1,15,132
+257,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,3,3,50,406
+1052,002200168,Stephen Curry,2PT Field Goal,Mid-Range,19,0,Missed,4,3,-156,192
+335,002200121,Stephen Curry,3PT Field Goal,Left Corner 3,24,0,Missed,1,4,-103,276
+1268,002200101,Stephen Curry,2PT Field Goal,Mid-Range,9,0,Missed,3,6,-174,12
+15,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,2,7,42,98
+515,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,4,5,-35,437
+324,002200121,Stephen Curry,3PT Field Goal,Left Corner 3,26,1,Made,2,4,-68,385
+768,002200148,Stephen Curry,2PT Field Goal,Restricted Area,20,1,Made,1,4,-75,215
+607,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,1,1,103,140
+1188,002200178,Stephen Curry,2PT Field Goal,Restricted Area,21,1,Made,1,4,-11,143
+997,002200164,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),13,1,Made,2,9,-164,210
+931,002200159,Stephen Curry,2PT Field Goal,Restricted Area,20,0,Missed,1,6,-152,10
+905,002200157,Stephen Curry,2PT Field Goal,Mid-Range,10,0,Missed,1,0,-160,13
+222,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,4,11,-87,250
+179,002200112,Stephen Curry,3PT Field Goal,Left Corner 3,32,1,Made,2,0,-64,294
+1317,002200105,Stephen Curry,2PT Field Goal,Mid-Range,12,1,Made,3,6,172,12
+99,002200107,Stephen Curry,3PT Field Goal,Left Corner 3,22,0,Missed,1,8,115,0
+836,002200153,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,1,2,82,167
+757,002200147,Stephen Curry,2PT Field Goal,Mid-Range,20,0,Missed,4,9,146,49
+521,002200132,Stephen Curry,3PT Field Goal,Left Corner 3,33,0,Missed,3,8,21,67
+761,002200147,Stephen Curry,2PT Field Goal,Mid-Range,15,0,Missed,1,5,-191,83
+22,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,4,6,-61,224
+356,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,3,-140,380
+733,002200145,Stephen Curry,3PT Field Goal,Right Corner 3,24,1,Made,4,11,-164,269
+1120,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),0,0,Missed,4,0,58,56
+1250,002200100,Stephen Curry,2PT Field Goal,Restricted Area,1,0,Missed,4,9,-207,163
+611,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,3,4,240,415
+1148,002200175,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,0,Missed,1,9,63,122
+340,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,1,15,148
+431,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,3,10,172,182
+987,002200163,Stephen Curry,2PT Field Goal,Mid-Range,6,1,Made,2,4,-129,126
+217,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,10,-138,232
+911,002200158,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),20,0,Missed,2,7,203,109
+203,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,8,-10,258
+1088,002200171,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,1,Made,3,4,-44,25
+1099,002200171,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),11,1,Made,1,1,72,172
+93,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,3,2,2,389
+1008,002200165,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,0,Missed,3,11,-99,16
+68,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,1,1,2,241
+1179,002200177,Stephen Curry,2PT Field Goal,Mid-Range,15,1,Made,3,8,112,84
+284,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,9,169,157
+696,002200142,Stephen Curry,3PT Field Goal,Right Corner 3,23,0,Missed,4,11,160,136
+85,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,4,6,-250,386
+434,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,4,6,225,249
+1018,002200166,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,2,6,102,187
+153,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,3,10,43,385
+75,002200106,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,4,11,14,454
+1173,002200177,Stephen Curry,2PT Field Goal,Restricted Area,2,1,Made,3,5,14,86
+1348,002200107,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,2,10,-164,49
+789,002200149,Stephen Curry,2PT Field Goal,Restricted Area,6,0,Missed,2,8,175,153
+580,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,8,161,366
+446,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,2,5,-151,379
+703,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,5,2,142
+188,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,1,9,-235,198
+271,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,8,-161,445
+1135,002200174,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),11,0,Missed,1,3,167,213
+884,002200156,Stephen Curry,2PT Field Goal,Restricted Area,12,1,Made,1,5,-108,170
+236,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,4,5,174,391
+487,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,1,9,98,153
+1302,002200104,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,1,Made,2,1,-77,32
+559,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,5,237,12
+117,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,9,43,226
+637,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,2,2,249,458
+1330,002200106,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,1,Made,4,7,-198,47
+801,002200150,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,0,Missed,3,8,-75,155
+750,002200146,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,2,3,185,366
+512,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,3,11,27,232
+633,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,1,-75,389
+1011,002200165,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),2,0,Missed,4,5,-147,50
+1145,002200175,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,2,5,62,81
+907,002200158,Stephen Curry,2PT Field Goal,Restricted Area,9,1,Made,4,9,86,191
+1223,002200180,Stephen Curry,2PT Field Goal,Restricted Area,14,0,Missed,3,2,-5,175
+126,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,2,7,235,434
+790,002200149,Stephen Curry,2PT Field Goal,Restricted Area,18,0,Missed,4,4,-133,207
+829,002200152,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,1,11,218,219
+116,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,6,-248,110
+473,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,1,9,-138,326
+740,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,3,5,190,363
+1140,002200174,Stephen Curry,2PT Field Goal,Mid-Range,20,0,Missed,1,11,85,150
+950,002200161,Stephen Curry,2PT Field Goal,Mid-Range,11,1,Made,1,6,215,176
+57,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,3,9,-22,116
+603,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,10,165,425
+786,002200149,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,2,6,46,153
+830,002200152,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,1,Made,3,3,32,125
+119,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,3,-226,67
+656,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,2,0,-187,297
+1085,002200170,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,3,10,-181,25
+669,002200141,Stephen Curry,3PT Field Goal,Left Corner 3,28,0,Missed,1,1,149,438
+105,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,5,230,334
+635,002200139,Stephen Curry,3PT Field Goal,Left Corner 3,32,0,Missed,4,5,-75,26
+369,002200123,Stephen Curry,3PT Field Goal,Left Corner 3,26,0,Missed,2,4,-177,191
+268,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,4,5,-76,289
+655,002200140,Stephen Curry,3PT Field Goal,Right Corner 3,28,1,Made,3,4,-29,365
+819,002200151,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,3,4,207,0
+935,002200160,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),13,0,Missed,3,9,-99,144
+822,002200152,Stephen Curry,2PT Field Goal,Mid-Range,4,1,Made,4,1,-31,140
+866,002200155,Stephen Curry,2PT Field Goal,Restricted Area,21,0,Missed,2,10,166,103
+46,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,2,6,-90,255
+349,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,2,5,-80,420
+1165,002200176,Stephen Curry,2PT Field Goal,Restricted Area,13,0,Missed,3,5,-82,175
+991,002200164,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,1,Made,2,1,-37,182
+876,002200155,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,0,Missed,2,4,-199,34
+773,002200148,Stephen Curry,2PT Field Goal,Mid-Range,13,0,Missed,1,11,180,168
+195,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,2,128,38
+102,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,10,62,400
+4,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,2,2,113,54
+619,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,1,10,-155,346
+1003,002200164,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,2,8,-20,199
+571,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,9,-85,21
+52,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,3,2,-98,185
+263,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,1,10,74,160
+1079,002200170,Stephen Curry,2PT Field Goal,Restricted Area,4,1,Made,2,11,109,55
+1231,002200181,Stephen Curry,2PT Field Goal,Restricted Area,4,1,Made,2,1,155,0
+443,002200128,Stephen Curry,3PT Field Goal,Left Corner 3,27,0,Missed,4,5,-144,145
+1002,002200164,Stephen Curry,2PT Field Goal,Mid-Range,17,0,Missed,4,5,33,161
+837,002200153,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,1,Made,3,5,126,136
+1204,002200179,Stephen Curry,2PT Field Goal,Mid-Range,9,0,Missed,4,7,-141,96
+304,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,1,2,-147,117
+1061,002200169,Stephen Curry,2PT Field Goal,Restricted Area,15,0,Missed,2,0,104,127
+313,002200120,Stephen Curry,3PT Field Goal,Right Corner 3,31,1,Made,4,8,2,309
+149,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,1,2,-222,461
+574,002200135,Stephen Curry,3PT Field Goal,Right Corner 3,32,1,Made,3,0,101,47
+50,002200104,Stephen Curry,3PT Field Goal,Left Corner 3,30,0,Missed,3,11,140,312
+1058,002200168,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),6,1,Made,4,6,-172,25
+726,002200144,Stephen Curry,3PT Field Goal,Right Corner 3,31,0,Missed,2,2,35,457
+833,002200152,Stephen Curry,2PT Field Goal,Restricted Area,21,0,Missed,4,7,-136,152
+470,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,6,-43,113
+971,002200162,Stephen Curry,2PT Field Goal,Restricted Area,9,1,Made,4,3,-152,97
+653,002200140,Stephen Curry,3PT Field Goal,Right Corner 3,32,0,Missed,1,10,-12,439
+399,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,2,8,121,433
+511,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,9,-147,392
+320,002200120,Stephen Curry,3PT Field Goal,Right Corner 3,24,0,Missed,1,4,78,155
+19,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,10,-222,35
+684,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,2,8,57,136
+35,002200104,Stephen Curry,3PT Field Goal,Right Corner 3,33,1,Made,3,10,-242,232
+902,002200157,Stephen Curry,2PT Field Goal,Mid-Range,4,0,Missed,1,6,157,96
+827,002200152,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),14,0,Missed,2,10,-74,34
+1208,002200179,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,1,6,-118,210
+407,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,4,186,301
+920,002200159,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),19,0,Missed,4,5,42,45
+537,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,11,-52,302
+758,002200147,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),10,1,Made,4,0,-174,219
+245,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,8,50,242
+784,002200149,Stephen Curry,2PT Field Goal,Mid-Range,18,0,Missed,1,7,77,89
+489,002200130,Stephen Curry,3PT Field Goal,Right Corner 3,34,1,Made,4,8,-186,106
+154,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,10,192,363
+961,002200161,Stephen Curry,2PT Field Goal,Restricted Area,15,1,Made,2,0,-2,167
+853,002200154,Stephen Curry,2PT Field Goal,Restricted Area,6,0,Missed,2,7,-161,22
+625,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,10,-197,15
+685,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,8,37,270
+569,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,1,8,202,81
+1286,002200103,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),13,0,Missed,4,6,50,45
+17,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,4,6,32,392
+127,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,2,-78,299
+927,002200159,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,2,0,33,47
+980,002200163,Stephen Curry,2PT Field Goal,Mid-Range,13,0,Missed,1,3,87,18
+1324,002200105,Stephen Curry,2PT Field Goal,Restricted Area,12,0,Missed,4,7,-139,99
+190,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,4,1,-28,371
+992,002200164,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),20,0,Missed,3,6,-20,80
+1318,002200105,Stephen Curry,2PT Field Goal,Mid-Range,20,0,Missed,4,3,69,120
+606,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,0,195,18
+180,002200112,Stephen Curry,3PT Field Goal,Right Corner 3,28,0,Missed,3,5,155,68
+301,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,3,13,149
+496,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,11,204,12
+1166,002200176,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),16,1,Made,1,7,89,164
+1132,002200174,Stephen Curry,2PT Field Goal,Restricted Area,8,1,Made,3,7,183,181
+1118,002200173,Stephen Curry,2PT Field Goal,Restricted Area,15,1,Made,3,7,84,145
+517,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,1,0,183,421
+1069,002200169,Stephen Curry,2PT Field Goal,Restricted Area,12,0,Missed,1,0,196,99
+476,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,3,3,163,357
+157,002200111,Stephen Curry,3PT Field Goal,Right Corner 3,22,1,Made,3,5,225,62
+16,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,4,180,461
+1072,002200169,Stephen Curry,2PT Field Goal,Mid-Range,17,0,Missed,3,5,208,105
+546,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,4,6,63,305
+658,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,4,3,20,83
+1108,002200172,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),0,1,Made,2,4,-106,219
+1019,002200166,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,4,8,92,180
+1133,002200174,Stephen Curry,2PT Field Goal,Restricted Area,20,0,Missed,1,10,46,30
+959,002200161,Stephen Curry,2PT Field Goal,Restricted Area,6,1,Made,4,2,34,142
+1270,002200102,Stephen Curry,2PT Field Goal,Restricted Area,1,0,Missed,4,8,-109,193
+283,002200118,Stephen Curry,3PT Field Goal,Right Corner 3,27,1,Made,1,3,245,372
+797,002200150,Stephen Curry,2PT Field Goal,Mid-Range,21,0,Missed,1,0,-52,73
+225,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,6,34,156
+26,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,3,4,-138,439
+437,002200127,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,9,-8,142
+1312,002200105,Stephen Curry,2PT Field Goal,Mid-Range,6,1,Made,3,4,-102,66
+229,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,3,11,23,270
+37,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,7,89,253
+749,002200146,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,2,220,33
+1045,002200167,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,1,3,144,117
+469,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,4,7,-104,62
+1309,002200104,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,1,11,-83,62
+1326,002200106,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,1,8,212,197
+687,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,10,-148,170
+1240,002200181,Stephen Curry,2PT Field Goal,Mid-Range,19,0,Missed,3,3,159,167
+639,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,3,3,165,182
+1169,002200176,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,3,8,-80,64
+1128,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),5,1,Made,2,6,36,100
+1226,002200180,Stephen Curry,2PT Field Goal,Mid-Range,17,1,Made,4,7,-69,200
+800,002200150,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,1,Made,1,7,32,151
+160,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,3,11,-138,113
+956,002200161,Stephen Curry,2PT Field Goal,Mid-Range,1,1,Made,1,6,61,217
+821,002200151,Stephen Curry,2PT Field Goal,Mid-Range,13,0,Missed,3,8,199,120
+1159,002200176,Stephen Curry,2PT Field Goal,Mid-Range,10,1,Made,4,11,89,5
+877,002200155,Stephen Curry,2PT Field Goal,Mid-Range,16,0,Missed,1,9,-91,131
+913,002200158,Stephen Curry,2PT Field Goal,Mid-Range,20,1,Made,3,7,-18,84
+152,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,3,9,185,312
+1235,002200181,Stephen Curry,2PT Field Goal,Restricted Area,0,1,Made,1,2,-58,42
+509,002200131,Stephen Curry,3PT Field Goal,Right Corner 3,22,1,Made,3,7,205,44
+1134,002200174,Stephen Curry,2PT Field Goal,Mid-Range,18,0,Missed,1,10,-120,164
+103,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,3,1,-176,434
+586,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,1,9,107,320
+1196,002200178,Stephen Curry,2PT Field Goal,Restricted Area,11,0,Missed,2,10,-44,190
+53,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,4,0,-71,169
+151,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,5,-196,370
+403,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,5,22,324
+207,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,7,72,122
+1277,002200102,Stephen Curry,2PT Field Goal,Restricted Area,10,0,Missed,4,4,-46,109
+1122,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),13,1,Made,1,7,-203,72
+8,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,5,-197,105
+1014,002200165,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,4,10,38,67
+1060,002200169,Stephen Curry,2PT Field Goal,Mid-Range,12,1,Made,2,7,-186,111
+452,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,1,10,197,233
+253,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,2,4,148,224
+896,002200157,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,1,11,-156,99
+1181,002200177,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,3,2,-159,108
+880,002200156,Stephen Curry,2PT Field Goal,Restricted Area,3,1,Made,3,5,57,161
+1274,002200102,Stephen Curry,2PT Field Goal,Mid-Range,16,0,Missed,4,9,-117,169
+623,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,3,11,139,412
+345,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,4,11,-18,430
+1161,002200176,Stephen Curry,2PT Field Goal,Mid-Range,4,0,Missed,3,0,-110,5
+262,002200117,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,1,4,-231,281
+150,002200110,Stephen Curry,3PT Field Goal,Right Corner 3,28,0,Missed,1,4,154,345
+472,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,2,2,-67,285
+640,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,4,4,90,124
+1337,002200106,Stephen Curry,2PT Field Goal,Restricted Area,6,0,Missed,4,9,-156,119
+1271,002200102,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,4,8,109,182
+550,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,2,0,73,47
+928,002200159,Stephen Curry,2PT Field Goal,Restricted Area,13,1,Made,3,11,75,65
+488,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,1,1,13,424
+1219,002200180,Stephen Curry,2PT Field Goal,Mid-Range,18,1,Made,4,2,-173,190
+146,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,2,9,51,362
+402,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,1,3,-217,40
+954,002200161,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),12,0,Missed,2,2,-131,103
+1266,002200101,Stephen Curry,2PT Field Goal,Mid-Range,16,1,Made,3,2,20,69
+659,002200140,Stephen Curry,3PT Field Goal,Left Corner 3,29,0,Missed,1,11,-195,406
+463,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,5,144,4
+186,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,4,-170,214
+1147,002200175,Stephen Curry,2PT Field Goal,Mid-Range,10,1,Made,1,11,-22,150
+608,002200137,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,4,69,316
+143,002200110,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,1,7,-236,156
+751,002200146,Stephen Curry,2PT Field Goal,Restricted Area,18,1,Made,3,3,18,78
+981,002200163,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,1,10,-187,193
+197,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,4,8,108,339
+883,002200156,Stephen Curry,2PT Field Goal,Restricted Area,3,0,Missed,4,1,-134,113
+279,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,9,-98,11
+293,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,1,2,225,454
+1227,002200180,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),8,0,Missed,2,1,9,14
+400,002200125,Stephen Curry,3PT Field Goal,Left Corner 3,30,1,Made,2,11,113,456
+122,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,2,5,-22,376
+202,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,4,5,122,242
+835,002200152,Stephen Curry,2PT Field Goal,Mid-Range,17,0,Missed,3,0,184,56
+246,002200116,Stephen Curry,3PT Field Goal,Right Corner 3,25,1,Made,3,6,58,182
+1282,002200102,Stephen Curry,2PT Field Goal,Restricted Area,8,0,Missed,4,3,-78,95
+1269,002200101,Stephen Curry,2PT Field Goal,Restricted Area,8,1,Made,4,2,-52,204
+1153,002200175,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,3,9,29,147
+384,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,3,7,244,423
+854,002200154,Stephen Curry,2PT Field Goal,Mid-Range,20,0,Missed,4,9,-42,196
+219,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,30,1,Made,4,11,-191,334
+641,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,2,-80,449
+1,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,2,7,-99,130
+112,002200108,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,4,0,-173,217
+698,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,4,3,197,359
+1289,002200103,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),4,1,Made,2,8,-213,15
+951,002200161,Stephen Curry,2PT Field Goal,Mid-Range,3,0,Missed,3,7,-132,67
+1189,002200178,Stephen Curry,2PT Field Goal,Restricted Area,19,0,Missed,3,10,173,183
+1217,002200180,Stephen Curry,2PT Field Goal,Mid-Range,14,0,Missed,4,9,-71,45
+441,002200127,Stephen Curry,3PT Field Goal,Left Corner 3,30,0,Missed,2,2,-16,320
+1136,002200174,Stephen Curry,2PT Field Goal,Mid-Range,18,0,Missed,2,7,-27,122
+663,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,3,4,-59,265
+1234,002200181,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,0,Missed,3,7,217,25
+317,002200120,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,2,11,196,389
+648,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,4,1,153,433
+709,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,3,10,225,107
+972,002200162,Stephen Curry,2PT Field Goal,Restricted Area,16,1,Made,2,10,123,162
+627,002200138,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,3,1,145,370
+632,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,2,5,-181,380
+1316,002200105,Stephen Curry,2PT Field Goal,Mid-Range,7,0,Missed,3,6,186,31
+1245,002200100,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),3,1,Made,3,8,181,87
+795,002200150,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),12,1,Made,1,7,-4,178
+645,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,23,1,Made,2,5,-41,375
+1012,002200165,Stephen Curry,2PT Field Goal,Restricted Area,15,1,Made,1,7,101,3
+556,002200134,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,3,151,368
+681,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,4,0,35,358
+577,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,1,0,118,300
+1109,002200172,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),1,1,Made,3,10,6,1
+1183,002200177,Stephen Curry,2PT Field Goal,Restricted Area,11,0,Missed,2,10,19,135
+524,002200132,Stephen Curry,3PT Field Goal,Left Corner 3,34,1,Made,4,1,22,106
+1059,002200168,Stephen Curry,2PT Field Goal,Mid-Range,1,1,Made,4,6,195,131
+540,002200133,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,9,20,420
+1194,002200178,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,3,2,201,211
+748,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,27,1,Made,2,1,155,223
+1248,002200100,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),6,1,Made,1,11,60,218
+484,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,3,3,-198,407
+95,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,2,0,-105,223
+1020,002200166,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,1,Made,1,7,153,79
+563,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,1,0,-239,125
+742,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,7,12,190
+863,002200154,Stephen Curry,2PT Field Goal,Restricted Area,18,0,Missed,2,11,166,74
+891,002200156,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),21,1,Made,4,2,204,41
+1038,002200167,Stephen Curry,2PT Field Goal,Restricted Area,3,0,Missed,3,0,105,176
+206,002200114,Stephen Curry,3PT Field Goal,Right Corner 3,24,0,Missed,1,7,130,88
+392,002200125,Stephen Curry,3PT Field Goal,Right Corner 3,29,1,Made,3,11,217,453
+794,002200150,Stephen Curry,2PT Field Goal,Restricted Area,13,1,Made,1,11,52,194
+870,002200155,Stephen Curry,2PT Field Goal,Mid-Range,15,1,Made,3,0,159,23
+397,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,10,-4,127
+766,002200148,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,3,3,187,154
+1341,002200107,Stephen Curry,2PT Field Goal,Restricted Area,17,1,Made,2,9,104,185
+1028,002200166,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,1,5,-58,97
+642,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,25,0,Missed,3,6,157,138
+612,002200137,Stephen Curry,3PT Field Goal,Right Corner 3,27,0,Missed,3,7,61,320
+960,002200161,Stephen Curry,2PT Field Goal,Mid-Range,0,1,Made,1,11,-195,188
+725,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,30,0,Missed,2,1,13,70
+683,002200142,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,3,8,-71,201
+98,002200107,Stephen Curry,3PT Field Goal,Left Corner 3,26,0,Missed,4,4,-228,52
+804,002200150,Stephen Curry,2PT Field Goal,Mid-Range,11,1,Made,4,1,-131,180
+406,002200125,Stephen Curry,3PT Field Goal,Right Corner 3,28,0,Missed,2,2,-247,441
+502,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,2,5,86,355
+1071,002200169,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),17,1,Made,2,0,-49,207
+1056,002200168,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),1,0,Missed,3,9,-106,67
+929,002200159,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,0,Missed,2,5,-29,99
+779,002200148,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,1,Made,4,2,-28,126
+200,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,4,4,176,379
+134,002200109,Stephen Curry,3PT Field Goal,Right Corner 3,27,1,Made,1,7,16,360
+1051,002200168,Stephen Curry,2PT Field Goal,Mid-Range,5,1,Made,4,9,-139,86
+40,002200104,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,3,6,-56,400
+1017,002200165,Stephen Curry,2PT Field Goal,Restricted Area,8,1,Made,4,3,-155,51
+230,002200115,Stephen Curry,3PT Field Goal,Above the Break 3,33,0,Missed,1,0,-158,308
+378,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,4,4,-120,86
+288,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,1,5,-133,276
+418,002200126,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,2,11,-216,266
+391,002200124,Stephen Curry,3PT Field Goal,Left Corner 3,25,1,Made,2,7,-196,392
+592,002200136,Stephen Curry,3PT Field Goal,Above the Break 3,34,1,Made,2,7,73,206
+1162,002200176,Stephen Curry,2PT Field Goal,Mid-Range,18,1,Made,3,0,14,32
+1086,002200170,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),17,1,Made,1,6,-33,168
+647,002200140,Stephen Curry,3PT Field Goal,Above the Break 3,28,1,Made,3,7,209,405
+1152,002200175,Stephen Curry,2PT Field Goal,Restricted Area,20,1,Made,1,3,143,111
+520,002200132,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,3,0,-11,330
+64,002200105,Stephen Curry,3PT Field Goal,Above the Break 3,31,0,Missed,3,9,-155,256
+14,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,3,11,-116,200
+1180,002200177,Stephen Curry,2PT Field Goal,Mid-Range,10,0,Missed,1,11,78,88
+1064,002200169,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,3,6,64,53
+492,002200130,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,7,188,393
+379,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,2,4,133,395
+187,002200112,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,1,8,17,142
+763,002200147,Stephen Curry,2PT Field Goal,Mid-Range,14,0,Missed,1,5,-36,211
+216,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,28,0,Missed,1,3,7,205
+791,002200149,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,2,3,-103,3
+1076,002200170,Stephen Curry,2PT Field Goal,Restricted Area,2,1,Made,1,8,189,129
+878,002200156,Stephen Curry,2PT Field Goal,Restricted Area,5,1,Made,2,8,104,68
+337,002200121,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,3,7,69,137
+719,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,1,11,124,398
+295,002200119,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,2,6,174,240
+1016,002200165,Stephen Curry,2PT Field Goal,Mid-Range,13,0,Missed,1,5,52,163
+1275,002200102,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),18,0,Missed,4,7,2,2
+455,002200128,Stephen Curry,3PT Field Goal,Right Corner 3,34,0,Missed,3,3,150,108
+815,002200151,Stephen Curry,2PT Field Goal,Restricted Area,18,1,Made,3,2,-215,139
+269,002200117,Stephen Curry,3PT Field Goal,Right Corner 3,32,0,Missed,3,1,215,144
+995,002200164,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,3,0,-182,35
+201,002200113,Stephen Curry,3PT Field Goal,Right Corner 3,29,1,Made,2,1,-98,198
+161,002200111,Stephen Curry,3PT Field Goal,Left Corner 3,25,0,Missed,1,6,108,130
+729,002200144,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,1,9,-155,456
+401,002200125,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,4,9,245,276
+702,002200143,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,8,89,432
+1129,002200173,Stephen Curry,2PT Field Goal,Mid-Range,14,1,Made,2,8,177,181
+565,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,1,117,18
+1021,002200166,Stephen Curry,2PT Field Goal,Restricted Area,4,1,Made,3,6,-104,183
+1025,002200166,Stephen Curry,2PT Field Goal,Mid-Range,19,1,Made,1,11,148,92
+1104,002200172,Stephen Curry,2PT Field Goal,Mid-Range,17,1,Made,2,6,-72,64
+205,002200114,Stephen Curry,3PT Field Goal,Above the Break 3,32,0,Missed,2,1,87,61
+34,002200103,Stephen Curry,3PT Field Goal,Right Corner 3,24,0,Missed,1,9,-139,59
+775,002200148,Stephen Curry,2PT Field Goal,Restricted Area,10,1,Made,1,2,52,219
+508,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,3,3,-140,306
+1329,002200106,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),13,1,Made,4,2,65,4
+91,002200107,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,1,9,-115,185
+897,002200157,Stephen Curry,2PT Field Goal,Mid-Range,6,0,Missed,1,6,-113,78
+564,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,3,0,-246,56
+776,002200148,Stephen Curry,2PT Field Goal,Restricted Area,7,1,Made,4,3,70,132
+241,002200116,Stephen Curry,3PT Field Goal,Above the Break 3,22,1,Made,4,2,-128,389
+13,002200102,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,1,7,-88,418
+315,002200120,Stephen Curry,3PT Field Goal,Right Corner 3,27,1,Made,1,4,231,391
+600,002200137,Stephen Curry,3PT Field Goal,Right Corner 3,33,0,Missed,4,2,163,312
+387,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,10,130,167
+1297,002200103,Stephen Curry,2PT Field Goal,Restricted Area,11,1,Made,4,0,-69,163
+166,002200111,Stephen Curry,3PT Field Goal,Above the Break 3,26,1,Made,2,6,181,465
+840,002200153,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),5,1,Made,1,10,-79,65
+20,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,1,1,-81,44
+646,002200139,Stephen Curry,3PT Field Goal,Above the Break 3,26,0,Missed,1,10,94,181
+1154,002200175,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,1,Made,4,6,186,188
+831,002200152,Stephen Curry,2PT Field Goal,Mid-Range,1,1,Made,3,7,-141,37
+1267,002200101,Stephen Curry,2PT Field Goal,Mid-Range,7,1,Made,3,6,-67,55
+562,002200135,Stephen Curry,3PT Field Goal,Above the Break 3,29,0,Missed,4,1,21,82
+1315,002200105,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),15,1,Made,1,8,-159,106
+686,002200142,Stephen Curry,3PT Field Goal,Left Corner 3,30,0,Missed,3,7,-96,189
+957,002200161,Stephen Curry,2PT Field Goal,Restricted Area,7,0,Missed,3,8,-189,14
+189,002200113,Stephen Curry,3PT Field Goal,Above the Break 3,27,0,Missed,4,4,-244,136
+975,002200162,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),7,1,Made,2,10,-123,182
+699,002200143,Stephen Curry,3PT Field Goal,Right Corner 3,26,0,Missed,1,10,213,112
+510,002200131,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,3,1,-25,411
+1082,002200170,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),1,0,Missed,1,1,-75,84
+474,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,25,1,Made,4,0,148,36
+856,002200154,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),9,0,Missed,3,2,-35,98
+747,002200145,Stephen Curry,3PT Field Goal,Above the Break 3,34,0,Missed,3,4,-224,310
+252,002200116,Stephen Curry,3PT Field Goal,Right Corner 3,27,0,Missed,3,2,120,185
+21,002200103,Stephen Curry,3PT Field Goal,Above the Break 3,33,1,Made,4,11,89,285
+459,002200128,Stephen Curry,3PT Field Goal,Above the Break 3,22,0,Missed,3,7,-126,396
+1184,002200177,Stephen Curry,2PT Field Goal,Mid-Range,16,1,Made,3,1,-201,15
+276,002200118,Stephen Curry,3PT Field Goal,Above the Break 3,31,1,Made,2,4,152,315
+955,002200161,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),11,1,Made,4,11,-65,81
+1215,002200180,Stephen Curry,2PT Field Goal,Restricted Area,13,1,Made,1,0,-72,45
+385,002200124,Stephen Curry,3PT Field Goal,Above the Break 3,24,1,Made,1,0,197,31
+805,002200150,Stephen Curry,2PT Field Goal,Mid-Range,12,1,Made,2,11,-21,151
+343,002200122,Stephen Curry,3PT Field Goal,Above the Break 3,32,1,Made,3,9,222,113
+769,002200148,Stephen Curry,2PT Field Goal,Mid-Range,11,1,Made,1,5,-185,172
+1332,002200106,Stephen Curry,2PT Field Goal,Restricted Area,14,1,Made,4,10,159,108
+130,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,23,0,Missed,2,4,156,137
+871,002200155,Stephen Curry,2PT Field Goal,Mid-Range,21,1,Made,4,5,-194,14
+1123,002200173,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),16,1,Made,4,5,-101,100
+87,002200107,Stephen Curry,3PT Field Goal,Left Corner 3,34,0,Missed,4,4,-171,373
+330,002200121,Stephen Curry,3PT Field Goal,Right Corner 3,22,1,Made,4,0,-131,392
+1238,002200181,Stephen Curry,2PT Field Goal,Mid-Range,18,1,Made,2,9,-115,129
+466,002200129,Stephen Curry,3PT Field Goal,Above the Break 3,29,1,Made,2,10,-48,191
+121,002200109,Stephen Curry,3PT Field Goal,Above the Break 3,24,0,Missed,2,4,-245,179
+1044,002200167,Stephen Curry,2PT Field Goal,In The Paint (Non-RA),13,0,Missed,2,8,-128,8
+1095,002200171,Stephen Curry,2PT Field Goal,Restricted Area,8,1,Made,1,1,188,12
+1130,002200174,Stephen Curry,2PT Field Goal,Mid-Range,9,1,Made,2,7,199,185
+1294,002200103,Stephen Curry,2PT Field Goal,Restricted Area,8,1,Made,2,1,-198,22
+860,002200154,Stephen Curry,2PT Field Goal,Restricted Area,18,0,Missed,1,11,-141,82
+1126,002200173,Stephen Curry,2PT Field Goal,Restricted Area,20,1,Made,4,3,52,31
