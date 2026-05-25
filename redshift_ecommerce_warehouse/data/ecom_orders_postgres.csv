@@ -1,0 +1,21 @@
+order_id,customer_id,order_datetime,ship_datetime,channel,device_type,browser,country,state,payment_method,campaign,primary_category,num_distinct_items,subtotal_usd,discount_rate,discount_amount_usd,shipping_method,shipping_cost_usd,tax_rate,tax_amount_usd,order_total_usd,order_weight_kg,delivery_days,on_time_delivery,authorization_approved,returned
+O0001,C002,2026-05-02 10:00:00,2026-05-04 10:00:00,marketplace,desktop,safari,US,WA,card,organic,apparel,2,57,0.05,2.5,standard,5.99,0.0825,4.0,64,1.2,2,true,true,false
+O0002,C003,2026-05-03 10:00:00,2026-05-05 10:00:00,web,mobile,safari,US,TX,paypal,spring,home,3,64,0.05,2.5,standard,5.99,0.0825,4.0,71,1.2,2,true,true,false
+O0003,C004,2026-05-04 10:00:00,2026-05-06 10:00:00,web,mobile,safari,US,CA,card,organic,electronics,4,71,0.05,2.5,express,5.99,0.0825,4.0,78,1.2,2,true,true,false
+O0004,C005,2026-05-05 10:00:00,2026-05-07 10:00:00,mobile,desktop,chrome,US,TX,paypal,spring,electronics,1,78,0.05,2.5,standard,5.99,0.0825,4.0,85,1.2,2,true,true,false
+O0005,C006,2026-05-06 10:00:00,2026-05-08 10:00:00,web,desktop,chrome,US,WA,paypal,spring,home,2,85,0.05,2.5,standard,5.99,0.0825,4.0,92,1.2,2,true,true,false
+O0006,C001,2026-05-07 10:00:00,2026-05-09 10:00:00,marketplace,mobile,safari,US,CA,card,spring,apparel,3,92,0.05,2.5,express,5.99,0.0825,4.0,99,1.2,2,true,true,false
+O0007,C002,2026-05-08 10:00:00,2026-05-10 10:00:00,mobile,mobile,chrome,US,CA,card,organic,apparel,4,99,0.05,2.5,express,5.99,0.0825,4.0,106,1.2,2,true,true,false
+O0008,C003,2026-05-09 10:00:00,2026-05-11 10:00:00,web,desktop,chrome,US,WA,paypal,spring,home,1,106,0.05,2.5,standard,5.99,0.0825,4.0,113,1.2,2,true,true,false
+O0009,C004,2026-05-10 10:00:00,2026-05-12 10:00:00,web,mobile,chrome,US,CA,paypal,organic,electronics,2,113,0.05,2.5,standard,5.99,0.0825,4.0,120,1.2,2,true,true,true
+O0010,C005,2026-05-01 10:00:00,2026-05-03 10:00:00,mobile,mobile,chrome,US,WA,paypal,spring,electronics,3,120,0.05,2.5,standard,5.99,0.0825,4.0,127,1.2,2,true,true,false
+O0011,C006,2026-05-02 10:00:00,2026-05-04 10:00:00,marketplace,mobile,chrome,US,TX,card,organic,apparel,4,127,0.05,2.5,express,5.99,0.0825,4.0,134,1.2,2,true,true,false
+O0012,C001,2026-05-03 10:00:00,2026-05-05 10:00:00,web,desktop,chrome,US,WA,card,spring,home,1,134,0.05,2.5,express,5.99,0.0825,4.0,141,1.2,2,true,true,false
+O0013,C002,2026-05-04 10:00:00,2026-05-06 10:00:00,marketplace,mobile,chrome,US,CA,card,organic,apparel,2,141,0.05,2.5,express,5.99,0.0825,4.0,148,1.2,2,true,true,false
+O0014,C003,2026-05-05 10:00:00,2026-05-07 10:00:00,marketplace,mobile,chrome,US,WA,card,spring,electronics,3,148,0.05,2.5,express,5.99,0.0825,4.0,155,1.2,2,true,true,false
+O0015,C004,2026-05-06 10:00:00,2026-05-08 10:00:00,marketplace,mobile,safari,US,TX,paypal,spring,apparel,4,155,0.05,2.5,standard,5.99,0.0825,4.0,162,1.2,2,true,true,false
+O0016,C005,2026-05-07 10:00:00,2026-05-09 10:00:00,mobile,desktop,chrome,US,TX,card,spring,electronics,1,162,0.05,2.5,express,5.99,0.0825,4.0,169,1.2,2,true,true,false
+O0017,C006,2026-05-08 10:00:00,2026-05-10 10:00:00,marketplace,mobile,safari,US,CA,card,organic,electronics,2,169,0.05,2.5,express,5.99,0.0825,4.0,176,1.2,2,true,true,false
+O0018,C001,2026-05-09 10:00:00,2026-05-11 10:00:00,mobile,mobile,safari,US,WA,card,organic,electronics,3,176,0.05,2.5,express,5.99,0.0825,4.0,183,1.2,2,true,true,true
+O0019,C002,2026-05-10 10:00:00,2026-05-12 10:00:00,marketplace,mobile,safari,US,WA,paypal,spring,home,4,183,0.05,2.5,standard,5.99,0.0825,4.0,190,1.2,2,true,true,false
+O0020,C003,2026-05-01 10:00:00,2026-05-03 10:00:00,mobile,mobile,safari,US,TX,card,organic,home,1,190,0.05,2.5,standard,5.99,0.0825,4.0,197,1.2,2,true,true,false
