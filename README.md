@@ -1,19 +1,28 @@
-# School — UDA-Hub project
+# Sam Sepassi — Udacity Data Science Nanodegree
 
-The full submission is under [`solution/`](solution/). See
-[`solution/README.md`](solution/README.md) for setup, run instructions, and
-the rubric mapping.
+This repository contains project submissions for the Udacity Data Science Nanodegree.
 
-```
-solution/
-├── agentic/        agents, tools, design docs, workflow.py
-├── data/           core (UDA-Hub) + external (CultPass) DBs and KB JSONL
-├── tests/          pytest smoke suite
-├── 01_external_db_setup.ipynb
-├── 02_core_db_setup.ipynb
-├── 03_agentic_app.ipynb
-├── 03_agentic_app.py
-├── utils.py        chat_interface() and display helpers
-├── requirements.txt
-└── README.md
-```
+---
+
+## ⚠️ Reviewer Note — Data Science Pipeline Project
+
+> **Please review the Data Science Pipeline project located in `fashion-forecasting/`.**
+>
+> - **Main notebook:** `fashion-forecasting/starter/starter.ipynb`
+> - **README:** `fashion-forecasting/README.md`
+> - **Data:** `fashion-forecasting/starter/data/`
+> - **Saved pipeline:** `fashion-forecasting/starter/fashion_pipeline.pkl`
+
+All other folders in this repository are separate, unrelated Udacity projects and should be ignored for this submission.
+
+---
+
+## Projects
+
+| Folder | Project |
+|--------|---------|
+| `fashion-forecasting/` | **Data Science Pipeline** ← *this submission* |
+| `ibm-recommendations/` | Recommendations with IBM |
+| `so-salary-project/` | Write a Data Science Blog Post |
+| `sparkify_airflow_lakehouse/` | Data Lakehouse Pipeline |
+| *(others)* | Other coursework |
