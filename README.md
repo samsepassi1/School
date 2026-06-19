@@ -1,17 +1,17 @@
 # Sam Sepassi — Udacity Data Science Nanodegree
 
-This repository contains project submissions for the Udacity Data Science Nanodegree.
+This repository contains multiple Udacity project submissions. Each project lives in its own folder.
 
 ---
 
-## ⚠️ Reviewer Note — Data Science Pipeline Project
+## ⚠️ Reviewer Note — Recommendation System Project
 
-> **Please review the Data Science Pipeline project located in `fashion-forecasting/`.**
+> **Please review the Recommendation System project located in `ibm-recommendations/`.**
 >
-> - **Main notebook:** `fashion-forecasting/starter/starter.ipynb`
-> - **README:** `fashion-forecasting/README.md`
-> - **Data:** `fashion-forecasting/starter/data/`
-> - **Saved pipeline:** `fashion-forecasting/starter/fashion_pipeline.pkl`
+> - **Main notebook:** `ibm-recommendations/Recommendations_with_IBM.ipynb`
+> - **Test file:** `ibm-recommendations/project_tests.py`
+> - **Data:** `ibm-recommendations/data/`
+> - **Pickle files:** `ibm-recommendations/top_5.p`, `top_10.p`, `top_20.p`
 
 All other folders in this repository are separate, unrelated Udacity projects and should be ignored for this submission.
 
@@ -21,8 +21,8 @@ All other folders in this repository are separate, unrelated Udacity projects an
 
 | Folder | Project |
 |--------|---------|
-| `fashion-forecasting/` | **Data Science Pipeline** ← *this submission* |
-| `ibm-recommendations/` | Recommendations with IBM |
+| `ibm-recommendations/` | **Recommendation System** ← *this submission* |
+| `fashion-forecasting/` | Data Science Pipeline |
 | `so-salary-project/` | Write a Data Science Blog Post |
 | `sparkify_airflow_lakehouse/` | Data Lakehouse Pipeline |
 | *(others)* | Other coursework |
