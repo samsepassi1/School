@@ -2,8 +2,6 @@ from airflow.decorators import dag, task
 from airflow.datasets import Dataset
 import pendulum
 
-PIPELINE_REQUESTED = Dataset("s3://sparkify/pipeline_requested")
-
 
 @dag(
     schedule=None,
@@ -11,9 +9,9 @@ PIPELINE_REQUESTED = Dataset("s3://sparkify/pipeline_requested")
     catchup=False,
 )
 def run_pipeline():
-    @task(outlets=[PIPELINE_REQUESTED])
+    @task(outlets=[Dataset("s3://sparkify/pipeline_requested")])
     def request_pipeline_run():
-        pass
+        return {"data_interval": "interval_1"}
 
     request_pipeline_run()
 
