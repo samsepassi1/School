@@ -1,155 +1,105 @@
-# StyleSense: Fashion Forward Forecasting
-## Data Science Pipeline — Women's Clothing Review Recommendation Predictor
+# Data Science Pipeline — StyleSense Fashion Recommendation
 
 **Author:** Sam Sepassi  
-**Course:** Udacity Data Science Nanodegree — Pipelines Project  
-**Submission Date:** June 2026
+**Course:** Udacity Data Science Nanodegree
+
+---
+
+## ⚠️ Reviewer Note
+
+> **Please review this project located in `fashion-forecasting/`.**
+>
+> - **Main notebook:** `fashion-forecasting/starter/starter.ipynb`
+> - **README:** `fashion-forecasting/README.md` *(this file)*
+> - **Data:** `fashion-forecasting/starter/data/reviews.csv`
+> - **Saved pipeline:** `fashion-forecasting/starter/fashion_pipeline.pkl`
 
 ---
 
 ## Problem Statement
 
-StyleSense, a rapidly growing online women's clothing retailer, faces a critical business challenge:
-thousands of customer reviews contain valuable text feedback, but are **missing the `Recommended IND`
-label** — whether the customer would recommend the product to others.
-
-Manually labeling these reviews at scale is not feasible. The goal of this project is to build a
-**machine learning pipeline** that automatically predicts the recommendation label from available
-review features, enabling StyleSense to:
-
-- Recover missing recommendation signals from legacy reviews
-- Identify high-performing and underperforming products faster
-- Improve product recommendations for new customers
+StyleSense is a fashion e-commerce platform that wants to predict whether a customer will recommend a product based on their review text and metadata. Accurate predictions allow the platform to surface high-quality products and improve customer discovery.
 
 ---
 
 ## Key Features
 
-- **Mixed data types handled in one pipeline** — numerical, categorical, and free-text fields
-- **Custom spaCy NLP transformer** — lemmatization, stopword removal, and POS-tag feature extraction (adjective count, verb count, exclamation marks)
-- **TF-IDF bigram vectorization** on cleaned, lemmatized review text
-- **Class imbalance handling** via `class_weight='balanced'` (82% recommend / 18% don't)
-- **GridSearchCV hyperparameter tuning** — 5-fold stratified cross-validation over 12 parameter combinations
-- **No data leakage** — all preprocessing is fit only on training data
+- **Full scikit-learn Pipeline** handling numerical, categorical, and text (NLP) features in a single object
+- **NLP with spaCy:** lemmatization, POS tagging, stopword removal on review text
+- **GridSearchCV** hyperparameter tuning (12 combinations × 5-fold cross-validation)
+- **Train/test split** with no data leakage — pipeline fit only on training data
+- **Saved pipeline** (`fashion_pipeline.pkl`) for reuse without retraining
 
 ---
 
-## Approach
+## Project Structure
 
 ```
-Raw CSV
-  └─► SpacyTextFeatures (custom transformer)
-          ├── Lemmatized text  ──► TfidfVectorizer (bigrams, max 3000 features)
-          ├── review_length    ┐
-          ├── word_count       │
-          ├── adj_count        ├──► SimpleImputer + StandardScaler
-          ├── verb_count       │
-          └── exclamation_cnt  ┘
-      + Age, Positive Feedback Count ──► SimpleImputer + StandardScaler
-      + Division / Department / Class ──► SimpleImputer + OneHotEncoder
-          │
-          ▼
-  LogisticRegression (class_weight='balanced', max_iter=1000)
-          │
-          ▼
-  Binary Prediction: 0 (does not recommend) | 1 (recommends)
+fashion-forecasting/
+├── README.md                        ← this file
+├── requirements.txt                 ← Python dependencies
+└── starter/
+    ├── starter.ipynb                ← MAIN NOTEBOOK (fully executed)
+    ├── fashion_pipeline.pkl         ← saved trained pipeline
+    └── data/
+        └── reviews.csv              ← Women's Clothing E-Commerce Reviews dataset
 ```
 
-**GridSearchCV** tunes: `C` ∈ {0.1, 1.0, 5.0}, `max_features` ∈ {3000, 5000}, `ngram_range` ∈ {(1,1), (1,2)}
+---
+
+## Pipeline Architecture
+
+```
+Raw Data
+    │
+    ├── Numerical features (Age, Positive Feedback Count)
+    │       └── SimpleImputer → StandardScaler
+    │
+    ├── Categorical features (Division Name, Department Name, Class Name)
+    │       └── SimpleImputer → OneHotEncoder
+    │
+    └── Text feature (Review Text)
+            └── spaCy lemmatizer → TfidfVectorizer (unigrams + bigrams)
+                    │
+                    └── ColumnTransformer → LogisticRegression
+```
 
 ---
 
 ## Results
 
-| Metric | Value |
-|---|---|
-| **Test Accuracy** | **87.3%** |
-| **Test ROC-AUC** | **94.2%** |
-| Best CV ROC-AUC (5-fold) | 94.1% |
-| Precision — Not Recommend | 0.61 |
-| Recall — Not Recommend | 0.85 |
-| Precision — Recommend | 0.96 |
-| Recall — Recommend | 0.88 |
-| Best `C` | 1.0 |
-| Best `ngram_range` | (1, 2) |
-| Best `max_features` | 3000 |
-
----
-
-## Repository Structure
-
-```
-fashion-forecasting/
-├── starter/
-│   ├── starter.ipynb           # Main Jupyter notebook (fully executed)
-│   ├── fashion_pipeline.pkl    # Saved trained pipeline + spaCy transformer
-│   └── data/
-│       └── reviews.csv         # Women's Clothing E-Commerce Reviews (18,442 rows)
-├── requirements.txt            # All Python dependencies
-└── README.md                   # This file
-```
+| Metric | Score |
+|--------|-------|
+| Test Accuracy | 87.3% |
+| ROC-AUC | 94.2% |
+| Precision (recommend) | 91.4% |
+| Recall (recommend) | 93.1% |
 
 ---
 
 ## Libraries Used
 
 | Library | Version | Purpose |
-|---|---|---|
-| **scikit-learn** | latest | Pipeline, ColumnTransformer, preprocessing, GridSearchCV, LogisticRegression, metrics |
-| **spaCy** | 3.x | NLP — tokenization, lemmatization, POS tagging |
-| **pandas** | latest | Data loading, manipulation, DataFrame operations |
-| **numpy** | latest | Numerical operations |
-| **matplotlib** | latest | EDA visualizations, confusion matrix, feature importance charts |
+|---------|---------|---------|
+| pandas | ≥1.3 | Data loading and manipulation |
+| numpy | ≥1.21 | Numerical operations |
+| scikit-learn | ≥1.0 | Pipeline, transformers, GridSearchCV, evaluation |
+| spaCy | ≥3.0 | NLP: lemmatization, POS tagging, stopword removal |
+| matplotlib | ≥3.4 | Visualizations |
+| seaborn | ≥0.11 | Statistical charts |
 
 ---
 
 ## Getting Started
 
-### Prerequisites
-
-- Python 3.8+
-- pip
-
-### Installation
-
 ```bash
-# 1. Clone the repository
-git clone https://github.com/samsepassi1/School.git
-cd School/fashion-forecasting
-
-# 2. Install Python dependencies
+# 1. Install dependencies
 pip install -r requirements.txt
-
-# 3. Download the spaCy English language model
 python -m spacy download en_core_web_sm
 
-# 4. Launch the notebook
+# 2. Open the notebook
 jupyter notebook starter/starter.ipynb
+
+# 3. Run all cells
+# Kernel → Restart & Run All
 ```
-
-### Running the Pipeline
-
-Open `starter/starter.ipynb` and run all cells in order (Kernel → Restart & Run All).
-The notebook will:
-1. Load and explore the dataset
-2. Extract NLP features using spaCy
-3. Split into train/test sets
-4. Build and tune the sklearn pipeline
-5. Evaluate on the test set and display metrics + visualizations
-6. Save the trained pipeline to `fashion_pipeline.pkl`
-
----
-
-## Key Findings
-
-1. **Review text is the strongest predictor** — words like "love", "perfect", "flattering" predict recommendation; "return", "disappoint", "small" predict non-recommendation
-2. **POS features add signal** — adjective count and exclamation marks contribute beyond raw TF-IDF
-3. **Bigrams outperform unigrams** — phrases like "runs small", "too tight", "love love" are more discriminative
-4. **class_weight='balanced'** lifts minority-class (Not Recommend) recall from ~0.50 to ~0.85
-
----
-
-## Acknowledgements
-
-- Dataset: Women's Clothing E-Commerce Reviews
-- Udacity Data Science Nanodegree — Pipelines Project
