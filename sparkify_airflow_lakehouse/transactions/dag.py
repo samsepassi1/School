@@ -85,9 +85,12 @@ with DAG(
     prev >> check_users
 
     @task(outlets=[TRANSACTIONS_ASSET])
-    def emit_transactions(data_interval):
-        """Emit transactions asset with metadata for downstream DAGs."""
-        return {'data_interval': data_interval, 'tables': SQL_ORDER}
+    def emit_transactions(data_interval, *, outlet_events=None):
+        """Emit transactions asset with metadata attached to the asset event."""
+        payload = {'data_interval': data_interval, 'tables': SQL_ORDER}
+        if outlet_events is not None:
+            outlet_events[TRANSACTIONS_ASSET].extra = payload
+        return payload
 
     check_events >> emit_transactions(interval)
     check_users >> emit_transactions(interval)
