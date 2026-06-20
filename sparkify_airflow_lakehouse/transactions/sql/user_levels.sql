@@ -1,1 +1,5 @@
-SELECT user_id, level, current_timestamp() effective_at FROM sparkify_transactions.users
+SELECT
+    user_id,
+    level,
+    current_timestamp() AS effective_at
+FROM transactions.users
