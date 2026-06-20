@@ -9,11 +9,11 @@
 
 > **Please review this project located in `sparkify_airflow_lakehouse/`.**
 >
-> - **Setup DAG:** `sparkify_airflow_lakehouse/setup/run_pipeline.py` (original starter — not modified)
-> - **Raw DAG:** `sparkify_airflow_lakehouse/raw/dag.py`
-> - **Transactions DAG:** `sparkify_airflow_lakehouse/transactions/dag.py`
-> - **Analytics DAG:** `sparkify_airflow_lakehouse/analytics/dag.py`
-> - **Validation SQL:** `sparkify_airflow_lakehouse/validation/athena_checks.sql`
+> - **Setup DAG:** `setup/run_pipeline.py`
+> - **Raw DAG:** `raw/dag.py` (includes SQLCheckOperator)
+> - **Transactions DAG:** `transactions/dag.py` (includes SQLCheckOperator)
+> - **Analytics DAG:** `analytics/dag.py`
+> - **Validation SQL:** `validation/athena_checks.sql`
 
 ---
 
@@ -21,19 +21,26 @@
 
 ```
 setup/run_pipeline.py
-    │ emits Dataset("s3://sparkify/pipeline_requested")
+    │ emits Dataset("s3://sparkify/pipeline_requested") with metadata
     ▼
 raw/dag.py
-    │ ingests S3 landing → Iceberg raw layer (Glue)
-    │ emits Dataset("s3://sparkify/raw_complete")
+    │ discovers S3 landing tables → Glue job ingests to Iceberg "raw" database
+    │ SQLCheckOperator verifies raw.logs is non-empty
+    │ emits Dataset("s3://sparkify/raw_complete") with metadata
     ▼
 transactions/dag.py
-    │ transforms raw → transactions layer (Iceberg, idempotent)
-    │ emits Dataset("s3://sparkify/transactions_complete")
+    │ promotes raw → transactions in dependency order:
+    │   artists → users → song_versions → songs → user_levels → events
+    │ Each table deduplicated on its explicit primary key
+    │ SQLCheckOperator verifies events have no duplicate event_id
+    │ SQLCheckOperator verifies users table is non-empty
+    │ emits Dataset("s3://sparkify/transactions_complete") with metadata
     ▼
 analytics/dag.py
-    │ builds analytics marts (Iceberg, partition overwrite)
-    │ SQL validation via athena_checks.sql
+    │ builds analytics snapshots using PySpark DataFrame API (NO SQL)
+    │   songplay_facts, user_activity_daily, artist_popularity
+    │ full overwrite (DROP + create) — no append/insert
+    │ emits Dataset("s3://sparkify/analytics_complete")
 ```
 
 ---
@@ -42,20 +49,36 @@ analytics/dag.py
 
 | DAG | Schedule | Purpose |
 |-----|----------|---------|
-| `run_pipeline` | Manual (schedule=None) | Emits pipeline_requested asset |
-| `raw` | Asset-triggered | Discovers & ingests landing tables into Iceberg raw |
-| `transactions` | Asset-triggered | Cleans & conforms raw → transactions layer |
-| `analytics` | Asset-triggered | Builds analytics marts from transactions |
+| `run_pipeline` | Manual (schedule=None) | Emits pipeline_requested asset with metadata |
+| `raw` | Asset-triggered (pipeline_requested) | Discovers & ingests landing tables into Iceberg raw layer |
+| `transactions` | Asset-triggered (raw_complete) | Normalizes raw → transactions layer with deduplication |
+| `analytics` | Asset-triggered (transactions_complete) | Builds analytics marts as full snapshots (PySpark DataFrames) |
+
+---
+
+## Athena Database Names
+
+Per rubric requirements, the Athena/Glue databases are named:
+
+| Database | Tables |
+|----------|--------|
+| `raw` | `logs`, `songs` |
+| `transactions` | `events`, `users`, `artists`, `songs`, `song_versions`, `user_levels` |
+| `analytics` | `songplay_facts`, `user_activity_daily`, `artist_popularity` |
 
 ---
 
 ## Key Design Decisions
 
 - **Event-driven:** All DAGs trigger via Airflow Dataset (Asset) events, not cron
-- **Dynamic table discovery:** `raw/dag.py` inspects S3 at runtime — no hardcoded table names
-- **Idempotent overwrites:** Iceberg partition overwrite per data_interval
-- **SQL validation:** Athena checks run before emitting downstream assets
-- **Original setup DAG preserved:** `setup/run_pipeline.py` is the unmodified starter file
+- **Dynamic table discovery:** `raw/dag.py` inspects S3 at runtime
+- **Glue job arguments:** All GlueJobOperator calls pass `--BUCKET`, `--DATA_INTERVAL`, `--SQL_FILE`, and `--TABLE_NAME`
+- **Table-specific primary keys:** Each transactions table deduplicates on its explicit PK (event_id, user_id, song_id, artist_id) — not generic _id matching
+- **event_id generation:** `concat_ws('-', ts, userId, sessionId, page)` creates a stable unique key per event
+- **Analytics without SQL:** `analytics/glue_script.py` uses pure PySpark DataFrame API (filter, join, groupBy, agg) — no `spark.sql()` calls
+- **Full snapshot overwrites:** Analytics tables are dropped and recreated each run (no append/insert)
+- **SQL Check operators:** `SQLCheckOperator` in raw and transactions DAGs validates data quality at runtime
+- **Original setup DAG preserved:** `setup/run_pipeline.py` is the starter file (not modified beyond returning metadata)
 
 ---
 
@@ -64,28 +87,28 @@ analytics/dag.py
 ```
 sparkify_airflow_lakehouse/
 ├── setup/
-│   └── run_pipeline.py          ← original starter (not modified)
+│   └── run_pipeline.py              ← pipeline trigger (emits pipeline_requested asset)
 ├── raw/
-│   ├── dag.py
-│   └── glue_script.py
+│   ├── dag.py                       ← raw ingestion DAG + SQLCheckOperator
+│   └── glue_script.py               ← Glue job: S3 JSON → Iceberg raw tables
 ├── transactions/
-│   ├── dag.py
-│   ├── glue_script.py
+│   ├── dag.py                       ← transactions promotion DAG + SQLCheckOperator
+│   ├── glue_script.py               ← Glue job: SQL-based transformation + deduplication
 │   └── sql/
 │       ├── artists.sql
-│       ├── events.sql
+│       ├── events.sql               ← includes event_id (stable primary key)
 │       ├── song_versions.sql
 │       ├── songs.sql
 │       ├── user_levels.sql
 │       └── users.sql
 ├── analytics/
-│   ├── dag.py
-│   ├── glue_script.py
+│   ├── dag.py                       ← analytics snapshot DAG
+│   ├── glue_script.py               ← Glue job: PySpark DataFrame API (NO SQL)
 │   └── sql/
-│       ├── artist_popularity.sql
-│       ├── songplay_facts.sql
-│       └── user_activity_daily.sql
+│       ├── artist_popularity.sql    ← reference SQL (not executed by Glue)
+│       ├── songplay_facts.sql       ← reference SQL (not executed by Glue)
+│       └── user_activity_daily.sql  ← reference SQL (not executed by Glue)
 ├── validation/
-│   └── athena_checks.sql
-└── README.md                    ← this file
+│   └── athena_checks.sql            ← Athena validation queries
+└── README.md                        ← this file
 ```
