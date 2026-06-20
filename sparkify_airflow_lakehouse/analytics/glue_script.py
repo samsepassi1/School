@@ -20,16 +20,15 @@ spark = (
     .getOrCreate()
 )
 
-# Use Athena/Glue database name "analytics" (not "sparkify_analytics")
-spark.sql('CREATE DATABASE IF NOT EXISTS analytics')
-
 table_name = args['TABLE_NAME']
-target = f'analytics.{table_name}'
+# Use glue_catalog prefix so createOrReplace manages the table via the Iceberg catalog
+# without executing any SQL statements.
+target = f'glue_catalog.analytics.{table_name}'
 
 # Read source tables as DataFrames (NO SQL — pure PySpark DataFrame API)
-events_df = spark.table('transactions.events')
-users_df = spark.table('transactions.users')
-artists_df = spark.table('transactions.artists')
+events_df = spark.table('glue_catalog.transactions.events')
+users_df = spark.table('glue_catalog.transactions.users')
+artists_df = spark.table('glue_catalog.transactions.artists')
 
 if table_name == 'songplay_facts':
     # Filter to NextSong events and select fact columns
@@ -69,12 +68,29 @@ elif table_name == 'artist_popularity':
         .orderBy(desc('plays'))
     )
 
+elif table_name == 'user_facts':
+    # User-level mart: join users with events, aggregate per user
+    df = (
+        users_df
+        .join(events_df, on='user_id', how='left')
+        .groupBy('user_id', 'first_name', 'last_name', 'gender', 'level')
+        .agg(
+            count('event_id').alias('event_count'),
+            countDistinct('session_id').alias('session_count'),
+        )
+    )
+
 else:
     raise ValueError(f'Unknown analytics table: {table_name}')
 
-# Overwrite full snapshot (NO append/insert — rubric requires full overwrite)
-spark.sql(f'DROP TABLE IF EXISTS {target} PURGE')
-df.writeTo(target).using('iceberg').tableProperty('format-version', '2').create()
+# Overwrite full snapshot using DataFrameWriterV2 createOrReplace()
+# NO SQL statements (no spark.sql, no DROP TABLE, no CREATE DATABASE)
+(
+    df.writeTo(target)
+      .using('iceberg')
+      .tableProperty('format-version', '2')
+      .createOrReplace()
+)
 print(f"Analytics snapshot complete: {target} ({df.count()} rows)")
 
 spark.stop()
