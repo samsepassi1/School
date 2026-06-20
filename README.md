@@ -4,14 +4,16 @@ This repository contains multiple Udacity project submissions. Each project live
 
 ---
 
-## ⚠️ Reviewer Note — Recommendation System Project
+## ⚠️ Reviewer Note — AWS Data Lakehouse Pipeline for Sparkify
 
-> **Please review the Recommendation System project located in `ibm-recommendations/`.**
+> **Please review the Data Lakehouse project located in `sparkify_airflow_lakehouse/`.**
 >
-> - **Main notebook:** `ibm-recommendations/Recommendations_with_IBM.ipynb`
-> - **Test file:** `ibm-recommendations/project_tests.py`
-> - **Data:** `ibm-recommendations/data/`
-> - **Pickle files:** `ibm-recommendations/top_5.p`, `top_10.p`, `top_20.p`
+> - **Setup DAG:** `sparkify_airflow_lakehouse/setup/run_pipeline.py`
+> - **Raw DAG:** `sparkify_airflow_lakehouse/raw/dag.py`
+> - **Transactions DAG:** `sparkify_airflow_lakehouse/transactions/dag.py`
+> - **Analytics DAG:** `sparkify_airflow_lakehouse/analytics/dag.py`
+> - **Validation:** `sparkify_airflow_lakehouse/validation/athena_checks.sql`
+> - **README:** `sparkify_airflow_lakehouse/README.md`
 
 All other folders in this repository are separate, unrelated Udacity projects and should be ignored for this submission.
 
@@ -21,8 +23,8 @@ All other folders in this repository are separate, unrelated Udacity projects an
 
 | Folder | Project |
 |--------|---------|
-| `ibm-recommendations/` | **Recommendation System** ← *this submission* |
+| `sparkify_airflow_lakehouse/` | **AWS Data Lakehouse Pipeline** ← *this submission* |
+| `ibm-recommendations/` | Recommendations with IBM |
 | `fashion-forecasting/` | Data Science Pipeline |
 | `so-salary-project/` | Write a Data Science Blog Post |
-| `sparkify_airflow_lakehouse/` | Data Lakehouse Pipeline |
 | *(others)* | Other coursework |
