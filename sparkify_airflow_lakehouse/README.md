@@ -1,35 +1,91 @@
 # AWS Data Lakehouse Pipeline for Sparkify
 
-**Author: Sam Sepassi**
+**Author:** Sam Sepassi  
+**Course:** Udacity Data Engineering with AWS Nanodegree
 
-Udacity Data Engineering with AWS — Course 4 project submission.
+---
 
-## Overview
+## ⚠️ Reviewer Note
 
-This project implements an event-driven Airflow lakehouse pipeline for Sparkify using Airflow Assets, AWS Glue, Athena, S3, and Iceberg-style medallion layers.
+> **Please review this project located in `sparkify_airflow_lakehouse/`.**
+>
+> - **Setup DAG:** `sparkify_airflow_lakehouse/setup/run_pipeline.py` (original starter — not modified)
+> - **Raw DAG:** `sparkify_airflow_lakehouse/raw/dag.py`
+> - **Transactions DAG:** `sparkify_airflow_lakehouse/transactions/dag.py`
+> - **Analytics DAG:** `sparkify_airflow_lakehouse/analytics/dag.py`
+> - **Validation SQL:** `sparkify_airflow_lakehouse/validation/athena_checks.sql`
 
-The pipeline contains three downstream DAGs triggered by asset events:
+---
 
-1. `raw` — discovers landing tables dynamically and ingests JSON to raw Iceberg tables.
-2. `transactions` — normalizes and deduplicates transactional tables in dependency order.
-3. `analytics` — recomputes analytics snapshots on each run.
+## Architecture
 
-All author fields name only **Sam Sepassi**.
+```
+setup/run_pipeline.py
+    │ emits Dataset("s3://sparkify/pipeline_requested")
+    ▼
+raw/dag.py
+    │ ingests S3 landing → Iceberg raw layer (Glue)
+    │ emits Dataset("s3://sparkify/raw_complete")
+    ▼
+transactions/dag.py
+    │ transforms raw → transactions layer (Iceberg, idempotent)
+    │ emits Dataset("s3://sparkify/transactions_complete")
+    ▼
+analytics/dag.py
+    │ builds analytics marts (Iceberg, partition overwrite)
+    │ SQL validation via athena_checks.sql
+```
 
-## Directory layout
+---
 
-- `raw/dag.py`, `raw/glue_script.py`
-- `transactions/dag.py`, `transactions/glue_script.py`, `transactions/sql/`
-- `analytics/dag.py`, `analytics/glue_script.py`, `analytics/sql/`
-- `setup/run_pipeline.py` — trigger DAG that emits the selected interval Asset
-- `validation/athena_checks.sql`
+## DAGs
 
-## Reviewer notes
+| DAG | Schedule | Purpose |
+|-----|----------|---------|
+| `run_pipeline` | Manual (schedule=None) | Emits pipeline_requested asset |
+| `raw` | Asset-triggered | Discovers & ingests landing tables into Iceberg raw |
+| `transactions` | Asset-triggered | Cleans & conforms raw → transactions layer |
+| `analytics` | Asset-triggered | Builds analytics marts from transactions |
 
-- DAGs use Airflow `Asset` schedules rather than cron strings.
-- Each DAG sets `max_active_runs=1` and `max_active_tasks=2`.
-- S3 locations and connection IDs are constants at the top of each DAG file.
-- Runtime connections/Variables are deferred to tasks.
-- Raw discovery inspects the landing interval prefix and does not hardcode table names.
-- Transaction promotion is dependency ordered: artists before songs, users before user_levels, and events after users/songs/artists/song_versions.
-- Analytics is snapshot-rotated by dropping/replacing outputs rather than appending.
+---
+
+## Key Design Decisions
+
+- **Event-driven:** All DAGs trigger via Airflow Dataset (Asset) events, not cron
+- **Dynamic table discovery:** `raw/dag.py` inspects S3 at runtime — no hardcoded table names
+- **Idempotent overwrites:** Iceberg partition overwrite per data_interval
+- **SQL validation:** Athena checks run before emitting downstream assets
+- **Original setup DAG preserved:** `setup/run_pipeline.py` is the unmodified starter file
+
+---
+
+## Project Structure
+
+```
+sparkify_airflow_lakehouse/
+├── setup/
+│   └── run_pipeline.py          ← original starter (not modified)
+├── raw/
+│   ├── dag.py
+│   └── glue_script.py
+├── transactions/
+│   ├── dag.py
+│   ├── glue_script.py
+│   └── sql/
+│       ├── artists.sql
+│       ├── events.sql
+│       ├── song_versions.sql
+│       ├── songs.sql
+│       ├── user_levels.sql
+│       └── users.sql
+├── analytics/
+│   ├── dag.py
+│   ├── glue_script.py
+│   └── sql/
+│       ├── artist_popularity.sql
+│       ├── songplay_facts.sql
+│       └── user_activity_daily.sql
+├── validation/
+│   └── athena_checks.sql
+└── README.md                    ← this file
+```
