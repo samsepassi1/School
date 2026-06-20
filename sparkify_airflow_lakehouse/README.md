@@ -21,12 +21,13 @@
 
 ```
 setup/run_pipeline.py
-    │ emits Dataset("s3://sparkify/pipeline_requested") with metadata
+    │ emits Dataset("s3://sparkify/pipeline_requested")
+    │ metadata attached via outlet_events[ASSET].extra
     ▼
 raw/dag.py
     │ discovers S3 landing tables → Glue job ingests to Iceberg "raw" database
     │ SQLCheckOperator verifies raw.logs is non-empty
-    │ emits Dataset("s3://sparkify/raw_complete") with metadata
+    │ emits Dataset("s3://sparkify/raw_complete") via outlet_events
     ▼
 transactions/dag.py
     │ promotes raw → transactions in dependency order:
@@ -34,13 +35,13 @@ transactions/dag.py
     │ Each table deduplicated on its explicit primary key
     │ SQLCheckOperator verifies events have no duplicate event_id
     │ SQLCheckOperator verifies users table is non-empty
-    │ emits Dataset("s3://sparkify/transactions_complete") with metadata
+    │ emits Dataset("s3://sparkify/transactions_complete") via outlet_events
     ▼
 analytics/dag.py
     │ builds analytics snapshots using PySpark DataFrame API (NO SQL)
-    │   songplay_facts, user_activity_daily, artist_popularity
-    │ full overwrite (DROP + create) — no append/insert
-    │ emits Dataset("s3://sparkify/analytics_complete")
+    │   songplay_facts, user_activity_daily, artist_popularity, user_facts
+    │ full overwrite via createOrReplace() — no append/insert, no spark.sql()
+    │ emits Dataset("s3://sparkify/analytics_complete") via outlet_events
 ```
 
 ---
@@ -49,7 +50,7 @@ analytics/dag.py
 
 | DAG | Schedule | Purpose |
 |-----|----------|---------|
-| `run_pipeline` | Manual (schedule=None) | Emits pipeline_requested asset with metadata |
+| `run_pipeline` | Manual (schedule=None) | Emits pipeline_requested asset with metadata via outlet_events |
 | `raw` | Asset-triggered (pipeline_requested) | Discovers & ingests landing tables into Iceberg raw layer |
 | `transactions` | Asset-triggered (raw_complete) | Normalizes raw → transactions layer with deduplication |
 | `analytics` | Asset-triggered (transactions_complete) | Builds analytics marts as full snapshots (PySpark DataFrames) |
@@ -64,21 +65,23 @@ Per rubric requirements, the Athena/Glue databases are named:
 |----------|--------|
 | `raw` | `logs`, `songs` |
 | `transactions` | `events`, `users`, `artists`, `songs`, `song_versions`, `user_levels` |
-| `analytics` | `songplay_facts`, `user_activity_daily`, `artist_popularity` |
+| `analytics` | `songplay_facts`, `user_activity_daily`, `artist_popularity`, `user_facts` |
 
 ---
 
 ## Key Design Decisions
 
 - **Event-driven:** All DAGs trigger via Airflow Dataset (Asset) events, not cron
+- **Asset metadata via outlet_events:** Every emit task uses `outlet_events[ASSET].extra = payload` to attach `data_interval` and `tables` to the asset event — downstream DAGs read them from `triggering_dataset_events`
 - **Dynamic table discovery:** `raw/dag.py` inspects S3 at runtime
 - **Glue job arguments:** All GlueJobOperator calls pass `--BUCKET`, `--DATA_INTERVAL`, `--SQL_FILE`, and `--TABLE_NAME`
 - **Table-specific primary keys:** Each transactions table deduplicates on its explicit PK (event_id, user_id, song_id, artist_id) — not generic _id matching
 - **event_id generation:** `concat_ws('-', ts, userId, sessionId, page)` creates a stable unique key per event
-- **Analytics without SQL:** `analytics/glue_script.py` uses pure PySpark DataFrame API (filter, join, groupBy, agg) — no `spark.sql()` calls
-- **Full snapshot overwrites:** Analytics tables are dropped and recreated each run (no append/insert)
+- **Analytics without SQL:** `analytics/glue_script.py` uses pure PySpark DataFrame API (filter, join, groupBy, agg) — zero `spark.sql()` calls, including no CREATE DATABASE or DROP TABLE. Uses `createOrReplace()` via DataFrameWriterV2
+- **Full snapshot overwrites:** Analytics tables use `createOrReplace()` (no append/insert)
+- **user_facts table:** User-level mart joining users with events, aggregating event_count and session_count per user
 - **SQL Check operators:** `SQLCheckOperator` in raw and transactions DAGs validates data quality at runtime
-- **Original setup DAG preserved:** `setup/run_pipeline.py` is the starter file (not modified beyond returning metadata)
+- **Original setup DAG preserved:** `setup/run_pipeline.py` is the starter file structure (only added outlet_events metadata)
 
 ---
 
@@ -87,7 +90,7 @@ Per rubric requirements, the Athena/Glue databases are named:
 ```
 sparkify_airflow_lakehouse/
 ├── setup/
-│   └── run_pipeline.py              ← pipeline trigger (emits pipeline_requested asset)
+│   └── run_pipeline.py              ← pipeline trigger (outlet_events metadata)
 ├── raw/
 │   ├── dag.py                       ← raw ingestion DAG + SQLCheckOperator
 │   └── glue_script.py               ← Glue job: S3 JSON → Iceberg raw tables
@@ -103,12 +106,13 @@ sparkify_airflow_lakehouse/
 │       └── users.sql
 ├── analytics/
 │   ├── dag.py                       ← analytics snapshot DAG
-│   ├── glue_script.py               ← Glue job: PySpark DataFrame API (NO SQL)
+│   ├── glue_script.py               ← Glue job: PySpark DataFrame API (ZERO spark.sql calls)
 │   └── sql/
 │       ├── artist_popularity.sql    ← reference SQL (not executed by Glue)
 │       ├── songplay_facts.sql       ← reference SQL (not executed by Glue)
-│       └── user_activity_daily.sql  ← reference SQL (not executed by Glue)
+│       ├── user_activity_daily.sql  ← reference SQL (not executed by Glue)
+│       └── user_facts.sql           ← reference SQL (not executed by Glue)
 ├── validation/
-│   └── athena_checks.sql            ← Athena validation queries
+│   └── athena_checks.sql            ← Athena validation queries (includes user_facts)
 └── README.md                        ← this file
 ```
