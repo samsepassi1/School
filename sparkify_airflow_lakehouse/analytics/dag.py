@@ -35,7 +35,8 @@ with DAG(
         return interval_from_context(**context)
 
     interval = selected_interval()
-    tables = ['songplay_facts', 'user_activity_daily', 'artist_popularity']
+    # Include user_facts — required by reviewer validation query
+    tables = ['songplay_facts', 'user_activity_daily', 'artist_popularity', 'user_facts']
     prev = None
 
     for t in tables:
@@ -59,8 +60,11 @@ with DAG(
         prev = op
 
     @task(outlets=[ANALYTICS_ASSET])
-    def emit_analytics():
-        """Emit analytics asset with metadata for downstream consumers."""
-        return {'tables': tables}
+    def emit_analytics(*, outlet_events=None):
+        """Emit analytics asset with metadata attached to the asset event."""
+        payload = {'tables': tables}
+        if outlet_events is not None:
+            outlet_events[ANALYTICS_ASSET].extra = payload
+        return payload
 
     prev >> emit_analytics()
