@@ -16,6 +16,7 @@ SELECT count(*) AS songs_count FROM transactions.songs;
 SELECT count(*) AS songplay_facts_count FROM analytics.songplay_facts;
 SELECT count(*) AS user_activity_daily_count FROM analytics.user_activity_daily;
 SELECT count(*) AS artist_popularity_count FROM analytics.artist_popularity;
+SELECT * FROM analytics.user_facts ORDER BY event_count DESC LIMIT 20;
 
 -- Referential integrity: events should reference valid users
 SELECT count(*) AS orphan_user_events
