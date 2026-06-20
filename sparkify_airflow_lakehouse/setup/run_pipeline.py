@@ -3,6 +3,8 @@ from airflow.decorators import dag, task
 from airflow.datasets import Dataset
 import pendulum
 
+PIPELINE_REQUESTED = Dataset("s3://sparkify/pipeline_requested")
+
 
 @dag(
     schedule=None,
@@ -10,18 +12,22 @@ import pendulum
     catchup=False,
 )
 def run_pipeline():
-    @task(outlets=[Dataset("s3://sparkify/pipeline_requested")])
-    def request_pipeline_run():
+    @task(outlets=[PIPELINE_REQUESTED])
+    def request_pipeline_run(*, outlet_events=None):
         """
         Trigger the lakehouse pipeline by emitting the pipeline_requested asset.
 
-        The asset metadata includes the data_interval so downstream DAGs
-        (raw, transactions, analytics) can read it from the triggering event.
+        Use outlet_events to attach metadata directly to the asset event so
+        downstream DAGs can read data_interval and tables from
+        triggering_dataset_events.
         """
-        return {
+        payload = {
             "data_interval": "interval_1",
-            "pipeline": "sparkify_lakehouse",
+            "tables": ["logs", "songs"],
         }
+        if outlet_events is not None:
+            outlet_events[PIPELINE_REQUESTED].extra = payload
+        return payload
 
     request_pipeline_run()
 
