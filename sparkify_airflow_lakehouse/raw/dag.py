@@ -76,12 +76,12 @@ with DAG(
     )
 
     @task(outlets=[RAW_ASSET])
-    def emit_raw(data_interval, tables):
-        """Emit raw asset with metadata for downstream DAGs."""
-        return {
-            'data_interval': data_interval,
-            'tables': tables,
-        }
+    def emit_raw(data_interval, tables, *, outlet_events=None):
+        """Emit raw asset with metadata attached to the asset event."""
+        payload = {'data_interval': data_interval, 'tables': tables}
+        if outlet_events is not None:
+            outlet_events[RAW_ASSET].extra = payload
+        return payload
 
     # Wire dependencies
     meta >> run
